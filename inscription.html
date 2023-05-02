@@ -1,105 +1,277 @@
 <!DOCTYPE HTML>
 
-<html>
-	<head>
-		<title>Digital University Tour</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<html lang="fr">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+<head>
+	<title>Digital University Tour</title>
+	<meta charset="utf-8" />
+	<!-- Favicon -->
+	<link href="images/logo.ico" rel="icon">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+</head>
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+<body class="is-preload">
 
-							<!-- Header -->
-							<header id="header">
-								<a href="index.html" class="logo"> <img src="images/logo.png"
-									style="width: 5rem; height: 5rem; border-radius: 100%; "></a>
-									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
-										<li><a href="#" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-										<li><a href="#" class="icon solid fa-envelope"><span class="label">Mail</span></a></li>
+	<!-- Wrapper -->
+	<div id="wrapper">
 
-									</ul>
-							</header>
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
 
-							<!-- Content -->
-								<section>
-									<header class="main">
-										<h1>Inscription</h1>
-									</header>
+				<!-- Header -->
+				<header id="header">
+					<a href="index.html" class="logo"> <img src="images/logo.png"
+							style="width: 6rem; height: 6rem; border-radius: 100%; "></a>
+					<ul class="icons">
+						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+					
+						<li><a href="#" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+						<li><a href="#" class="icon solid fa-envelope"><span class="label">Mail</span></a></li>
 
-									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+					</ul>
+				</header>
 
-									
-									
-								</section>
+				<!-- Content -->
+				<section>
+					<header class="major">
+						<h1 style="color: #2E58A6;">Inscription</h1>
+					</header>
 
+					<span class="image main"><img src="images/inscrip.jpeg" alt="" /></span>
+					<!-- ----------------------------------------------------------------------------- -->
+
+
+					<!-- <?php
+       
+       $dbh = new PDO('mysql:host=localhost;dbname=nom_de_la_base', 'utilisateur', 'mot_de_passe');
+
+		// vérification si le formulaire a été soumis
+		if (isset($_POST['type'])) {
+			// récupération des données du formulaire
+			$type = $_POST['type'];
+			$nom = $_POST['nom'] ?? '';
+			$email = $_POST['email'] ?? '';
+			$pays = $_POST['pays'] ?? '';
+
+			// préparation de la requête SQL
+			$stmt = $dbh->prepare("INSERT INTO utilisateurs (type, nom, email, pays) VALUES (:type, :nom, :email, :pays)");
+
+			// exécution de la requête SQL
+			$stmt->execute([
+				':type' => $type,
+				':nom' => $nom,
+				':email' => $email,
+				':pays' => $pays,
+			]);
+
+			// affichage d'un message de confirmation
+			echo "<p>Données enregistrées avec succès.</p>";
+		}
+
+     ?> -->
+
+					<!-- --------------------------------------------------------------------------- -->
+
+					<form>
+						<div>
+							<input type="radio" id="etudiant" name="type" value="etudiant" onchange="afficherChamps()">
+							<label for="etudiant">Étudiant</label>
 						</div>
-					</div>
+						<div>
+							<input type="radio" id="universite" name="type" value="universite"
+								onchange="afficherChamps()">
+							<label for="universite">Université</label>
+						</div>
+						<div>
+							<input type="radio" id="partenaire" name="type" value="partenaire"
+								onchange="afficherChamps()">
+							<label for="partenaire">Partenaire</label>
+						</div>
+						
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
-
+						<div id="champs-etudiant" style="display: none;">
+							<input type="text" name="nom" placeholder="Nom">
+							<input type="text" name="prenom" placeholder="Prenom" style="margin-top: 1em;">
+							<input type="text" name="tel" placeholder="Telephone" style="margin-top: 1em;">
+							<input type="email" name="email" placeholder="Votre mail" style="margin-top: 1em;">
 							
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-										<li><a href="index.html">Intro</a></li>
-										<li><a href="generic.html">Generic</a></li>
-										<li><a href="objectifs.html">Objectifs</a></li>
-										<li><a href="programmes.html">Programmes</a></li>
-										<li><a href="partenaires.html">Partenaires</a></li>
-										<li><a href="inscription.html">Inscription</a></li>
+							<input type="text" name="ecole" placeholder="Nom de votre faculté/école" style="margin-top: 1em;">
+							<input type="text" name="site" placeholder="Emplacement de votre faculté/école" style="margin-top: 1em;">
+							<div style="margin-top: 1em;"> <p>A quel jeu voulez vous participer ?</p>
+								<input type="checkbox" name="type-jeux" id="digitalMiss" value="digitalMiss">
+								<label for="digitalMiss">Miss digital (uniquement pour les filles)</label>
+					
+							</div>
+							<div style="margin-top: 1em;">
+								<input type="checkbox" name="type-jeux" id="hackathon" value="hackathon">
+								<label for="hackathon">Hackathon</label>
+							</div>
+							
 
-										
-									</ul>
-								</nav>
-
-							<!-- Section -->
-								
-
-							<!-- Section -->
-							<section>
-								<header class="major">
-									<h2>Nous contacter</h2>
-								</header>
-								<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-								<ul class="contact">
-									<li class="icon solid fa-envelope"><a href="mailto:">information@untitled.tld</a></li>
-									<li class="icon solid fa-phone"><a href="tel:">+229 94 68 40 40</a></li>
-									<li class="icon solid fa-home">Rue 308, Guinkomey <br />
-										Cotonou, Bénin</li>
-								</ul>
-							</section>
-
-						<!-- Footer -->
-							<footer id="footer">
-								<p class="copyright">&copy; All rights reserved. Design: <a href="https://btechspace.com">Btech Space</a>.</p>
-							</footer>
 
 						</div>
-					</div>
+
+						<div id="champs-universite" style="display: none; ">
+							<div>
+								<input type="radio" id="universite-publique" name="universite-type" value="publique" onchange="afficherUniversiteChamps()">
+								<label for="universite-publique">Université publique</label>
+							</div>
+							<div>
+								<input type="radio" id="universite-privee" name="universite-type" value="privee" onchange="afficherUniversiteChamps()">
+								<label for="universite-privee">Université privée</label>
+							</div>
+								<div id="champs-universite-publique" style="display: none;">
+									<input type="text" name="nom" placeholder="Nom" >
+									<input type="text" name="prenom" placeholder="Prénom"style="margin-top: 1em;">
+									<select name="universite" style="margin-top: 1em;">
+										<option value="">Sélectionnez une université</option>
+										<option value="universite1">Université 1</option>
+										<option value="universite1">Université 1</option>
+										<option value="universite1">Université 1</option>
+										<option value="universite1">Université 1</option>
+										<option value="universite1">Université 1</option>
+										<option value="universite1">Université 1</option>
+										<option value="universite1">Université 1</option>
+									</select>
+									<input type="text" name="autre" placeholder="Autre" style="margin-top: 1em;">
+								</div>
+
+						</div>
+		
+						<div id="champs-partenaire" style="display: none; ">
+							<input type="email" name="email" placeholder="Email">
+							<div>
+								<select name="pays" style="margin-top: 1em;">
+									<option value="">Sélectionnez un pays</option>
+									<option value="algerie">Algérie</option>
+									<option value="angola">Angola</option>
+									<option value="benin">Bénin</option>
+									<option value="botswana">Botswana</option>
+									<option value="burkina_faso">Burkina Faso</option>
+									<option value="algerie">Algérie</option>
+									<option value="angola">Angola</option>
+									<option value="benin">Bénin</option>
+									<option value="botswana">Botswana</option>
+									<option value="burkina_faso">Burkina Faso</option>
+									...
+								</select>
+							</div>
+						</div>
+
+						<input type="submit" value="Envoyer">
+					</form>
+
+
+
+
+
+
+					<!-- --------------------------------------------------------------------------- -->
+
+				</section>
 
 			</div>
+		</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<!-- Sidebar -->
+		<div id="sidebar">
+			<div class="inner">
 
-	</body>
+
+				<!-- Menu -->
+				<nav id="menu">
+					<header class="major">
+						<h2>Menu</h2>
+					</header>
+					<ul>
+						<li><a href="index.html">Intro</a></li>
+						<li><a href="objectifs.html">Objectifs</a></li>
+						<li><a href="programmes.html">Programmes</a></li>
+						<li><a href="partenaires.html">Partenaires</a></li>
+						<li><a href="inscription.html">Inscription</a></li>
+
+
+					</ul>
+				</nav>
+
+
+				<section>
+					<header class="major">
+						<h2>Nous contacter</h2>
+					</header>
+					<p>Vous avez des questions, contactez-nous !</p>
+					<ul class="contact">
+						<li class="icon solid fa-envelope"><a href="mailto:">information@untitled.tld</a></li>
+						<li class="icon solid fa-phone"><a href="tel:+229 94 68 40 40">+229 94 68 40 40</a></li>
+						<li class="icon solid fa-home">Rue 308, Guinkomey <br />
+							Cotonou, Bénin</li>
+					</ul>
+				</section>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<p class="copyright">&copy; All rights reserved. Design: <a href="https://btechspace.com"
+							target="_blank">Btech Space</a>.</p>
+				</footer>
+
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<!-- --------------------Script pour le formulaire----------------------------------- -->
+	<script>
+		function afficherChamps() {
+			var type = document.querySelector('input[name=type]:checked').value;
+			var champsEtudiant = document.getElementById("champs-etudiant");
+			var champsPartenaire = document.getElementById("champs-partenaire");
+			var champsUniversite = document.getElementById("champs-universite");
+
+			if (type === "etudiant") {
+				champsEtudiant.style.display = "block";
+				champsPartenaire.style.display = "none";
+				champsUniversite.style.display = "none";
+
+			} else if (type === "partenaire"){
+				champsEtudiant.style.display = "none";
+				champsPartenaire.style.display = "block";
+				champsUniversite.style.display = "none";
+
+			}else if (type === "universite"){
+				champsUniversite.style.display = "block";
+				champsPartenaire.style.display = "none";
+				champsEtudiant.style.display = "none";
+
+			} else {
+				champsEtudiant.style.display = "none";
+				champsPartenaire.style.display = "none";
+				champsUniversite.style.display = "none";
+			}
+			afficherUniversiteChamps();
+
+		}
+
+		function afficherUniversiteChamps() {
+			var universiteType = document.querySelector('input[name=universite-type]:checked').value;
+			var champsUniversitePublique = document.getElementById("champs-universite-publique");
+
+			if (universiteType === "publique") {
+				champsUniversitePublique.style.display = "block";
+			} else {
+				champsUniversitePublique.style.display = "none";
+			}
+		}
+	</script>
+
+</body>
+
 </html>

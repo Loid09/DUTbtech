@@ -3519,3 +3519,59 @@ button:disabled,
     margin-top: 0;
     padding-top: 0;
 }
+/* -------------------------------------------------------------------------------- */
+
+
+
+form div {
+  /* ajoute de l'espace entre les champs de saisie */
+  margin-bottom: 1em;
+}
+
+form label {
+  /* affiche les étiquettes en gras */
+  font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form select {
+  /* ajoute du style aux champs de saisie et aux listes déroulantes */
+  display: block;
+  width: 100%;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 0.25em;
+}
+form input[type="radio"] {
+  /* ajoute du style aux boutons radio */
+  margin-right: 0.5em;
+}
+
+form input[type="submit"] {
+  /* ajoute du style au bouton de soumission */
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 0.25em;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+  /* change la couleur du bouton lorsque la souris passe dessus */
+  background-color: #3E8E41;
+}
+
+@media (max-width: 600px) {
+  /* ajuste le style pour les petits écrans */
+  form {
+      /* réinitialise la position et la transformation du formulaire */
+      position: static;
+      transform: none;
+
+      /* ajoute de l'espace autour du formulaire */
+      margin: 1em;
+  }
+}
