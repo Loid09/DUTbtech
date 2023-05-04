@@ -45,7 +45,7 @@
 
 
 					<!-- <?php
-       
+
        $dbh = new PDO('mysql:host=localhost;dbname=nom_de_la_base', 'utilisateur', 'mot_de_passe');
 
 		// vérification si le formulaire a été soumis
@@ -144,18 +144,19 @@
 								<p style="margin-top: 1em;">La 1ère Edition du Digital University Tour se tiendra du
 									01/06/2023 au 31/07/2023. souhaitez-vous y participer ? </p>
 								<!-- Ici on aura deux choix. Si la reponse est oui alors c'est bon si c'est non on aura alors une liste deroulante comme ca  -->
-								<div style="display: flex;">
-									<div style="margin-top: 1em;">
-										<input type="radio" name="participer1" class="participer1" value="oui">
-										<label >Oui</label>
-									</div>
-									<!-- si la reponse est oui alors c'est la fin -->
-									<div style="margin-top: 1em;">
-										<input type="radio" name="participer1" class="participer3" value="non">
-										<label >Non</label>
-									</div>
-								</div>
+								<div style="display: flex; margin-top: 1em;">
+                                    <input type="radio" id="oui" name="participer" value="oui"
+                                        onchange="afficherRaison()">
+                                    <label for="oui">Oui</label>
+                                    <input type="radio" id="non" name="participer" value="non"
+                                        onchange="afficherRaison()">
+                                    <label for="non">Non</label>
+                                </div>
 								<!-- si la reponse est non alors on doit avoir une liste pour les raisons  -->
+								<div class="afficherRaisonSuite" style="display: none">
+									<p >Ce text disparait en foction de Oui ou Non</p>
+								</div>
+
 								<p style="margin-top: 1em;">Pourquoi ? </p>
 								<select name="raison" class="raison" style="margin-top: 1em; ">
 									<option value="">Sélectionnez une raison</option>
@@ -187,8 +188,8 @@
 								<!-- quand l'option choisi est autre, un champ doit venir pour que la personne mettent la raison  -->
 								<input type="text" name="autre" class="autre_raison" placeholder="Autre raison"
 									style="margin-top: 1em; display: none;">
-								
-								
+
+
 							</div>
 
 
@@ -284,11 +285,11 @@
 									<input type="text" name="apport" id="apport" placeholder="Votre apport"
 										style="margin-top: 1em; display: none;">
 									<!-- si les autres, -->
-									
+
 
 								</div>
 							</div>
-						
+
 							<button type="submit">Envoyer</button>
 					</form>
 
@@ -358,12 +359,28 @@
 	<script src="assets/js/main.js"></script>
 	<!-- --------------------Script pour le formulaire----------------------------------- -->
 	<script>
-		
+
 
 		// <!-- ici c'est pour les select des universités  -->
-		 var selects = document.querySelectorAll(".raison"); 
+		 var selects = document.querySelectorAll(".raison");
 
-		 selects.forEach(function(select) 
+
+		 // <!-- ici c'est afficherRaison()-->
+
+		function afficherRaison() {
+			// get value of div 'afficherRaisonSuite(
+			var afficherRaisonSuite = document.querySelector(".afficherRaisonSuite");
+			// get value of radio list with name 'participer'
+			var participer = document.querySelector('input[name="participer"]:checked').value;
+			if (participer === "oui") {
+				afficherRaisonSuite.style.display = "block";
+			} else {
+				afficherRaisonSuite.style.display = "none";
+			}
+
+		}
+
+		 selects.forEach(function(select)
 		{
 			var reserve = select.nextElementSibling;
 			var periode = select.nextElementSibling.nextElementSibling;
@@ -412,7 +429,7 @@
 
 		function afficherChamps() {
 
-			
+
 
 			var type = document.querySelector('input[name=type]:checked').value;
 			var champsEtudiant = document.getElementById("champs-etudiant");
@@ -450,7 +467,7 @@
 				universite.style.display = "none";
 
 			} else if (type === "entreprise") {
-				
+
 				champsEtudiant.style.display = "none";
 				champsEntreprise.style.display = "block";
 				champsUniversite.style.display = "none";
