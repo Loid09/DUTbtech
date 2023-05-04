@@ -348,13 +348,13 @@
 		const radioGroup1 = document.getElementsByName("choix1");
 		radioGroup1.forEach((radio) => {
 			radio.addEventListener("change", (event) => {
-				const selectedValue = event.target.value;
-				console.log(selectedValue);
-				if (selectedValue === 'oui') {
+				const selectedValue1 = event.target.value;
+				if (selectedValue1 === 'oui') {
 					$('#input-non').hide();
-					console.log($(this).val());
+					console.log(selectedValue1);
 				} else {
 					$('#input-non').show();
+					console.log(selectedValue1);
 				}	
 				// Utilisez la valeur sélectionnée ici
 			});
@@ -363,12 +363,12 @@
 			radioGroup2.forEach((radio) => {
 				radio.addEventListener("change", (event) => {
 					const selectedValue = event.target.value;
-					console.log(selectedValue);
 					if (selectedValue === 'oui') {
 						$('#input-non1').hide();
-						console.log($(this).val());
+						console.log(selectedValue);
 					} else {
 						$('#input-non1').show();
+						console.log(selectedValue);
 					}
 					// Utilisez la valeur sélectionnée ici
 				});
