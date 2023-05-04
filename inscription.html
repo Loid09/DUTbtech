@@ -15,11 +15,9 @@
 
 	<!-- Wrapper -->
 	<div id="wrapper">
-
 		<!-- Main -->
 		<div id="main">
 			<div class="inner">
-
 				<!-- Header -->
 				<header id="header">
 					<a href="index.html" class="logo"> <img src="images/logo.png"
@@ -39,43 +37,38 @@
 					<header class="major">
 						<h1 style="color: #2E58A6;">Inscription</h1>
 					</header>
-
 					<span class="image main"><img src="images/inscrip.jpeg" alt="" /></span>
 					<!-- ----------------------------------------------------------------------------- -->
-
-
 					<!-- <?php
        
-       $dbh = new PDO('mysql:host=localhost;dbname=nom_de_la_base', 'utilisateur', 'mot_de_passe');
+					$dbh = new PDO('mysql:host=localhost;dbname=nom_de_la_base', 'utilisateur', 'mot_de_passe');
 
-		// vérification si le formulaire a été soumis
-		if (isset($_POST['type'])) {
-			// récupération des données du formulaire
-			$type = $_POST['type'];
-			$nom = $_POST['nom'] ?? '';
-			$email = $_POST['email'] ?? '';
-			$pays = $_POST['pays'] ?? '';
+						// vérification si le formulaire a été soumis
+						if (isset($_POST['type'])) {
+							// récupération des données du formulaire
+							$type = $_POST['type'];
+							$nom = $_POST['nom'] ?? '';
+							$email = $_POST['email'] ?? '';
+							$pays = $_POST['pays'] ?? '';
 
-			// préparation de la requête SQL
-			$stmt = $dbh->prepare("INSERT INTO utilisateurs (type, nom, email, pays) VALUES (:type, :nom, :email, :pays)");
+							// préparation de la requête SQL
+							$stmt = $dbh->prepare("INSERT INTO utilisateurs (type, nom, email, pays) VALUES (:type, :nom, :email, :pays)");
 
-			// exécution de la requête SQL
-			$stmt->execute([
-				':type' => $type,
-				':nom' => $nom,
-				':email' => $email,
-				':pays' => $pays,
-			]);
+							// exécution de la requête SQL
+							$stmt->execute([
+								':type' => $type,
+								':nom' => $nom,
+								':email' => $email,
+								':pays' => $pays,
+							]);
 
-			// affichage d'un message de confirmation
-			echo "<p>Données enregistrées avec succès.</p>";
-		}
+							// affichage d'un message de confirmation
+							echo "<p>Données enregistrées avec succès.</p>";
+						}
 
-     ?> -->
-
+					?> -->
 					<!-- --------------------------------------------------------------------------- -->
-
-					<form class="formulaire" >
+					<form class="formulaire">
 
 						<div id="etu" style="display: block; ">
 							<input type="radio" id="etudiant" name="type" value="etudiant" onchange="afficherChamps()">
@@ -145,50 +138,54 @@
 									01/06/2023 au 31/07/2023. souhaitez-vous y participer ? </p>
 								<!-- Ici on aura deux choix. Si la reponse est oui alors c'est bon si c'est non on aura alors une liste deroulante comme ca  -->
 								<div style="display: flex;">
-									<div style="margin-top: 1em;">
-										<input type="radio" name="participer1" class="participer1" value="oui">
-										<label >Oui</label>
+									
+									<div>
+										<input type="radio" id="oui1" name="choix1" value="oui">
+										<label for="oui1">oui</label>
 									</div>
-									<!-- si la reponse est oui alors c'est la fin -->
-									<div style="margin-top: 1em;">
-										<input type="radio" name="participer1" class="participer3" value="non">
-										<label >Non</label>
+									<div>
+										<input type="radio" id="non1" name="choix1" value="non">
+										<label for="non1">non</label>
 									</div>
-								</div>
-								<!-- si la reponse est non alors on doit avoir une liste pour les raisons  -->
-								<p style="margin-top: 1em;">Pourquoi ? </p>
-								<select name="raison" class="raison" style="margin-top: 1em; ">
-									<option value="">Sélectionnez une raison</option>
-									<option value="raison1">Délai court pour organisation à l'interne</option>
-									<option value="raison2">Période non propice pour cause de préparation aux examens de
-										fin de semestre</option>
-									<option value="raison3">Autre</option>
 
-								</select>
-								<!-- quand l'option choisi est la raison1, -->
-								<div style="display: flex; display: none;" class="reserve">
-									<p style="margin-top: 1em;">Reservez votre participation à la 2ème Edition. </p>
-									<div style="margin-top: 1em;">
-										<input type="checkbox" name="reserverOui" id="reserverOui" value="oui">
-										<label for="reserverOui">Oui</label>
-									</div>
-									<!-- si la reponse est oui alors c'est la fin -->
-									<div style="margin-top: 1em;">
-										<input type="checkbox" name="reserverNon" id="reserverNon" value="non">
-										<label for="reserverNon">Non</label>
-									</div>
 								</div>
 
-								<!-- quand l'option choisi est la raison2, -->
-								<input type="text" name="periode" class="periode"
-									placeholder="Quelle periode vous conviendrait le mieux ?" style="display: none; margin-top: 1em;">
+								<div id="input-non" style="display: none;">
+									<!-- si la reponse est non alors on doit avoir une liste pour les raisons  -->
+									<p style="margin-top: 1em;">Pourquoi ? </p>
+									<select name="raison" class="raison" style="margin-top: 1em; ">
+										<option value="">Sélectionnez une raison</option>
+										<option value="raison1">Délai court pour organisation à l'interne</option>
+										<option value="raison2">Période non propice pour cause de préparation aux examens de
+											fin de semestre</option>
+										<option value="raison3">Autre</option>
+									
+									</select>
+									<!-- quand l'option choisi est la raison1, -->
+									<div style="display: flex; display: none;" class="reserve">
+										<p style="margin-top: 1em;">Reservez votre participation à la 2ème Edition. </p>
+										<div style="margin-top: 1em;">
+											<input type="checkbox" name="reserverOui" id="reserverOui" value="oui">
+											<label for="reserverOui">Oui</label>
+										</div>
+										<!-- si la reponse est oui alors c'est la fin -->
+										<div style="margin-top: 1em;">
+											<input type="checkbox" name="reserverNon" id="reserverNon" value="non">
+											<label for="reserverNon">Non</label>
+										</div>
+									</div>
+									
+									<!-- quand l'option choisi est la raison2, -->
+									<input type="text" name="periode" class="periode" placeholder="Quelle periode vous conviendrait le mieux ?"
+										style="display: none; margin-top: 1em;">
+									
+									
+									<!-- quand l'option choisi est autre, un champ doit venir pour que la personne mettent la raison  -->
+									<input type="text" name="autre" class="autre_raison" placeholder="Autre raison" style="margin-top: 1em; display: none;">
 
+								</div>
+								
 
-								<!-- quand l'option choisi est autre, un champ doit venir pour que la personne mettent la raison  -->
-								<input type="text" name="autre" class="autre_raison" placeholder="Autre raison"
-									style="margin-top: 1em; display: none;">
-								
-								
 							</div>
 
 
@@ -203,104 +200,94 @@
 									01/06/2023 au 31/07/2023. souhaitez-vous y participer ? </p>
 								<!-- Ici on aura deux choix. Si la reponse est oui alors c'est bon si c'est non on aura alors une liste deroulante comme ca  -->
 								<div style="display: flex;">
-									<div style="margin-top: 1em;">
-										<input type="radio" name="participer2" class="participer2" value="oui">
-										<label for="participer2">Oui</label>
+									<div>
+										<input type="radio" id="oui2" name="choix2" value="oui">
+										<label for="oui2">oui</label>
 									</div>
-									<!-- si la reponse est oui alors c'est la fin -->
-									<div style="margin-top: 1em;">
-										<input type="radio" name="participer2" class="participer2" value="non">
-										<label for="participer2">Non</label>
+									<div>
+										<input type="radio" id="non2" name="choix2" value="non">
+										<label for="non2">non</label>
 									</div>
 								</div>
-								<!-- si la reponse est non alors on doit avoir une liste pour les raisons  -->
-								<p style="margin-top: 1em;">Pourquoi ? </p>
-								<select name="raison" class="raison" style="margin-top: 1em; ">
-									<option value="">Sélectionnez une raison</option>
-									<option value="raison1">Délai court pour organisation à l'interne</option>
-									<option value="raison2">Période non propice pour cause de préparation aux examens de
-										fin de semestre</option>
-									<option value="raison3">Autre</option>
+								<div id="input-non1" style="display: none;">
+									<!-- si la reponse est non alors on doit avoir une liste pour les raisons  -->
+									<p style="margin-top: 1em;">Pourquoi ? </p>
+									<select name="raison" class="raison" style="margin-top: 1em; ">
+										<option value="">Sélectionnez une raison</option>
+										<option value="raison1">Délai court pour organisation à l'interne</option>
+										<option value="raison2">Période non propice pour cause de préparation aux examens de
+											fin de semestre</option>
+										<option value="raison3">Autre</option>
+									
+									</select>
+									<!-- quand l'option choisi est la raison1, -->
+									<div style="display: flex; display: none;" class="reserve">
+										<p style="margin-top: 1em;">Reservez votre participation à la 2ème Edition. </p>
+										<div style="margin-top: 1em;">
+											<input type="checkbox" name="reserverOui" id="reserverOui" value="oui">
+											<label for="reserverOui">Oui</label>
+										</div>
+										<!-- si la reponse est oui alors c'est la fin -->
+										<div style="margin-top: 1em;">
+											<input type="checkbox" name="reserverNon" id="reserverNon" value="non">
+											<label for="reserverNon">Non</label>
+										</div>
+									</div>
+									
+									<!-- quand l'option choisi est la raison2, -->
+									<input type="text" name="periode" class="periode" placeholder="Quelle periode vous conviendrait le mieux ?"
+										style="display: none; margin-top: 1em;">
+									
+									
+									<!-- quand l'option choisi est autre, un champ doit venir pour que la personne mettent la raison  -->
+									<input type="text" name="autre" class="autre_raison" placeholder="Autre raison" style="margin-top: 1em; display: none;">
 
+								</div>
+								
+							</div>
+						</div>
+						<!-- le champs pour les entreprises  -->
+						<div id="champs-entreprise" style="display: none; ">
+							<input type="text" name="nomEntreprise" placeholder="Nom de l'entreprise">
+							<input type="text" name="adresse" placeholder="Adresse du siege" style="margin-top: 1em;">
+							<input type="text" name="nom" placeholder="Votre nom et prenom" style="margin-top: 1em;">
+							<input type="text" name="tel" placeholder="Telephone" style="margin-top: 1em;">
+
+							<input type="email" name="email" placeholder="Email" style="margin-top: 1em;">
+							<div>
+								<select name="pack" id="pack" style="margin-top: 1em;">
+									<option value="">Découvrir notre catalogue de sponsoring</option>
+									<option value="platinum">Platinum</option>
+									<option value="gold">Gold</option>
+									<option value="bronze">Bronze</option>
+									<option value="silver">Silver</option>
+									<option value="basic">Basic</option>
+									<option value="aleatoire">Aleatoire</option>
 								</select>
-								<!-- quand l'option choisi est la raison1, -->
-								<div style="display: flex; display: none;" class="reserve">
-									<p style="margin-top: 1em;">Reservez votre participation à la 2ème Edition. </p>
+								<div style="display: flex; display: none;" id="subscrire">
 									<div style="margin-top: 1em;">
-										<input type="checkbox" name="reserverOui" id="reserverOui" value="oui">
-										<label for="reserverOui">Oui</label>
+										<input type="checkbox" name="souscrire" id="souscrire" value="souscrire">
+										<label for="souscrire">Souscrire</label>
 									</div>
-									<!-- si la reponse est oui alors c'est la fin -->
 									<div style="margin-top: 1em;">
-										<input type="checkbox" name="reserverNon" id="reserverNon" value="non">
-										<label for="reserverNon">Non</label>
+										<input type="checkbox" name="rdv" id="rdv" value="rdv">
+										<label for="rdv">Convenir d'un rendez-vous</label>
 									</div>
 								</div>
-
-								<!-- quand l'option choisi est la raison2, -->
-								<input type="text" name="periode" class="periode"
-									placeholder="Quelle periode vous conviendrait le mieux ?" style="display: none; margin-top: 1em;">
-
-
-								<!-- quand l'option choisi est autre, un champ doit venir pour que la personne mettent la raison  -->
-								<input type="text" name="autre" class="autre_raison" placeholder="Autre raison"
+								<!-- si aleatoire, -->
+								<input type="text" name="apport" id="apport" placeholder="Votre apport"
 									style="margin-top: 1em; display: none;">
-
+								<!-- si les autres, -->
 
 
 							</div>
 						</div>
-							<!-- le champs pour les entreprises  -->
-							<div id="champs-entreprise" style="display: none; ">
-								<input type="text" name="nomEntreprise" placeholder="Nom de l'entreprise">
-								<input type="text" name="adresse" placeholder="Adresse du siege"
-									style="margin-top: 1em;">
-								<input type="text" name="nom" placeholder="Votre nom et prenom"
-									style="margin-top: 1em;">
-								<input type="text" name="tel" placeholder="Telephone" style="margin-top: 1em;">
-
-								<input type="email" name="email" placeholder="Email" style="margin-top: 1em;">
-								<div>
-									<select name="pack" id="pack" style="margin-top: 1em;">
-										<option value="">Découvrir notre catalogue de sponsoring</option>
-										<option value="platinum">Platinum</option>
-										<option value="gold">Gold</option>
-										<option value="bronze">Bronze</option>
-										<option value="silver">Silver</option>
-										<option value="basic">Basic</option>
-										<option value="aleatoire">Aleatoire</option>
-									</select>
-									<div style="display: flex; display: none;" id="subscrire">
-										<div style="margin-top: 1em;">
-											<input type="checkbox" name="souscrire" id="souscrire" value="souscrire">
-											<label for="souscrire">Souscrire</label>
-										</div>
-										<div style="margin-top: 1em;">
-											<input type="checkbox" name="rdv" id="rdv" value="rdv">
-											<label for="rdv">Convenir d'un rendez-vous</label>
-										</div>
-									</div>
-									<!-- si aleatoire, -->
-									<input type="text" name="apport" id="apport" placeholder="Votre apport"
-										style="margin-top: 1em; display: none;">
-									<!-- si les autres, -->
-									
-
-								</div>
-							</div>
-						
-							<button type="submit">Envoyer</button>
+						<!--my test-->
+						<button type="submit">Envoyer</button>
 					</form>
-
-
-
-
-
-
 					<!-- --------------------------------------------------------------------------- -->
-
 				</section>
-
+				
 			</div>
 		</div>
 
@@ -347,7 +334,6 @@
 
 			</div>
 		</div>
-
 	</div>
 
 	<!-- Scripts -->
@@ -358,27 +344,55 @@
 	<script src="assets/js/main.js"></script>
 	<!-- --------------------Script pour le formulaire----------------------------------- -->
 	<script>
-		
+		//my code
+		const radioGroup1 = document.getElementsByName("choix1");
+		radioGroup1.forEach((radio) => {
+			radio.addEventListener("change", (event) => {
+				const selectedValue = event.target.value;
+				console.log(selectedValue);
+				if (selectedValue === 'oui') {
+					$('#input-non').hide();
+					console.log($(this).val());
+				} else {
+					$('#input-non').show();
+				}	
+				// Utilisez la valeur sélectionnée ici
+			});
+		});
+		const radioGroup2 = document.getElementsByName("choix2");
+			radioGroup2.forEach((radio) => {
+				radio.addEventListener("change", (event) => {
+					const selectedValue = event.target.value;
+					console.log(selectedValue);
+					if (selectedValue === 'oui') {
+						$('#input-non1').hide();
+						console.log($(this).val());
+					} else {
+						$('#input-non1').show();
+					}
+					// Utilisez la valeur sélectionnée ici
+				});
+			});
+		//end my code
 
 		// <!-- ici c'est pour les select des universités  -->
-		 var selects = document.querySelectorAll(".raison"); 
+		var selects = document.querySelectorAll(".raison");
 
-		 selects.forEach(function(select) 
-		{
+		selects.forEach(function (select) {
 			var reserve = select.nextElementSibling;
 			var periode = select.nextElementSibling.nextElementSibling;
 			var autre = select.nextElementSibling.nextElementSibling.nextElementSibling;
 
-			select.addEventListener("change", function() {
+			select.addEventListener("change", function () {
 				if (select.value === "raison1") {
 					reserve.style.display = "block";
 					periode.style.display = "none";
 					autre.style.display = "none";
-				} else if (select.value === "raison2"){
+				} else if (select.value === "raison2") {
 					reserve.style.display = "none";
 					periode.style.display = "block";
 					autre.style.display = "none";
-				} else if (select.value === "raison3"){
+				} else if (select.value === "raison3") {
 					reserve.style.display = "none";
 					periode.style.display = "none";
 					autre.style.display = "block";
@@ -388,32 +402,28 @@
 					autre.style.display = "none";
 				}
 			});
-   	    });
+		});
 
-	var pack = document.getElementById("pack");
-	var souscription = document.getElementById("subscrire");
-	var apport = document.getElementById("apport");
+		var pack = document.getElementById("pack");
+		var souscription = document.getElementById("subscrire");
+		var apport = document.getElementById("apport");
 
 
-	pack.addEventListener("change", function()
-	{
-		if ((pack.value == "platinum") || (pack.value == "gold") || (pack.value == "silver") || (pack.value == "bronze") || (pack.value == "basic")){
-			souscription.style.display = "block";
-			apport.style.display = "none";
-		} else if (pack.value == "aleatoire"){
-			souscription.style.display = "none";
-			apport.style.display = "block";
-		}else{
-			souscription.style.display = "none";
-			apport.style.display = "none";
-		}
-	})
+		pack.addEventListener("change", function () {
+			if ((pack.value == "platinum") || (pack.value == "gold") || (pack.value == "silver") || (pack.value == "bronze") || (pack.value == "basic")) {
+				souscription.style.display = "block";
+				apport.style.display = "none";
+			} else if (pack.value == "aleatoire") {
+				souscription.style.display = "none";
+				apport.style.display = "block";
+			} else {
+				souscription.style.display = "none";
+				apport.style.display = "none";
+			}
+		})
 
 
 		function afficherChamps() {
-
-			
-
 			var type = document.querySelector('input[name=type]:checked').value;
 			var champsEtudiant = document.getElementById("champs-etudiant");
 			var champsEntreprise = document.getElementById("champs-entreprise");
@@ -426,22 +436,22 @@
 
 			if (type === "etudiant") {
 
-			// 	var elements = document.querySelectorAll(" input, select, p , label");
+				// 	var elements = document.querySelectorAll(" input, select, p , label");
 
-			// // Masque tous les éléments du formulaire en utilisant la propriété "display: none;"
-			// elements.forEach(function(element) {
-			// element.style.display = "none";
-			// });
+				// // Masque tous les éléments du formulaire en utilisant la propriété "display: none;"
+				// elements.forEach(function(element) {
+				// element.style.display = "none";
+				// });
 
-			// // Affiche les éléments du formulaire avec un délai de 200 millisecondes entre chaque élément
-			// var index = 0;
-			// var interval = setInterval(function() {
-			// elements[index].style.display = "block";
-			// index++;
-			// if (index >= elements.length) {
-			// 	clearInterval(interval);
-			// }
-			// }, 200);
+				// // Affiche les éléments du formulaire avec un délai de 200 millisecondes entre chaque élément
+				// var index = 0;
+				// var interval = setInterval(function() {
+				// elements[index].style.display = "block";
+				// index++;
+				// if (index >= elements.length) {
+				// 	clearInterval(interval);
+				// }
+				// }, 200);
 
 				champsEtudiant.style.display = "block";
 				champsEntreprise.style.display = "none";
@@ -450,7 +460,7 @@
 				universite.style.display = "none";
 
 			} else if (type === "entreprise") {
-				
+
 				champsEtudiant.style.display = "none";
 				champsEntreprise.style.display = "block";
 				champsUniversite.style.display = "none";
