@@ -68,7 +68,7 @@
 
 					?> -->
 					<!-- --------------------------------------------------------------------------- -->
-					<form class="formulaire">
+					<form class="formulaire" method="post" action="store.php">
 
 						<div id="etu" style="display: block; ">
 							<input type="radio" id="etudiant" name="type" value="etudiant" onchange="afficherChamps()">
@@ -88,10 +88,10 @@
 
 						<!-- champs pour etudiant  -->
 						<div id="champs-etudiant" style="display: none;">
-							<input type="text" name="nom" placeholder="Nom">
+							<input type="text" name="nomEt" placeholder="Nom">
 							<input type="text" name="prenom" placeholder="Prenom" style="margin-top: 1em;">
 							<input type="text" name="tel" placeholder="Telephone" style="margin-top: 1em;">
-							<input type="email" name="email" placeholder="Votre mail" style="margin-top: 1em;">
+							<input type="email" name="mail" placeholder="Votre mail" style="margin-top: 1em;">
 
 							<input type="text" name="ecole" placeholder="Nom de votre faculté/école"
 								style="margin-top: 1em;">
@@ -132,8 +132,8 @@
 								<input type="text" name="nomUniversite" placeholder="Nom de l'université">
 								<input type="text" name="nomEcole" placeholder="Nom de l'ecole/faculté"
 									style="margin-top: 1em;">
-								<input type="text" name="tel" placeholder="Telephone" style="margin-top: 1em;">
-								<input type="email" name="email" placeholder="Email" style="margin-top: 1em;">
+								<input type="text" name="telUP" placeholder="Telephone" style="margin-top: 1em;">
+								<input type="email" name="emailUP" placeholder="Email" style="margin-top: 1em;">
 								<p style="margin-top: 1em;">La 1ère Edition du Digital University Tour se tiendra du
 									01/06/2023 au 31/07/2023. souhaitez-vous y participer ? </p>
 								<!-- Ici on aura deux choix. Si la reponse est oui alors c'est bon si c'est non on aura alors une liste deroulante comme ca  -->
@@ -164,12 +164,12 @@
 									<div style="display: flex; display: none;" class="reserve">
 										<p style="margin-top: 1em;">Reservez votre participation à la 2ème Edition. </p>
 										<div style="margin-top: 1em;">
-											<input type="checkbox" name="reserver1" id="reserverOui" value="oui">
+											<input type="radio" name="reserver1" id="reserverOui" value="1">
 											<label for="reserverOui">Oui</label>
 										</div>
 										<!-- si la reponse est oui alors c'est la fin -->
 										<div style="margin-top: 1em;">
-											<input type="checkbox" name="reserver1" id="reserverNon" value="non">
+											<input type="radio" name="reserver1" id="reserverNon" value="0">
 											<label for="reserverNon">Non</label>
 										</div>
 									</div>
@@ -190,11 +190,11 @@
 
 							<!-- champs pour ecole privée -->
 							<div id="champs-ecole-privee" style="display: none;">
-								<input type="text" name="nomEcole" placeholder="Nom de l'ecole">
-								<input type="text" name="adresse" placeholder="Adresse de l'ecole"
+								<input type="text" name="nomEcolePrivee" placeholder="Nom de l'ecole">
+								<input type="text" name="adresseEcolePrivee" placeholder="Adresse de l'ecole"
 									style="margin-top: 1em;">
-								<input type="text" name="tel" placeholder="Telephone" style="margin-top: 1em;">
-								<input type="email" name="email" placeholder="Email" style="margin-top: 1em;">
+								<input type="text" name="telEcolePrivee" placeholder="Telephone" style="margin-top: 1em;">
+								<input type="email" name="emailEcolePrivee" placeholder="Email" style="margin-top: 1em;">
 								<p style="margin-top: 1em;">La 1ère Edition du Digital University Tour se tiendra du
 									01/06/2023 au 31/07/2023. souhaitez-vous y participer ? </p>
 								<!-- Ici on aura deux choix. Si la reponse est oui alors c'est bon si c'est non on aura alors une liste deroulante comme ca  -->
@@ -210,7 +210,7 @@
 								</div>
 								<div id="input-non1" style="display: none;">
 									<!-- si la reponse est non alors on doit avoir une liste pour les raisons  -->
-									<select name="raison" class="raison" style="margin-top: 1em; ">
+									<select name="raisonEcolePrivee" class="raison">
 										<option value="">Sélectionnez une raison</option>
 										<option value="raison1">Délai court pour organisation à l'interne</option>
 										<option value="raison2">Période non propice pour cause de préparation aux examens de
@@ -222,23 +222,23 @@
 									<div style="display: flex; display: none;" class="reserve">
 										<p style="margin-top: 1em;">Reservez votre participation à la 2ème Edition. </p>
 										<div style="margin-top: 1em;">
-											<input type="checkbox" name="reserver2" id="reserverOui2" value="oui">
+											<input type="radio" name="reserver2" id="reserverOui2" value="oui">
 											<label for="reserverOui2">Oui</label>
 										</div>
 										<!-- si la reponse est oui alors c'est la fin -->
 										<div style="margin-top: 1em;">
-											<input type="checkbox" name="reserver2" id="reserverNon2" value="non">
+											<input type="radio" name="reserver2" id="reserverNon2" value="non">
 											<label for="reserverNon2">Non</label>
 										</div>
 									</div>
 									
 									<!-- quand l'option choisi est la raison2, -->
-									<input type="text" name="periode" class="periode" placeholder="Quelle periode vous conviendrait le mieux ?"
+									<input type="text" name="periodeEcolePrivee" class="periode" placeholder="Quelle periode vous conviendrait le mieux ?"
 										style="display: none; margin-top: 1em;">
 									
 									
 									<!-- quand l'option choisi est autre, un champ doit venir pour que la personne mettent la raison  -->
-									<input type="text" name="autre" class="autre_raison" placeholder="Autre raison" style="margin-top: 1em; display: none;">
+									<input type="text" name="autreEcolePrivee" class="autre_raison" placeholder="Autre raison" style="margin-top: 1em; display: none;">
 
 								</div>
 								
@@ -247,11 +247,11 @@
 						<!-- le champs pour les entreprises  -->
 						<div id="champs-entreprise" style="display: none; ">
 							<input type="text" name="nomEntreprise" placeholder="Nom de l'entreprise">
-							<input type="text" name="adresse" placeholder="Adresse du siege" style="margin-top: 1em;">
-							<input type="text" name="nom" placeholder="Votre nom et prenom" style="margin-top: 1em;">
-							<input type="text" name="tel" placeholder="Telephone" style="margin-top: 1em;">
+							<input type="text" name="adresseEp" placeholder="Adresse du siege" style="margin-top: 1em;">
+							<input type="text" name="nomEP" placeholder="Votre nom et prenom" style="margin-top: 1em;">
+							<input type="text" name="telEP" placeholder="Telephone" style="margin-top: 1em;">
 
-							<input type="email" name="email" placeholder="Email" style="margin-top: 1em;">
+							<input type="email" name="emailEP" placeholder="Email" style="margin-top: 1em;">
 							<div>
 								<select name="pack" id="pack" style="margin-top: 1em;">
 									<option value="">Découvrir notre catalogue de sponsoring</option>
@@ -264,11 +264,11 @@
 								</select>
 								<div style="display: flex; display: none;" id="subscrire">
 									<div style="margin-top: 1em;">
-										<input type="checkbox" name="souscrire" id="souscrire" value="souscrire">
+										<input type="checkbox" name="souscrire" id="souscrire" value="1">
 										<label for="souscrire">Souscrire</label>
 									</div>
 									<div style="margin-top: 1em;">
-										<input type="checkbox" name="rdv" id="rdv" value="rdv">
+										<input type="checkbox" name="rdv" id="rdv" value="1">
 										<label for="rdv">Convenir d'un rendez-vous</label>
 									</div>
 								</div>
@@ -281,7 +281,9 @@
 							</div>
 						</div>
 						<!--my test-->
-						<button type="submit">Envoyer</button>
+						<button type="submit" class="button" name="ok">Envoyer</button>
+						<br>
+						<div style="padding-bottom: 100px;"></div>
 					</form>
 					<!-- --------------------------------------------------------------------------- -->
 				</section>
