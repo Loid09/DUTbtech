@@ -22,6 +22,7 @@
 				<header id="header">
 					<a href="index.html" class="logo"> <img src="images/logo.png"
 							style="width: 6rem; height: 6rem; border-radius: 100%; "></a>
+					<h4 style="color: #2E58A6;">Inscription</h4>
 					<ul class="icons">
 						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 						<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
@@ -35,7 +36,7 @@
 				<!-- Content -->
 				<section>
 					<header class="major">
-						<h1 style="color: #2E58A6;">Inscription</h1>
+						<h2 style="color: #2E58A6;">Inscription</h2>
 					</header>
 					<span class="image main"><img src="images/inscrip.jpeg" alt="" /></span>
 					<!-- ----------------------------------------------------------------------------- -->
@@ -68,6 +69,13 @@
 
 					?> -->
 					<!-- --------------------------------------------------------------------------- -->
+					<div>
+						<p style="font-weight: 400; font-size: 25px;">
+							Vous êtes interessé par le DUT, vous voulez nous rejoindre, vous voulez participer aux jeux,
+							inscrivez vous.
+						</p>
+						<h2>Vous êtes :</h2>
+					</div>
 					<form class="formulaire" method="post" action="store.php">
 
 						<div id="etu" style="display: block; ">
@@ -105,7 +113,7 @@
 							</div>
 							<div style="margin-top: 1em;">
 								<input type="checkbox" name="type-jeux" id="hackathon" value="hackathon">
-								<label for="hackathon">Hackathon</label>
+								<label for="hackathon">DUT Hackathon</label>
 							</div>
 
 						</div>
@@ -138,7 +146,7 @@
 									01/06/2023 au 31/07/2023. souhaitez-vous y participer ? </p>
 								<!-- Ici on aura deux choix. Si la reponse est oui alors c'est bon si c'est non on aura alors une liste deroulante comme ca  -->
 								<div style="display: flex;">
-									
+
 									<div>
 										<input type="radio" id="oui1" name="choix1" value="oui">
 										<label for="oui1">Oui</label>
@@ -155,10 +163,11 @@
 									<select name="raison" class="raison" style="margin-top: 1em; ">
 										<option value="">Sélectionnez une raison</option>
 										<option value="raison1">Délai court pour organisation à l'interne</option>
-										<option value="raison2">Période non propice pour cause de préparation aux examens de
+										<option value="raison2">Période non propice pour cause de préparation aux
+											examens de
 											fin de semestre</option>
 										<option value="raison3">Autre</option>
-									
+
 									</select>
 									<!-- quand l'option choisi est la raison1, -->
 									<div style="display: flex; display: none;" class="reserve">
@@ -173,17 +182,19 @@
 											<label for="reserverNon">Non</label>
 										</div>
 									</div>
-									
+
 									<!-- quand l'option choisi est la raison2, -->
-									<input type="text" name="periode" class="periode" placeholder="Quelle periode vous conviendrait le mieux ?"
+									<input type="text" name="periode" class="periode"
+										placeholder="Quelle periode vous conviendrait le mieux ?"
 										style="display: none; margin-top: 1em;">
-									
-									
+
+
 									<!-- quand l'option choisi est autre, un champ doit venir pour que la personne mettent la raison  -->
-									<input type="text" name="autre" class="autre_raison" placeholder="Autre raison" style="margin-top: 1em; display: none;">
+									<input type="text" name="autre" class="autre_raison" placeholder="Autre raison"
+										style="margin-top: 1em; display: none;">
 
 								</div>
-								
+
 
 							</div>
 
@@ -193,8 +204,10 @@
 								<input type="text" name="nomEcolePrivee" placeholder="Nom de l'ecole">
 								<input type="text" name="adresseEcolePrivee" placeholder="Adresse de l'ecole"
 									style="margin-top: 1em;">
-								<input type="text" name="telEcolePrivee" placeholder="Telephone" style="margin-top: 1em;">
-								<input type="email" name="emailEcolePrivee" placeholder="Email" style="margin-top: 1em;">
+								<input type="text" name="telEcolePrivee" placeholder="Telephone"
+									style="margin-top: 1em;">
+								<input type="email" name="emailEcolePrivee" placeholder="Email"
+									style="margin-top: 1em;">
 								<p style="margin-top: 1em;">La 1ère Edition du Digital University Tour se tiendra du
 									01/06/2023 au 31/07/2023. souhaitez-vous y participer ? </p>
 								<!-- Ici on aura deux choix. Si la reponse est oui alors c'est bon si c'est non on aura alors une liste deroulante comme ca  -->
@@ -213,35 +226,38 @@
 									<select name="raisonEcolePrivee" class="raison">
 										<option value="">Sélectionnez une raison</option>
 										<option value="raison1">Délai court pour organisation à l'interne</option>
-										<option value="raison2">Période non propice pour cause de préparation aux examens de
+										<option value="raison2">Période non propice pour cause de préparation aux
+											examens de
 											fin de semestre</option>
 										<option value="raison3">Autre</option>
-									
+
 									</select>
 									<!-- quand l'option choisi est la raison1, -->
 									<div style="display: flex; display: none;" class="reserve">
 										<p style="margin-top: 1em;">Reservez votre participation à la 2ème Edition. </p>
 										<div style="margin-top: 1em;">
-											<input type="radio" name="reserver2" id="reserverOui2" value="oui">
+											<input type="radio" name="reser2" id="reserverOui2" value="oui">
 											<label for="reserverOui2">Oui</label>
 										</div>
 										<!-- si la reponse est oui alors c'est la fin -->
 										<div style="margin-top: 1em;">
-											<input type="radio" name="reserver2" id="reserverNon2" value="non">
+											<input type="radio" name="reser2" id="reserverNon2" value="non">
 											<label for="reserverNon2">Non</label>
 										</div>
 									</div>
-									
+
 									<!-- quand l'option choisi est la raison2, -->
-									<input type="text" name="periodeEcolePrivee" class="periode" placeholder="Quelle periode vous conviendrait le mieux ?"
+									<input type="text" name="periodeEcolePrivee" class="periode"
+										placeholder="Quelle periode vous conviendrait le mieux ?"
 										style="display: none; margin-top: 1em;">
-									
-									
+
+
 									<!-- quand l'option choisi est autre, un champ doit venir pour que la personne mettent la raison  -->
-									<input type="text" name="autreEcolePrivee" class="autre_raison" placeholder="Autre raison" style="margin-top: 1em; display: none;">
+									<input type="text" name="autreEcolePrivee" class="autre_raison"
+										placeholder="Autre raison" style="margin-top: 1em; display: none;">
 
 								</div>
-								
+
 							</div>
 						</div>
 						<!-- le champs pour les entreprises  -->
@@ -287,7 +303,7 @@
 					</form>
 					<!-- --------------------------------------------------------------------------- -->
 				</section>
-				
+
 			</div>
 		</div>
 
@@ -302,7 +318,7 @@
 						<h2>Menu</h2>
 					</header>
 					<ul>
-						<li><a href="index.html">Intro</a></li>
+						<li><a href="index.html">Accueil</a></li>
 						<li><a href="objectifs.html">Objectifs</a></li>
 						<li><a href="programmes.html">Programmes</a></li>
 						<li><a href="partenaires.html">Partenaires</a></li>
@@ -355,24 +371,24 @@
 				} else {
 					$('#input-non').show();
 					console.log(selectedValue1);
-				}	
+				}
 				// Utilisez la valeur sélectionnée ici
 			});
 		});
 		const radioGroup2 = document.getElementsByName("choix2");
-			radioGroup2.forEach((radio) => {
-				radio.addEventListener("change", (event) => {
-					const selectedValue = event.target.value;
-					if (selectedValue === 'oui') {
-						$('#input-non1').hide();
-						console.log(selectedValue);
-					} else {
-						$('#input-non1').show();
-						console.log(selectedValue);
-					}
-					// Utilisez la valeur sélectionnée ici
-				});
+		radioGroup2.forEach((radio) => {
+			radio.addEventListener("change", (event) => {
+				const selectedValue = event.target.value;
+				if (selectedValue === 'oui') {
+					$('#input-non1').hide();
+					console.log(selectedValue);
+				} else {
+					$('#input-non1').show();
+					console.log(selectedValue);
+				}
+				// Utilisez la valeur sélectionnée ici
 			});
+		});
 		//end my code
 
 		// <!-- ici c'est pour les select des universités  -->
