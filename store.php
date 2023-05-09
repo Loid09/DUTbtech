@@ -10,10 +10,11 @@ if (isset($_POST["ok"])) {
         $mail = $_POST["mail"];
         $ecole = $_POST["ecole"];
         $site = $_POST["site"];
-        $jeux = $_POST["type-jeux"];
+        $hackathon = $_POST["type-jeux"] == 'hackathon' ? 1 : 0;
+        $digitalMiss=$_POST["type-jeux"]=='digitalMiss'?1:0;
 
         //envoie des données
-        $stmt = $dbh->prepare("INSERT INTO etudiant (nom, prenom, tel, mail, nom_ecole, emplacement, jeux) VALUES (:nom, :prenom, :tel, :mail, :nom_ecole, :emplacement, :jeux)");
+        $stmt = $dbh->prepare("INSERT INTO etudiant (nom, prenom, tel, mail, nom_ecole, emplacement, hackathon,digitalMiss) VALUES (:nom, :prenom, :tel, :mail, :nom_ecole, :emplacement, :hackathon,:digitalMiss)");
         $stmt->execute([
             ':nom' => $nom,
             ':prenom' => $prenom,
@@ -21,9 +22,15 @@ if (isset($_POST["ok"])) {
             ':nom_ecole' => $ecole,
             ':mail' => $mail,
             ':emplacement' => $site,
-            ':jeux' => $jeux,
+            ':hackathon' => $hackathon,
+            ':digitalMiss'=>$digitalMiss
         ]);
-        echo "<p>Données enregistrées avec succès.</p>";
+        $message = "Etudiant enregistré avec succès.";
+
+        header("Location: inscription.html?message=" . urlencode($message));
+        exit();
+        // Affichage d'un message avec pop-up
+        //echo "<script>window.onload = function() { alert('oki'); }</script>";
     } elseif ($type == "entreprise") {
         # code...
         $nom_entrepise = $_POST['nomEntreprise'];
@@ -50,8 +57,12 @@ if (isset($_POST["ok"])) {
             ':rdv' => $rdv,
             ':apport' => $apport,
         ]);
+        $message = "Entreprise enregistré avec succès.";
+
+        header("Location: inscription.html?message=" . urlencode($message));
+        exit();
     } elseif ($type == "universite") {
-        var_dump($_POST);
+        var_dump($_POST['choix1']);
 
         if ($_POST['universite-type'] == "publique") {
             # code...
@@ -60,13 +71,34 @@ if (isset($_POST["ok"])) {
             $tel = $_POST['telUP'];
             $mail = $_POST['emailUP'];
             $participer = $_POST['choix1'];
-            $raison = $_POST['raison'];
+            switch ($_POST['raison']) {
+                case 'raison1':
+                    # code...
+                    $raison = "Délai court pour organisation à l'interne";
+                    break;
+                case 'raison2':
+                    # code...
+                    $raison = "Période non propice pour cause de préparation aux examens de fin de semestre";
+                    break;
+                case 'raison3':
+                    # code...
+                    $raison = "autre raison";
+                    break;
+                
+                default:
+                    # code...
+                    break;
+            }
+            
             $reserver = $_POST['reserver1'];
             $periode_meilleur = $_POST['periode'];
             $autre_raison = $_POST['autre'];
             if (saveUniversite($nom_universite, $nom_ecole, "", $tel, $mail, $participer, $raison, $reserver, $periode_meilleur, $autre_raison)) {
                 # code...
-                echo "<p>Université enregistrées avec succès.</p>";
+                $message = "Université enregistrées avec succès.";
+
+                header("Location: inscription.html?message=" . urlencode($message));
+                exit();
             }
         } elseif ($_POST['universite-type'] == "privee") {
             $nom_ecole = $_POST['nomEcolePrivee'];
@@ -75,12 +107,15 @@ if (isset($_POST["ok"])) {
             $mail = $_POST['emailEcolePrivee'];
             $participer = $_POST['choix2'];
             $raison = $_POST['raisonEcolePrivee'];
-            $reserver = $_POST['reser2'];
+            $reserver = $_POST['reserver2'];
             $periode_meilleur = $_POST['periodeEcolePrivee'];
             $autre_raison = $_POST['autreEcolePrivee'];
             if (saveUniversite("", $nom_ecole, $adresse, $tel, $mail, $participer, $raison, $reserver, $periode_meilleur, $autre_raison)) {
                 # code...
-                echo "<p>Ecole privée enregistrées avec succès.</p>";
+                $message = "Ecole privée enregistré avec succès.";
+
+                header("Location: inscription.html?message=" . urlencode($message));
+                exit();
             }
         }
         # code...

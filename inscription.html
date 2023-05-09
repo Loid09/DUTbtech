@@ -148,11 +148,11 @@
 								<div style="display: flex;">
 
 									<div>
-										<input type="radio" id="oui1" name="choix1" value="oui">
+										<input type="radio" id="oui1" name="choix1" value="1">
 										<label for="oui1">Oui</label>
 									</div>
 									<div>
-										<input type="radio" id="non1" name="choix1" value="non">
+										<input type="radio" id="non1" name="choix1" value="0">
 										<label for="non1">Non</label>
 									</div>
 
@@ -213,11 +213,11 @@
 								<!-- Ici on aura deux choix. Si la reponse est oui alors c'est bon si c'est non on aura alors une liste deroulante comme ca  -->
 								<div style="display: flex;">
 									<div>
-										<input type="radio" id="oui2" name="choix2" value="oui">
+										<input type="radio" id="oui2" name="choix2" value="1">
 										<label for="oui2">Oui</label>
 									</div>
 									<div>
-										<input type="radio" id="non2" name="choix2" value="non">
+										<input type="radio" id="non2" name="choix2" value="0">
 										<label for="non2">Non</label>
 									</div>
 								</div>
@@ -236,12 +236,12 @@
 									<div style="display: flex; display: none;" class="reserve">
 										<p style="margin-top: 1em;">Reservez votre participation à la 2ème Edition. </p>
 										<div style="margin-top: 1em;">
-											<input type="radio" name="reser2" id="reserverOui2" value="oui">
+											<input type="radio" name="reserver2" id="reserverOui2" value="1">
 											<label for="reserverOui2">Oui</label>
 										</div>
 										<!-- si la reponse est oui alors c'est la fin -->
 										<div style="margin-top: 1em;">
-											<input type="radio" name="reser2" id="reserverNon2" value="non">
+											<input type="radio" name="reserver2" id="reserverNon2" value="0">
 											<label for="reserverNon2">Non</label>
 										</div>
 									</div>
@@ -361,11 +361,24 @@
 	<!-- --------------------Script pour le formulaire----------------------------------- -->
 	<script>
 		//my code
+		const urlParams = new URLSearchParams(window.location.search);
+		const message = urlParams.get('message');
+		
+		// Afficher la variable "message" dans une pop-up
+		if(message!=null){
+			alert(message);
+			// Fermer la pop-up après 5 secondes
+			setTimeout(function () {
+				window.close();
+			}, 5000);
+
+		}
+		
 		const radioGroup1 = document.getElementsByName("choix1");
 		radioGroup1.forEach((radio) => {
 			radio.addEventListener("change", (event) => {
 				const selectedValue1 = event.target.value;
-				if (selectedValue1 === 'oui') {
+				if (selectedValue1 === '1') {
 					$('#input-non').hide();
 					console.log(selectedValue1);
 				} else {
@@ -379,7 +392,7 @@
 		radioGroup2.forEach((radio) => {
 			radio.addEventListener("change", (event) => {
 				const selectedValue = event.target.value;
-				if (selectedValue === 'oui') {
+				if (selectedValue === '1') {
 					$('#input-non1').hide();
 					console.log(selectedValue);
 				} else {
