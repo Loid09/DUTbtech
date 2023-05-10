@@ -122,12 +122,12 @@
 						<!-- champs pour université -->
 						<div id="champs-universite" style="display: none; ">
 							<div style="display: flex; padding-left: 50px;">
-								<div>
+								<div id="univerP">
 									<input type="radio" id="universite-publique" name="universite-type" value="publique"
 										onchange="afficherUniversiteChamps()">
 									<label for="universite-publique">Université publique</label>
 								</div>
-								<div>
+								<div id="ecoleP">
 									<input type="radio" id="ecole-privee" name="universite-type" value="privee"
 										onchange="afficherUniversiteChamps()">
 									<label for="ecole-privee">Ecole privée</label>
@@ -322,6 +322,7 @@
 						<li><a href="objectifs.html">Objectifs</a></li>
 						<li><a href="programmes.html">Programmes</a></li>
 						<li><a href="partenaires.html">Partenaires</a></li>
+						<li><a href="jeux-concours.html">jeux concours</a></li>
 						<li><a href="inscription.html">Inscription</a></li>
 
 
@@ -370,7 +371,7 @@
 			// Fermer la pop-up après 5 secondes
 			setTimeout(function () {
 				window.close();
-			}, 5000);
+			}, 3000);
 
 		}
 		
@@ -516,14 +517,19 @@
 			var universiteType = document.querySelector('input[name=universite-type]:checked').value;
 			var champsUniversitePublique = document.getElementById("champs-universite-publique");
 			var champsEcolePrivee = document.getElementById("champs-ecole-privee");
+			var univerP = document.getElementById("univerP");
+			var ecoleP = document.getElementById("ecoleP");
+
 
 
 			if (universiteType === "publique") {
 				champsUniversitePublique.style.display = "block";
 				champsEcolePrivee.style.display = "none";
+				ecoleP.style.display = "none";
 			} else if (universiteType === "privee") {
 				champsEcolePrivee.style.display = "block";
 				champsUniversitePublique.style.display = "none";
+				univerP.style.display = "none";
 
 			} else {
 				champsUniversitePublique.style.display = "none";
