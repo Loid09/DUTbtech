@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<style>
 		#header .icons {
-			padding-top: 0px!important;
+			padding-top: 0px !important;
 		}
 	</style>
 </head>
@@ -25,71 +25,32 @@
 			<div class="inner">
 				<!-- Header -->
 				<div class="m-header" id="header" style="padding-top: 2.5em">
-                <span>
-                <img src="images/logo.png"  height="100px"  alt="Logo" class="m-logo">
-                </span>
-                <h2 class="m-title" style="color: #2E58A6;">Inscription</h2>
-               <ul class="icons">
-                    <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                    <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+					<span>
+						<a href="index.html" class="logo">
+							<img src="images/logo.png" height="100px" alt="Logo" class="m-logo">
 
-                    <li><a href="#" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-                    <li><a href="#" class="icon solid fa-envelope"><span class="label">Mail</span></a></li>
+						</a>
+					</span>
+					<h3 class="m-title" style="color: #2E58A6;">INSCRIPTION</h3>
+					<ul class="icons">
+						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
 
-                </ul>
-            </div>
-<!--				<header id="header">-->
-<!--					<a href="index.html" class="logo"> <img src="images/logo.png"-->
-<!--							style="width: 6rem; height: 6rem; border-radius: 100%; "></a>-->
-<!--					<h4 style="color: #2E58A6;">Inscription</h4>-->
-<!--					<ul class="icons">-->
-<!--						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>-->
-<!--						<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>-->
+						<li><a href="#" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
 
-<!--						<li><a href="#" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>-->
-<!--						<li><a href="#" class="icon solid fa-envelope"><span class="label">Mail</span></a></li>-->
+					</ul>
+				</div>
 
-<!--					</ul>-->
-<!--				</header>-->
 
 				<!-- Content -->
 				<section>
-					<header class="major">
+					<!-- <header class="major">
 						<h2 style="color: #2E58A6;">Inscription</h2>
-					</header>
-					<span class="image main"><img src="images/inscrip.jpeg" alt="" /></span>
-					<!-- ----------------------------------------------------------------------------- -->
-					<!-- <?php
-       
-					$dbh = new PDO('mysql:host=localhost;dbname=nom_de_la_base', 'utilisateur', 'mot_de_passe');
+					</header> -->
+					<!-- <span class="image main"><img src="images/inscrip.jpeg" alt="" /></span> -->
 
-						// vérification si le formulaire a été soumis
-						if (isset($_POST['type'])) {
-							// récupération des données du formulaire
-							$type = $_POST['type'];
-							$nom = $_POST['nom'] ?? '';
-							$email = $_POST['email'] ?? '';
-							$pays = $_POST['pays'] ?? '';
-
-							// préparation de la requête SQL
-							$stmt = $dbh->prepare("INSERT INTO utilisateurs (type, nom, email, pays) VALUES (:type, :nom, :email, :pays)");
-
-							// exécution de la requête SQL
-							$stmt->execute([
-								':type' => $type,
-								':nom' => $nom,
-								':email' => $email,
-								':pays' => $pays,
-							]);
-
-							// affichage d'un message de confirmation
-							echo "<p>Données enregistrées avec succès.</p>";
-						}
-
-					?> -->
-					<!-- --------------------------------------------------------------------------- -->
 					<div>
-						<p style="font-weight: 400; font-size: 25px;">
+						<p style="font-weight: 400; font-size: 25px; text-align: justify;">
 							Vous êtes interessé par le DUT, vous voulez nous rejoindre, vous voulez participer aux jeux,
 							inscrivez vous.
 						</p>
@@ -98,7 +59,8 @@
 					<form class="formulaire" method="post" action="store.php">
 
 						<div id="etu" style="display: block; ">
-							<input type="radio" id="etudiant" name="type" value="etudiant" onchange="afficherChamps()">
+							<input type="radio" id="etudiant" name="type" value="etudiant"
+								onchange="afficherChamps()">
 							<label for="etudiant">Étudiant</label>
 						</div>
 						<div id="uni" style="display: block; ">
@@ -114,32 +76,35 @@
 
 
 						<!-- champs pour etudiant  -->
-						<div id="champs-etudiant" style="display: none;">
-							<input type="text" name="nomEt" placeholder="Nom">
-							<input type="text" name="prenom" placeholder="Prenom" style="margin-top: 1em;">
-							<input type="text" name="tel" placeholder="Telephone" style="margin-top: 1em;">
-							<input type="email" name="mail" placeholder="Votre mail" style="margin-top: 1em;">
 
-							<input type="text" name="ecole" placeholder="Nom de votre faculté/école"
-								style="margin-top: 1em;">
-							<input type="text" name="site" placeholder="Emplacement de votre faculté/école"
-								style="margin-top: 1em;">
-							<div style="margin-top: 1em;">
-								<p>A quel jeu voulez vous participer ?</p>
-								<input type="checkbox" name="type-jeux" id="digitalMiss" value="digitalMiss">
-								<label for="digitalMiss">Miss digital (uniquement pour les filles)</label>
+						<div id="champs-etudiant" style="display: none;" class="table-wrapper">
+							<table >
+									<input type="text" name="nomEt" placeholder="Nom">
+								<input type="text" name="prenom" placeholder="Prenom" style="margin-top: 1em;">
+								<input type="text" name="tel" placeholder="Telephone" style="margin-top: 1em;">
+								<input type="email" name="mail" placeholder="Votre mail" style="margin-top: 1em;">
 
-							</div>
-							<div style="margin-top: 1em;">
-								<input type="checkbox" name="type-jeux" id="hackathon" value="hackathon">
-								<label for="hackathon">DUT Hackathon</label>
-							</div>
+								<input type="text" name="ecole" placeholder="Nom de votre faculté/école"
+									style="margin-top: 1em;">
+								<input type="text" name="site" placeholder="Emplacement de votre faculté/école"
+									style="margin-top: 1em;">
+								<div style="margin-top: 1em;">
+									<p>A quel jeu voulez vous participer ?</p>
+									<input type="checkbox" name="type-jeux" id="digitalMiss" value="digitalMiss">
+									<label for="digitalMiss">Miss digital (uniquement pour les filles)</label>
 
+								</div>
+								<div style="margin-top: 1em;">
+									<input type="checkbox" name="type-jeux" id="hackathon" value="hackathon">
+									<label for="hackathon">DUT Hackathon</label>
+								</div>
+							</table>
+							
 						</div>
 
 
 						<!-- champs pour université -->
-						<div id="champs-universite" style="display: none; ">
+						<div id="champs-universite" style="display: none; " >
 							<div style="display: flex; padding-left: 50px;">
 								<div id="univerP">
 									<input type="radio" id="universite-publique" name="universite-type" value="publique"
@@ -155,165 +120,172 @@
 
 
 							<!-- champs pour université publique -->
-							<div id="champs-universite-publique" style="display: none;">
-								<input type="text" name="nomUniversite" placeholder="Nom de l'université">
-								<input type="text" name="nomEcole" placeholder="Nom de l'ecole/faculté"
-									style="margin-top: 1em;">
-								<input type="text" name="telUP" placeholder="Telephone" style="margin-top: 1em;">
-								<input type="email" name="emailUP" placeholder="Email" style="margin-top: 1em;">
-								<p style="margin-top: 1em;">La 1ère Edition du Digital University Tour se tiendra du
-									01/06/2023 au 31/07/2023. souhaitez-vous y participer ? </p>
-								<!-- Ici on aura deux choix. Si la reponse est oui alors c'est bon si c'est non on aura alors une liste deroulante comme ca  -->
-								<div style="display: flex;">
-
-									<div>
-										<input type="radio" id="oui1" name="choix1" value="1">
-										<label for="oui1">Oui</label>
-									</div>
-									<div>
-										<input type="radio" id="non1" name="choix1" value="0">
-										<label for="non1">Non</label>
-									</div>
-
-								</div>
-
-								<div id="input-non" style="display: none;">
-									<!-- si la reponse est non alors on doit avoir une liste pour les raisons  -->
-									<select name="raison" class="raison" style="margin-top: 1em; ">
-										<option value="">Sélectionnez une raison</option>
-										<option value="raison1">Délai court pour organisation à l'interne</option>
-										<option value="raison2">Période non propice pour cause de préparation aux
-											examens de
-											fin de semestre</option>
-										<option value="raison3">Autre</option>
-
-									</select>
-									<!-- quand l'option choisi est la raison1, -->
-									<div style="display: flex; display: none;" class="reserve">
-										<p style="margin-top: 1em;">Reservez votre participation à la 2ème Edition. </p>
-										<div style="margin-top: 1em;">
-											<input type="radio" name="reserver1" id="reserverOui" value="1">
-											<label for="reserverOui">Oui</label>
+							<div id="champs-universite-publique" style="display: none;" class="table-wrapper">
+								<table>
+									<input type="text" name="nomUniversite" placeholder="Nom de l'université">
+									<input type="text" name="nomEcole" placeholder="Nom de l'ecole/faculté"
+										style="margin-top: 1em;">
+									<input type="text" name="telUP" placeholder="Telephone" style="margin-top: 1em;">
+									<input type="email" name="emailUP" placeholder="Email" style="margin-top: 1em;">
+									<p style="margin-top: 1em;  text-align: justify;">La 1ère Edition du Digital University Tour se tiendra du
+										01/06/2023 au 31/07/2023. souhaitez-vous y participer ? </p>
+									<!-- Ici on aura deux choix. Si la reponse est oui alors c'est bon si c'est non on aura alors une liste deroulante comme ca  -->
+									<div style="display: flex;">
+	
+										<div>
+											<input type="radio" id="oui1" name="choix1" value="1">
+											<label for="oui1">Oui</label>
 										</div>
-										<!-- si la reponse est oui alors c'est la fin -->
-										<div style="margin-top: 1em;">
-											<input type="radio" name="reserver1" id="reserverNon" value="0">
-											<label for="reserverNon">Non</label>
+										<div>
+											<input type="radio" id="non1" name="choix1" value="0">
+											<label for="non1">Non</label>
 										</div>
+	
 									</div>
-
-									<!-- quand l'option choisi est la raison2, -->
-									<input type="text" name="periode" class="periode"
-										placeholder="Quelle periode vous conviendrait le mieux ?"
-										style="display: none; margin-top: 1em;">
-
-
-									<!-- quand l'option choisi est autre, un champ doit venir pour que la personne mettent la raison  -->
-									<input type="text" name="autre" class="autre_raison" placeholder="Autre raison"
-										style="margin-top: 1em; display: none;">
-
-								</div>
-
-
+	
+									<div id="input-non" style="display: none;">
+										<!-- si la reponse est non alors on doit avoir une liste pour les raisons  -->
+										<select name="raison" class="raison" style="margin-top: 1em; ">
+											<option value="">Sélectionnez une raison</option>
+											<option value="raison1">Délai court pour organisation à l'interne</option>
+											<option value="raison2">Période non propice pour cause de préparation aux
+												examens de
+												fin de semestre</option>
+											<option value="raison3">Autre</option>
+	
+										</select>
+										<!-- quand l'option choisi est la raison1, -->
+										<div style="display: flex; display: none;" class="reserve">
+											<p style="margin-top: 1em;  text-align: justify;">Reservez votre participation à la 2ème Edition. </p>
+											<div style="margin-top: 1em;">
+												<input type="radio" name="reserver1" id="reserverOui" value="1">
+												<label for="reserverOui">Oui</label>
+											</div>
+											<!-- si la reponse est oui alors c'est la fin -->
+											<div style="margin-top: 1em;">
+												<input type="radio" name="reserver1" id="reserverNon" value="0">
+												<label for="reserverNon">Non</label>
+											</div>
+										</div>
+	
+										<!-- quand l'option choisi est la raison2, -->
+										<input type="text" name="periode" class="periode"
+											placeholder="Quelle periode vous conviendrait le mieux ?"
+											style="display: none; margin-top: 1em;">
+	
+	
+										<!-- quand l'option choisi est autre, un champ doit venir pour que la personne mettent la raison  -->
+										<input type="text" name="autre" class="autre_raison" placeholder="Autre raison"
+											style="margin-top: 1em; display: none;">
+	
+									</div>
+								</table>
+								
 							</div>
 
 
 							<!-- champs pour ecole privée -->
-							<div id="champs-ecole-privee" style="display: none;">
-								<input type="text" name="nomEcolePrivee" placeholder="Nom de l'ecole">
-								<input type="text" name="adresseEcolePrivee" placeholder="Adresse de l'ecole"
-									style="margin-top: 1em;">
-								<input type="text" name="telEcolePrivee" placeholder="Telephone"
-									style="margin-top: 1em;">
-								<input type="email" name="emailEcolePrivee" placeholder="Email"
-									style="margin-top: 1em;">
-								<p style="margin-top: 1em;">La 1ère Edition du Digital University Tour se tiendra du
-									01/06/2023 au 31/07/2023. souhaitez-vous y participer ? </p>
-								<!-- Ici on aura deux choix. Si la reponse est oui alors c'est bon si c'est non on aura alors une liste deroulante comme ca  -->
-								<div style="display: flex;">
-									<div>
-										<input type="radio" id="oui2" name="choix2" value="1">
-										<label for="oui2">Oui</label>
-									</div>
-									<div>
-										<input type="radio" id="non2" name="choix2" value="0">
-										<label for="non2">Non</label>
-									</div>
-								</div>
-								<div id="input-non1" style="display: none;">
-									<!-- si la reponse est non alors on doit avoir une liste pour les raisons  -->
-									<select name="raisonEcolePrivee" class="raison">
-										<option value="">Sélectionnez une raison</option>
-										<option value="raison1">Délai court pour organisation à l'interne</option>
-										<option value="raison2">Période non propice pour cause de préparation aux
-											examens de
-											fin de semestre</option>
-										<option value="raison3">Autre</option>
-
-									</select>
-									<!-- quand l'option choisi est la raison1, -->
-									<div style="display: flex; display: none;" class="reserve">
-										<p style="margin-top: 1em;">Reservez votre participation à la 2ème Edition. </p>
-										<div style="margin-top: 1em;">
-											<input type="radio" name="reserver2" id="reserverOui2" value="1">
-											<label for="reserverOui2">Oui</label>
+							<div id="champs-ecole-privee" style="display: none;" class="table-wrapper">
+								<table>
+									<input type="text" name="nomEcolePrivee" placeholder="Nom de l'ecole">
+									<input type="text" name="adresseEcolePrivee" placeholder="Adresse de l'ecole"
+										style="margin-top: 1em;">
+									<input type="text" name="telEcolePrivee" placeholder="Telephone"
+										style="margin-top: 1em;">
+									<input type="email" name="emailEcolePrivee" placeholder="Email"
+										style="margin-top: 1em;">
+									<p style="margin-top: 1em; text-align: justify;">La 1ère Edition du Digital University Tour se tiendra du
+										01/06/2023 au 31/07/2023. souhaitez-vous y participer ? </p>
+									<!-- Ici on aura deux choix. Si la reponse est oui alors c'est bon si c'est non on aura alors une liste deroulante comme ca  -->
+									<div style="display: flex;">
+										<div>
+											<input type="radio" id="oui2" name="choix2" value="1">
+											<label for="oui2">Oui</label>
 										</div>
-										<!-- si la reponse est oui alors c'est la fin -->
-										<div style="margin-top: 1em;">
-											<input type="radio" name="reserver2" id="reserverNon2" value="0">
-											<label for="reserverNon2">Non</label>
+										<div>
+											<input type="radio" id="non2" name="choix2" value="0">
+											<label for="non2">Non</label>
 										</div>
 									</div>
-
-									<!-- quand l'option choisi est la raison2, -->
-									<input type="text" name="periodeEcolePrivee" class="periode"
-										placeholder="Quelle periode vous conviendrait le mieux ?"
-										style="display: none; margin-top: 1em;">
-
-
-									<!-- quand l'option choisi est autre, un champ doit venir pour que la personne mettent la raison  -->
-									<input type="text" name="autreEcolePrivee" class="autre_raison"
-										placeholder="Autre raison" style="margin-top: 1em; display: none;">
-
-								</div>
-
+									<div id="input-non1" style="display: none;">
+										<!-- si la reponse est non alors on doit avoir une liste pour les raisons  -->
+										<select name="raisonEcolePrivee" class="raison">
+											<option value="">Sélectionnez une raison</option>
+											<option value="raison1">Délai court pour organisation à l'interne</option>
+											<option value="raison2">Période non propice pour cause de préparation aux
+												examens de
+												fin de semestre</option>
+											<option value="raison3">Autre</option>
+	
+										</select>
+										<!-- quand l'option choisi est la raison1, -->
+										<div style="display: flex; display: none;" class="reserve">
+											<p style="margin-top: 1em;  text-align: justify;">Reservez votre participation à la 2ème Edition. </p>
+											<div style="margin-top: 1em;">
+												<input type="radio" name="reserver2" id="reserverOui2" value="1">
+												<label for="reserverOui2">Oui</label>
+											</div>
+											<!-- si la reponse est oui alors c'est la fin -->
+											<div style="margin-top: 1em;">
+												<input type="radio" name="reserver2" id="reserverNon2" value="0">
+												<label for="reserverNon2">Non</label>
+											</div>
+										</div>
+	
+										<!-- quand l'option choisi est la raison2, -->
+										<input type="text" name="periodeEcolePrivee" class="periode"
+											placeholder="Quelle periode vous conviendrait le mieux ?"
+											style="display: none; margin-top: 1em;">
+	
+	
+										<!-- quand l'option choisi est autre, un champ doit venir pour que la personne mettent la raison  -->
+										<input type="text" name="autreEcolePrivee" class="autre_raison"
+											placeholder="Autre raison" style="margin-top: 1em; display: none;">
+	
+									</div>
+	
+								</table>
+								
 							</div>
 						</div>
 						<!-- le champs pour les entreprises  -->
-						<div id="champs-entreprise" style="display: none; ">
-							<input type="text" name="nomEntreprise" placeholder="Nom de l'entreprise">
-							<input type="text" name="adresseEp" placeholder="Adresse du siege" style="margin-top: 1em;">
-							<input type="text" name="nomEP" placeholder="Votre nom et prenom" style="margin-top: 1em;">
-							<input type="text" name="telEP" placeholder="Telephone" style="margin-top: 1em;">
-
-							<input type="email" name="emailEP" placeholder="Email" style="margin-top: 1em;">
-							<div>
-								<select name="pack" id="pack" style="margin-top: 1em;">
-									<option value="">Découvrir notre catalogue de sponsoring</option>
-									<option value="platinum">Platinum</option>
-									<option value="gold">Gold</option>
-									<option value="bronze">Bronze</option>
-									<option value="silver">Silver</option>
-									<option value="basic">Basic</option>
-									<option value="aleatoire">Aleatoire</option>
-								</select>
-								<div style="display: flex; display: none;" id="subscrire">
-									<div style="margin-top: 1em;">
-										<input type="checkbox" name="souscrire" id="souscrire" value="1">
-										<label for="souscrire">Souscrire</label>
+						<div id="champs-entreprise" style="display: none; " class="table-wrapper">
+							<table>
+								<input type="text" name="nomEntreprise" placeholder="Nom de l'entreprise">
+								<input type="text" name="adresseEp" placeholder="Adresse du siege" style="margin-top: 1em;">
+								<input type="text" name="nomEP" placeholder="Votre nom et prenom" style="margin-top: 1em;">
+								<input type="text" name="telEP" placeholder="Telephone" style="margin-top: 1em;">
+	
+								<input type="email" name="emailEP" placeholder="Email" style="margin-top: 1em;">
+								<div>
+									<select name="pack" id="pack" style="margin-top: 1em;">
+										<option value="">Découvrir notre catalogue de sponsoring</option>
+										<option value="platinum">Platinum</option>
+										<option value="gold">Gold</option>
+										<option value="bronze">Bronze</option>
+										<option value="silver">Silver</option>
+										<option value="basic">Basic</option>
+										<option value="aleatoire">Aleatoire</option>
+									</select>
+									<div style="display: flex; display: none;" id="subscrire">
+										<div style="margin-top: 1em;">
+											<input type="checkbox" name="souscrire" id="souscrire" value="1">
+											<label for="souscrire">Souscrire</label>
+										</div>
+										<div style="margin-top: 1em;">
+											<input type="checkbox" name="rdv" id="rdv" value="1">
+											<label for="rdv">Convenir d'un rendez-vous</label>
+										</div>
 									</div>
-									<div style="margin-top: 1em;">
-										<input type="checkbox" name="rdv" id="rdv" value="1">
-										<label for="rdv">Convenir d'un rendez-vous</label>
-									</div>
+									<!-- si aleatoire, -->
+									<input type="text" name="apport" id="apport" placeholder="Votre apport"
+										style="margin-top: 1em; display: none;">
+									<!-- si les autres, -->
+	
+	
 								</div>
-								<!-- si aleatoire, -->
-								<input type="text" name="apport" id="apport" placeholder="Votre apport"
-									style="margin-top: 1em; display: none;">
-								<!-- si les autres, -->
-
-
-							</div>
+							</table>
+							
 						</div>
 						<!--my test-->
 						<button type="submit" class="button" name="ok">Envoyer</button>
@@ -340,7 +312,7 @@
 						<li><a href="index.html">Accueil</a></li>
 						<li><a href="objectifs.html">Objectifs</a></li>
 						<li><a href="programmes.html">Programmes</a></li>
-						<li><a href="partenaires.html">Partenaires</a></li>
+						<!-- <li><a href="partenaires.html">Partenaires</a></li> -->
 						<li><a href="jeux-concours.html">jeux concours</a></li>
 						<li><a href="inscription.html">Inscription</a></li>
 
@@ -355,7 +327,8 @@
 					</header>
 					<p>Vous avez des questions, contactez-nous !</p>
 					<ul class="contact">
-						<li class="icon solid fa-envelope"><a href="mailto:">information@untitled.tld</a></li>
+						<li class="icon solid fa-envelope"><a
+								href="mailto:contact@btechspace.com">contact@btechspace.com</a></li>
 						<li class="icon solid fa-phone"><a href="tel:+229 94 68 40 40">+229 94 68 40 40</a></li>
 						<li class="icon solid fa-home">Rue 308, Guinkomey <br />
 							Cotonou, Bénin</li>
@@ -383,9 +356,9 @@
 		//my code
 		const urlParams = new URLSearchParams(window.location.search);
 		const message = urlParams.get('message');
-		
+
 		// Afficher la variable "message" dans une pop-up
-		if(message!=null){
+		if (message != null) {
 			alert(message);
 			// Fermer la pop-up après 5 secondes
 			setTimeout(function () {
@@ -393,7 +366,7 @@
 			}, 3000);
 
 		}
-		
+
 		const radioGroup1 = document.getElementsByName("choix1");
 		radioGroup1.forEach((radio) => {
 			radio.addEventListener("change", (event) => {
