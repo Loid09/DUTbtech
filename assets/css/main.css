@@ -3446,13 +3446,14 @@ button:disabled,
         padding-top: 10px;
 
     }
-    #h3{
+
+    #h3 {
         font-size: 18px;
     }
 
     #header .m-log {
-        margin-right: 80px;
-        
+        margin-right: 100px;
+
     }
 
     #header .icons {
@@ -3778,7 +3779,7 @@ form button[type="submit"]:hover {
 
 .m-title {
     text-align: center;
-    padding-right: 7px;
+    padding-right: 10px;
 
 }
 

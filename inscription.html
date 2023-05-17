@@ -59,8 +59,7 @@
 					<form class="formulaire" method="post" action="store.php">
 
 						<div id="etu" style="display: block; ">
-							<input type="radio" id="etudiant" name="type" value="etudiant"
-								onchange="afficherChamps()">
+							<input type="radio" id="etudiant" name="type" value="etudiant" onchange="afficherChamps()">
 							<label for="etudiant">Étudiant</label>
 						</div>
 						<div id="uni" style="display: block; ">
@@ -78,8 +77,8 @@
 						<!-- champs pour etudiant  -->
 
 						<div id="champs-etudiant" style="display: none;" class="table-wrapper">
-							<table >
-									<input type="text" name="nomEt" placeholder="Nom">
+							<table>
+								<input type="text" name="nomEt" placeholder="Nom">
 								<input type="text" name="prenom" placeholder="Prenom" style="margin-top: 1em;">
 								<input type="text" name="tel" placeholder="Telephone" style="margin-top: 1em;">
 								<input type="email" name="mail" placeholder="Votre mail" style="margin-top: 1em;">
@@ -99,12 +98,12 @@
 									<label for="hackathon">DUT Hackathon</label>
 								</div>
 							</table>
-							
+
 						</div>
 
 
 						<!-- champs pour université -->
-						<div id="champs-universite" style="display: none; " >
+						<div id="champs-universite" style="display: none; ">
 							<div style="display: flex; padding-left: 50px;">
 								<div id="univerP">
 									<input type="radio" id="universite-publique" name="universite-type" value="publique"
@@ -127,11 +126,12 @@
 										style="margin-top: 1em;">
 									<input type="text" name="telUP" placeholder="Telephone" style="margin-top: 1em;">
 									<input type="email" name="emailUP" placeholder="Email" style="margin-top: 1em;">
-									<p style="margin-top: 1em;  text-align: justify;">La 1ère Edition du Digital University Tour se tiendra du
+									<p style="margin-top: 1em;  text-align: justify;">La 1ère Edition du Digital
+										University Tour se tiendra du
 										01/06/2023 au 31/07/2023. souhaitez-vous y participer ? </p>
 									<!-- Ici on aura deux choix. Si la reponse est oui alors c'est bon si c'est non on aura alors une liste deroulante comme ca  -->
 									<div style="display: flex;">
-	
+
 										<div>
 											<input type="radio" id="oui1" name="choix1" value="1">
 											<label for="oui1">Oui</label>
@@ -140,9 +140,9 @@
 											<input type="radio" id="non1" name="choix1" value="0">
 											<label for="non1">Non</label>
 										</div>
-	
+
 									</div>
-	
+
 									<div id="input-non" style="display: none;">
 										<!-- si la reponse est non alors on doit avoir une liste pour les raisons  -->
 										<select name="raison" class="raison" style="margin-top: 1em; ">
@@ -152,11 +152,12 @@
 												examens de
 												fin de semestre</option>
 											<option value="raison3">Autre</option>
-	
+
 										</select>
 										<!-- quand l'option choisi est la raison1, -->
 										<div style="display: flex; display: none;" class="reserve">
-											<p style="margin-top: 1em;  text-align: justify;">Reservez votre participation à la 2ème Edition. </p>
+											<p style="margin-top: 1em;  text-align: justify;">Reservez votre
+												participation à la 2ème Edition. </p>
 											<div style="margin-top: 1em;">
 												<input type="radio" name="reserver1" id="reserverOui" value="1">
 												<label for="reserverOui">Oui</label>
@@ -167,20 +168,20 @@
 												<label for="reserverNon">Non</label>
 											</div>
 										</div>
-	
+
 										<!-- quand l'option choisi est la raison2, -->
 										<input type="text" name="periode" class="periode"
 											placeholder="Quelle periode vous conviendrait le mieux ?"
 											style="display: none; margin-top: 1em;">
-	
-	
+
+
 										<!-- quand l'option choisi est autre, un champ doit venir pour que la personne mettent la raison  -->
 										<input type="text" name="autre" class="autre_raison" placeholder="Autre raison"
 											style="margin-top: 1em; display: none;">
-	
+
 									</div>
 								</table>
-								
+
 							</div>
 
 
@@ -194,7 +195,8 @@
 										style="margin-top: 1em;">
 									<input type="email" name="emailEcolePrivee" placeholder="Email"
 										style="margin-top: 1em;">
-									<p style="margin-top: 1em; text-align: justify;">La 1ère Edition du Digital University Tour se tiendra du
+									<p style="margin-top: 1em; text-align: justify;">La 1ère Edition du Digital
+										University Tour se tiendra du
 										01/06/2023 au 31/07/2023. souhaitez-vous y participer ? </p>
 									<!-- Ici on aura deux choix. Si la reponse est oui alors c'est bon si c'est non on aura alors une liste deroulante comme ca  -->
 									<div style="display: flex;">
@@ -216,11 +218,12 @@
 												examens de
 												fin de semestre</option>
 											<option value="raison3">Autre</option>
-	
+
 										</select>
 										<!-- quand l'option choisi est la raison1, -->
 										<div style="display: flex; display: none;" class="reserve">
-											<p style="margin-top: 1em;  text-align: justify;">Reservez votre participation à la 2ème Edition. </p>
+											<p style="margin-top: 1em;  text-align: justify;">Reservez votre
+												participation à la 2ème Edition. </p>
 											<div style="margin-top: 1em;">
 												<input type="radio" name="reserver2" id="reserverOui2" value="1">
 												<label for="reserverOui2">Oui</label>
@@ -231,31 +234,33 @@
 												<label for="reserverNon2">Non</label>
 											</div>
 										</div>
-	
+
 										<!-- quand l'option choisi est la raison2, -->
 										<input type="text" name="periodeEcolePrivee" class="periode"
 											placeholder="Quelle periode vous conviendrait le mieux ?"
 											style="display: none; margin-top: 1em;">
-	
-	
+
+
 										<!-- quand l'option choisi est autre, un champ doit venir pour que la personne mettent la raison  -->
 										<input type="text" name="autreEcolePrivee" class="autre_raison"
 											placeholder="Autre raison" style="margin-top: 1em; display: none;">
-	
+
 									</div>
-	
+
 								</table>
-								
+
 							</div>
 						</div>
 						<!-- le champs pour les entreprises  -->
 						<div id="champs-entreprise" style="display: none; " class="table-wrapper">
 							<table>
 								<input type="text" name="nomEntreprise" placeholder="Nom de l'entreprise">
-								<input type="text" name="adresseEp" placeholder="Adresse du siege" style="margin-top: 1em;">
-								<input type="text" name="nomEP" placeholder="Votre nom et prenom" style="margin-top: 1em;">
+								<input type="text" name="adresseEp" placeholder="Adresse du siege"
+									style="margin-top: 1em;">
+								<input type="text" name="nomEP" placeholder="Votre nom et prenom"
+									style="margin-top: 1em;">
 								<input type="text" name="telEP" placeholder="Telephone" style="margin-top: 1em;">
-	
+
 								<input type="email" name="emailEP" placeholder="Email" style="margin-top: 1em;">
 								<div>
 									<select name="pack" id="pack" style="margin-top: 1em;">
@@ -281,11 +286,11 @@
 									<input type="text" name="apport" id="apport" placeholder="Votre apport"
 										style="margin-top: 1em; display: none;">
 									<!-- si les autres, -->
-	
-	
+
+
 								</div>
 							</table>
-							
+
 						</div>
 						<!--my test-->
 						<button type="submit" class="button" name="ok">Envoyer</button>
@@ -313,9 +318,17 @@
 						<li><a href="objectifs.html">Objectifs</a></li>
 						<li><a href="programmes.html">Programmes</a></li>
 						<!-- <li><a href="partenaires.html">Partenaires</a></li> -->
-						<li><a href="jeux-concours.html">jeux concours</a></li>
-						<li><a href="inscription.html">Inscription</a></li>
+						<!-- <li><a href="jeux-concours.html">Jeux concours</a></li> -->
+						<li>
+							<span class="opener">Pourquoi nous rejoindre</span>
+							<ul>
+								<li><a href="#">Caravane DUT</a></li>
+								<li><a href="#">Pourquoi</a></li>
+								<li><a href="jeux-concours.html">jeux concours</a></li>
 
+							</ul>
+						</li>
+						<li><a href="inscription.html">Inscription</a></li>
 
 					</ul>
 				</nav>
