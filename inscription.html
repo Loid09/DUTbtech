@@ -14,6 +14,7 @@
 			padding-top: 0px !important;
 		}
 	</style>
+
 </head>
 
 <body class="is-preload">
@@ -83,10 +84,71 @@
 								<input type="text" name="tel" placeholder="Telephone" style="margin-top: 1em;">
 								<input type="email" name="mail" placeholder="Votre mail" style="margin-top: 1em;">
 
-								<input type="text" name="ecole" placeholder="Nom de votre faculté/école"
-									style="margin-top: 1em;">
-								<input type="text" name="site" placeholder="Emplacement de votre faculté/école"
-									style="margin-top: 1em;">
+								<select name="site" style="margin-top: 1em;">
+									<option value="">Emplacement de votre faculté/école</option>
+									<option value="Abomey">Abomey</option>
+									<option value="Abomey-Calavi">Abomey-Calavi</option>
+									<option value="Adjohoun">Adjohoun</option>
+									<option value="Aplahoué">Aplahoué</option>
+									<option value="Bohicon">Bohicon</option>
+									<option value="Cotonou">Cotonou</option>
+									<option value="Dangbo">Dangbo</option>
+									<option value="Dassa">Dassa</option>
+									<option value="Djougou">Djougou</option>
+									<option value="Kandi">Kandi</option>
+									<option value="Kétou">Kétou</option>
+									<option value="Lokossa">Lokossa</option>
+									<option value="Natitingou">Natitingou</option>
+									<option value="Ouidah">Ouidah</option>
+									<option value="Parakou">Parakou</option>
+									<option value="Porto-Novo">Porto-Novo</option>
+									<option value="Sakété">Sakété</option>
+								</select>
+
+								<select name="ecole" style="margin-top: 1em;">
+									<option value="">Nom de votre faculté/école</option>
+									<option value="AFRICA DESIGN SCHOOL">AFRICA DESIGN SCHOOL</option>
+									<option value="ENAM">ENAM</option>
+									<option value="ENEAM">ENEAM</option>
+									<option value="ENI">ENI</option>
+									<option value="ENS">ENS</option>
+									<option value="ENSET">ENSET</option>
+									<option value="INSTI">INSTI</option>
+									<option value="ENSPD">ENSPD</option>
+									<option value="ENSTIC">ENSTIC</option>
+									<option value="EPA">EPA</option>
+									<option value="EPAC">EPAC</option>
+									<option value="INE">INE</option>
+									<option value="EPITECH">EPITECH</option>
+									<option value="ESAE">ESAE</option>
+									<option value="ESGIS">ESGIS</option>
+									<option value="FASEG">FASEG</option>
+									<option value="FAST">FAST</option>
+									<option value="FLASH">FLASH</option>
+									<option value="FSA">FSA</option>
+									<option value="FSS">FSS</option>
+									<option value="HECM">HECM</option>
+									<option value="HERCI">HERCI</option>
+									<option value="IFRI">IFRI</option>
+									<option value="IMSP">IMSP</option>
+									<option value="INJEPS">INJEPS</option>
+									<option value="INMAAC">INMAAC</option>
+									<option value="INSPEI">INSPEI</option>
+									<option value="IRGIB">IRGIB</option>
+									<option value="IRSP">IRSP</option>
+									<option value="ISM ADONAI">ISM ADONAI</option>
+									<option value="ISMA">ISMA</option>
+									<option value="LES COURS SONOU">LES COURS SONOU</option>
+									<option value="PRYTANEE MILITAIRE">PRYTANEE MILITAIRE</option>
+									<option value="UATM-GASA">UATM-GASA</option>
+									<option value="UCAO">UCAO</option>
+									<option value="UNA">UNA</option>
+									<option value="UNSAT">UNSAT</option>
+									<option value="UPAO">UPAO</option>
+									<option value="autre">Autre</option>
+								</select>
+
+
 								<div style="margin-top: 1em;">
 									<p>A quel jeu voulez vous participer ?</p>
 									<input type="checkbox" name="type-jeux" id="digitalMiss" value="digitalMiss">
@@ -141,6 +203,20 @@
 											<label for="non1">Non</label>
 										</div>
 
+									</div>
+
+									<div style="display: flex; display: none;" class="gaming1">
+										<p style="margin-top: 1em;  text-align: justify;">Voulez vous participer au jeu
+											concours Université diditale ?. </p>
+										<div style="margin-top: 1em;">
+											<input type="radio" name="gaming1" id="gamingOui1" value="1">
+											<label for="gamingOui1">Oui</label>
+										</div>
+										<!-- si la reponse est oui alors c'est la fin -->
+										<div style="margin-top: 1em;">
+											<input type="radio" name="gaming1" id="gamingNon1" value="0">
+											<label for="gamingNon1">Non</label>
+										</div>
 									</div>
 
 									<div id="input-non" style="display: none;">
@@ -207,6 +283,19 @@
 										<div>
 											<input type="radio" id="non2" name="choix2" value="0">
 											<label for="non2">Non</label>
+										</div>
+									</div>
+									<div style="display: flex; display: none;" class="gaming">
+										<p style="margin-top: 1em;  text-align: justify;">Voulez vous participer au jeu
+											concours Université diditale ?. </p>
+										<div style="margin-top: 1em;">
+											<input type="radio" name="gaming2" id="gamingOui2" value="1">
+											<label for="gamingOui2">Oui</label>
+										</div>
+										<!-- si la reponse est oui alors c'est la fin -->
+										<div style="margin-top: 1em;">
+											<input type="radio" name="gaming2" id="gamingNon2" value="0">
+											<label for="gamingNon2">Non</label>
 										</div>
 									</div>
 									<div id="input-non1" style="display: none;">
@@ -314,16 +403,17 @@
 						<h2>Menu</h2>
 					</header>
 					<ul>
+
 						<li><a href="index.html">Accueil</a></li>
 						<li><a href="objectifs.html">Objectifs</a></li>
 						<li><a href="programmes.html">Programmes</a></li>
 						<!-- <li><a href="partenaires.html">Partenaires</a></li> -->
 						<!-- <li><a href="jeux-concours.html">Jeux concours</a></li> -->
 						<li>
-							<span class="opener">Pourquoi nous rejoindre</span>
+							<span class="opener">Pourquoi participer</span>
 							<ul>
-								<li><a href="#">Caravane DUT</a></li>
-								<li><a href="#">Pourquoi</a></li>
+								<li><a href="caravane.html">Caravane DUT</a></li>
+								<!-- <li><a href="pourquoi.html">Pourquoi</a></li> -->
 								<li><a href="jeux-concours.html">jeux concours</a></li>
 
 							</ul>
@@ -343,8 +433,9 @@
 						<li class="icon solid fa-envelope"><a
 								href="mailto:contact@btechspace.com">contact@btechspace.com</a></li>
 						<li class="icon solid fa-phone"><a href="tel:+229 94 68 40 40">+229 94 68 40 40</a></li>
-						<li class="icon solid fa-home">Rue 308, Guinkomey <br />
-							Cotonou, Bénin</li>
+						<li class="icon solid fa-home"><a href="https://maps.app.goo.gl/L4fxxZShTg11Z6VB7"
+								target="_blank"> Rue 308, Guinkomey <br />Cotonou, Bénin</a>
+						</li>
 					</ul>
 				</section>
 
@@ -364,6 +455,8 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 	<!-- --------------------Script pour le formulaire----------------------------------- -->
 	<script>
 		//my code
@@ -372,12 +465,28 @@
 
 		// Afficher la variable "message" dans une pop-up
 		if (message != null) {
-			alert(message);
-			// Fermer la pop-up après 5 secondes
-			setTimeout(function () {
-				window.close();
-			}, 3000);
+			swal({
+				title: "Succes !",
+				text: message,
+				icon: "success",
+			}).then(() => {
+				location.href = 'inscription.html';
 
+			});
+		}
+
+		const err = urlParams.get('err');
+
+		// Afficher la variable "message" dans une pop-up
+		if (err != null) {
+			swal({
+				title: "Error!",
+				text: err,
+				icon: "error",
+			}).then(() => {
+				location.href = 'inscription.html';
+
+			});
 		}
 
 		const radioGroup1 = document.getElementsByName("choix1");
@@ -385,10 +494,12 @@
 			radio.addEventListener("change", (event) => {
 				const selectedValue1 = event.target.value;
 				if (selectedValue1 === '1') {
-					$('#input-non').hide();
+					$('.gaming1').show(),
+						$('#input-non').hide();
 					console.log(selectedValue1);
 				} else {
-					$('#input-non').show();
+					$('.gaming1').hide(),
+						$('#input-non').show();
 					console.log(selectedValue1);
 				}
 				// Utilisez la valeur sélectionnée ici
@@ -399,10 +510,12 @@
 			radio.addEventListener("change", (event) => {
 				const selectedValue = event.target.value;
 				if (selectedValue === '1') {
-					$('#input-non1').hide();
+					$('.gaming').show(),
+						$('#input-non1').hide();
 					console.log(selectedValue);
 				} else {
-					$('#input-non1').show();
+					$('.gaming').hide(),
+						$('#input-non1').show();
 					console.log(selectedValue);
 				}
 				// Utilisez la valeur sélectionnée ici
@@ -471,22 +584,6 @@
 
 			if (type === "etudiant") {
 
-				// 	var elements = document.querySelectorAll(" input, select, p , label");
-
-				// // Masque tous les éléments du formulaire en utilisant la propriété "display: none;"
-				// elements.forEach(function(element) {
-				// element.style.display = "none";
-				// });
-
-				// // Affiche les éléments du formulaire avec un délai de 200 millisecondes entre chaque élément
-				// var index = 0;
-				// var interval = setInterval(function() {
-				// elements[index].style.display = "block";
-				// index++;
-				// if (index >= elements.length) {
-				// 	clearInterval(interval);
-				// }
-				// }, 200);
 
 				champsEtudiant.style.display = "block";
 				champsEntreprise.style.display = "none";

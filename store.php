@@ -1,8 +1,9 @@
 <?php
 
 $dbh = new PDO('mysql:host=localhost;dbname=dut', 'root', '');
-if (isset($_POST["ok"])) {
+if (isset($_POST["ok"]) && isset($_POST['type'])) {
     $type = $_POST['type'];
+
     if ($type == "etudiant") {
         $nom = $_POST["nomEt"];
         $prenom = $_POST["prenom"];
@@ -11,7 +12,7 @@ if (isset($_POST["ok"])) {
         $ecole = $_POST["ecole"];
         $site = $_POST["site"];
         $hackathon = $_POST["type-jeux"] == 'hackathon' ? 1 : 0;
-        $digitalMiss=$_POST["type-jeux"]=='digitalMiss'?1:0;
+        $digitalMiss = $_POST["type-jeux"] == 'digitalMiss' ? 1 : 0;
 
         //envoie des données
         $stmt = $dbh->prepare("INSERT INTO etudiant (nom, prenom, tel, mail, nom_ecole, emplacement, hackathon,digitalMiss) VALUES (:nom, :prenom, :tel, :mail, :nom_ecole, :emplacement, :hackathon,:digitalMiss)");
@@ -23,7 +24,7 @@ if (isset($_POST["ok"])) {
             ':mail' => $mail,
             ':emplacement' => $site,
             ':hackathon' => $hackathon,
-            ':digitalMiss'=>$digitalMiss
+            ':digitalMiss' => $digitalMiss
         ]);
         $message = "Etudiant enregistré avec succès.";
 
@@ -71,6 +72,7 @@ if (isset($_POST["ok"])) {
             $tel = $_POST['telUP'];
             $mail = $_POST['emailUP'];
             $participer = $_POST['choix1'];
+            $gaming = $_POST['gaming1'];
             switch ($_POST['raison']) {
                 case 'raison1':
                     # code...
@@ -84,16 +86,16 @@ if (isset($_POST["ok"])) {
                     # code...
                     $raison = "autre raison";
                     break;
-                
+
                 default:
                     # code...
                     break;
             }
-            
+
             $reserver = $_POST['reserver1'];
             $periode_meilleur = $_POST['periode'];
             $autre_raison = $_POST['autre'];
-            if (saveUniversite($nom_universite, $nom_ecole, "", $tel, $mail, $participer, $raison, $reserver, $periode_meilleur, $autre_raison)) {
+            if (saveUniversite($nom_universite, $nom_ecole, "", $tel, $mail, $participer, $gaming, $raison, $reserver, $periode_meilleur, $autre_raison)) {
                 # code...
                 $message = "Université enregistrées avec succès.";
 
@@ -106,11 +108,12 @@ if (isset($_POST["ok"])) {
             $tel = $_POST['telEcolePrivee'];
             $mail = $_POST['emailEcolePrivee'];
             $participer = $_POST['choix2'];
+            $gaming = $_POST['gaming2'];
             $raison = $_POST['raisonEcolePrivee'];
             $reserver = $_POST['reserver2'];
             $periode_meilleur = $_POST['periodeEcolePrivee'];
             $autre_raison = $_POST['autreEcolePrivee'];
-            if (saveUniversite("", $nom_ecole, $adresse, $tel, $mail, $participer, $raison, $reserver, $periode_meilleur, $autre_raison)) {
+            if (saveUniversite("", $nom_ecole, $adresse, $tel, $mail, $participer, $gaming, $raison, $reserver, $periode_meilleur, $autre_raison)) {
                 # code...
                 $message = "Ecole privée enregistré avec succès.";
 
@@ -120,6 +123,8 @@ if (isset($_POST["ok"])) {
         }
         # code...
     }
+} else {
+    header("Location: inscription.html?err=" . urlencode("Veuillez remplir le formulaire !"));
 }
 
 /**
@@ -131,16 +136,17 @@ if (isset($_POST["ok"])) {
  * @param mixed $tel
  * @param mixed $mail
  * @param mixed $participer
+ * @param mixed $gaming
  * @param mixed $raison
  * @param mixed $reserver
  * @param mixed $periode_meilleur
  * @param mixed $autre_raison
  * @return bool
  */
-function saveUniversite($nom_universite, $nom_ecole, $adresse, $tel, $mail, $participer, $raison, $reserver, $periode_meilleur, $autre_raison)
+function saveUniversite($nom_universite, $nom_ecole, $adresse, $tel, $mail, $participer, $gaming, $raison, $reserver, $periode_meilleur, $autre_raison)
 {
     $dbh = new PDO('mysql:host=localhost;dbname=dut', 'root', '');
-    $stmt = $dbh->prepare("INSERT INTO universite (nom_universite,nom_ecole,adresse,tel, mail, participer, raison, reserver, periode_meilleur,autre_raison) VALUES (:nom_universite, :nom_ecole,:adresse, :tel, :mail, :participer, :raison,:reserver,:periode_meilleur,:autre_raison)");
+    $stmt = $dbh->prepare("INSERT INTO universite (nom_universite,nom_ecole,adresse,tel, mail, participer, gaming, raison, reserver, periode_meilleur,autre_raison) VALUES (:nom_universite, :nom_ecole,:adresse, :tel, :mail, :participer, :gaming, :raison,:reserver,:periode_meilleur,:autre_raison)");
     $stmt->execute([
         ':nom_universite' => $nom_universite ?? '',
         ':nom_ecole' => $nom_ecole ?? "",
@@ -148,6 +154,7 @@ function saveUniversite($nom_universite, $nom_ecole, $adresse, $tel, $mail, $par
         ':tel' => $tel ?? "",
         ':mail' => $mail ?? "",
         ':participer' => $participer ?? 0,
+        ':gaming' => $gaming ?? 0,
         ':raison' => $raison ?? "",
         ':reserver' => $reserver ?? 0,
         ':periode_meilleur' => $periode_meilleur ?? "",
