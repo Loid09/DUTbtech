@@ -13,23 +13,28 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
         $site = $_POST["site"];
         $hackathon = $_POST["type-jeux"] == 'hackathon' ? 1 : 0;
         $digitalMiss = $_POST["type-jeux"] == 'digitalMiss' ? 1 : 0;
+        if (isset($nom, $prenom, $tel, $mail)  && $nom !== '' && $prenom !== '' && $tel !== '' && $mail !== '') {
+            //envoie des données
+            $stmt = $dbh->prepare("INSERT INTO etudiant (nom, prenom, tel, mail, nom_ecole, emplacement, hackathon,digitalMiss) VALUES (:nom, :prenom, :tel, :mail, :nom_ecole, :emplacement, :hackathon,:digitalMiss)");
+            $stmt->execute([
+                ':nom' => $nom,
+                ':prenom' => $prenom,
+                ':tel' => $tel,
+                ':nom_ecole' => $ecole,
+                ':mail' => $mail,
+                ':emplacement' => $site,
+                ':hackathon' => $hackathon,
+                ':digitalMiss' => $digitalMiss
+            ]);
+            $message = "Etudiant enregistré avec succès.";
 
-        //envoie des données
-        $stmt = $dbh->prepare("INSERT INTO etudiant (nom, prenom, tel, mail, nom_ecole, emplacement, hackathon,digitalMiss) VALUES (:nom, :prenom, :tel, :mail, :nom_ecole, :emplacement, :hackathon,:digitalMiss)");
-        $stmt->execute([
-            ':nom' => $nom,
-            ':prenom' => $prenom,
-            ':tel' => $tel,
-            ':nom_ecole' => $ecole,
-            ':mail' => $mail,
-            ':emplacement' => $site,
-            ':hackathon' => $hackathon,
-            ':digitalMiss' => $digitalMiss
-        ]);
-        $message = "Etudiant enregistré avec succès.";
+            header("Location: inscription.html?message=" . urlencode($message));
+            exit();
+        } else {
+            header("Location: inscription.html?err=" . urlencode("Veuillez remplir tous les champs !"));
+        }
 
-        header("Location: inscription.html?message=" . urlencode($message));
-        exit();
+
         // Affichage d'un message avec pop-up
         //echo "<script>window.onload = function() { alert('oki'); }</script>";
     } elseif ($type == "entreprise") {
@@ -44,24 +49,28 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
         $rdv = $_POST['rdv'] ?? 0;
         $apport = $_POST['apport'];
 
-        // var_dump($_POST['rdv']);
-        //envoie des données
-        $stmt = $dbh->prepare("INSERT INTO entreprise (nom_entreprise, 	adresse, nom_prenom, tel, mail, catalogue, souscrire,rdv,apport) VALUES (:nom_entrepise, :adresse, :nom_prenom, :tel, :mail, :catalogue, :souscrire,:rdv,:apport)");
-        $stmt->execute([
-            ':nom_entrepise' => $nom_entrepise,
-            ':adresse' => $adresse,
-            ':nom_prenom' => $nom_prenom,
-            ':tel' => $tel,
-            ':mail' => $mail,
-            ':catalogue' => $catalogue,
-            ':souscrire' => $souscrire,
-            ':rdv' => $rdv,
-            ':apport' => $apport,
-        ]);
-        $message = "Entreprise enregistré avec succès.";
+        if (isset($nom_entreprise, $nom_prenom, $tel, $mail, $adresse)  && $nom_entreprise !== '' && $nom_prenom !== '' && $tel !== '' && $mail !== '' && $adresse !== '') {
+            // var_dump($_POST['rdv']);
+            //envoie des données
+            $stmt = $dbh->prepare("INSERT INTO entreprise (nom_entreprise, 	adresse, nom_prenom, tel, mail, catalogue, souscrire,rdv,apport) VALUES (:nom_entrepise, :adresse, :nom_prenom, :tel, :mail, :catalogue, :souscrire,:rdv,:apport)");
+            $stmt->execute([
+                ':nom_entrepise' => $nom_entrepise,
+                ':adresse' => $adresse,
+                ':nom_prenom' => $nom_prenom,
+                ':tel' => $tel,
+                ':mail' => $mail,
+                ':catalogue' => $catalogue,
+                ':souscrire' => $souscrire,
+                ':rdv' => $rdv,
+                ':apport' => $apport,
+            ]);
+            $message = "Entreprise enregistré avec succès.";
 
-        header("Location: inscription.html?message=" . urlencode($message));
-        exit();
+            header("Location: inscription.html?message=" . urlencode($message));
+            exit();
+        } else {
+            header("Location: inscription.html?err=" . urlencode("Veuillez remplir tous les champs !"));
+        }
     } elseif ($type == "universite") {
         var_dump($_POST['choix1']);
 
@@ -145,20 +154,24 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
  */
 function saveUniversite($nom_universite, $nom_ecole, $adresse, $tel, $mail, $participer, $gaming, $raison, $reserver, $periode_meilleur, $autre_raison)
 {
-    $dbh = new PDO('mysql:host=localhost;dbname=dut', 'root', '');
-    $stmt = $dbh->prepare("INSERT INTO universite (nom_universite,nom_ecole,adresse,tel, mail, participer, gaming, raison, reserver, periode_meilleur,autre_raison) VALUES (:nom_universite, :nom_ecole,:adresse, :tel, :mail, :participer, :gaming, :raison,:reserver,:periode_meilleur,:autre_raison)");
-    $stmt->execute([
-        ':nom_universite' => $nom_universite ?? '',
-        ':nom_ecole' => $nom_ecole ?? "",
-        ':adresse' => $adresse ?? '',
-        ':tel' => $tel ?? "",
-        ':mail' => $mail ?? "",
-        ':participer' => $participer ?? 0,
-        ':gaming' => $gaming ?? 0,
-        ':raison' => $raison ?? "",
-        ':reserver' => $reserver ?? 0,
-        ':periode_meilleur' => $periode_meilleur ?? "",
-        ':autre_raison' => $autre_raison ?? "",
-    ]);
-    return true;
+    if (isset($nom_ecole, $tel, $mail)  && $nom_ecole !== '' && $tel !== '' && $mail !== '') {
+        $dbh = new PDO('mysql:host=localhost;dbname=dut', 'root', '');
+        $stmt = $dbh->prepare("INSERT INTO universite (nom_universite,nom_ecole,adresse,tel, mail, participer, gaming, raison, reserver, periode_meilleur,autre_raison) VALUES (:nom_universite, :nom_ecole,:adresse, :tel, :mail, :participer, :gaming, :raison,:reserver,:periode_meilleur,:autre_raison)");
+        $stmt->execute([
+            ':nom_universite' => $nom_universite ?? '',
+            ':nom_ecole' => $nom_ecole ?? "",
+            ':adresse' => $adresse ?? '',
+            ':tel' => $tel ?? "",
+            ':mail' => $mail ?? "",
+            ':participer' => $participer ?? 0,
+            ':gaming' => $gaming ?? 0,
+            ':raison' => $raison ?? "",
+            ':reserver' => $reserver ?? 0,
+            ':periode_meilleur' => $periode_meilleur ?? "",
+            ':autre_raison' => $autre_raison ?? "",
+        ]);
+        return true;
+    } else {
+        header("Location: inscription.html?err=" . urlencode("Veuillez remplir tous les champs !"));
+    }
 }
