@@ -258,7 +258,7 @@ a {
 
 a:hover {
     border-bottom-color: #2E58A6;
-    color: #2E58A6 !important;
+    /* color: #2E58A6 !important; */
 }
 
 a:hover strong {
