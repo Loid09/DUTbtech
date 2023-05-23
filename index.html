@@ -12,6 +12,35 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<style>
+		.countdown-card {
+			background-color: #f2f2f2;
+			border-radius: 5px;
+			/* padding: 20px; */
+			width: 260px;
+			text-align: center;
+			margin: 0 auto;
+			font-family: monospace;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.countdown-card h1,
+		.countdown-card p {
+			margin: 5px 0;
+		}
+
+		.countdown-card h1 {
+			color: #333;
+			font-size: 30px;
+		}
+
+		.countdown-card p {
+			color: #666;
+			font-size: 18px;
+		}
+	</style>
 
 </head>
 
@@ -126,7 +155,22 @@
 				</nav>
 
 				<!-- Section -->
+				<!-- <section>
+					<header class="major">
+						<h2>Compte a rebours</h2>
+					</header>
+					<div class="mini-posts countdown-card">
 
+						<h1 id="days">00</h1>
+						<p>Jours</p>
+						<h1 id="hours">00</h1>
+						<h1 id="minutes">00</h1>
+						<h1 id="seconds">00</h1>
+
+
+					</div>
+
+				</section> -->
 				<!-- Section -->
 				<section>
 					<header class="major">
@@ -138,8 +182,7 @@
 								href="mailto:contact@btechspace.com">contact@btechspace.com</a></li>
 						<li class="icon solid fa-phone"><a href="tel:+229 94 68 40 40">+229 94 68 40 40</a></li>
 						<li class="icon solid fa-home"><a href="https://maps.app.goo.gl/L4fxxZShTg11Z6VB7"
-								target="_blank"> Rue 308, Guinkomey <br />Cotonou, Bénin</a>
-						</li>
+								target="_blank"> Rue 308, Guinkomey <br />Cotonou, Bénin</a></li>
 
 					</ul>
 				</section>
@@ -162,6 +205,38 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script>
+		// Définir la date de fin du compte à rebours (YYYY, MM-1, DD, HH, MM, SS)
+		var countDownDate = new Date(2023, 5, 23, 09, 56, 30); // 23 mai 2023, 15h00
+
+		// Mettre à jour le compte à rebours chaque seconde
+		var countdown = setInterval(function () {
+			// Obtenir la date et l'heure actuelles
+			var now = new Date().getTime();
+
+			// Calculer la différence entre la date de fin et la date actuelle
+			var distance = countDownDate - now;
+
+			// Calculer les heures, minutes et secondes restantes
+			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+			// Afficher le compte à rebours dans l'élément avec l'ID "countdown"
+			document.getElementById("days").textContent = formatTime(days);
+			document.getElementById("hours").textContent = formatTime(hours);
+			document.getElementById("minutes").textContent = formatTime(minutes);
+			document.getElementById("seconds").textContent = formatTime(seconds);
+			// Si le compte à rebours est terminé, afficher un message
+			if (distance < 0) {
+				clearInterval(countdown);
+				document.getElementById("countdown").innerHTML = "Le compte à rebours est terminé!";
+			}
+		}, 1000); // Répéter toutes les 1 seconde (1000 millisecondes)
+		function formatTime(time) {
+			return time < 10 ? "0" + time : time;
+		}
+	</script>
 
 </body>
 
