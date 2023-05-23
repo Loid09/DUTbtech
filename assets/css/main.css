@@ -3786,7 +3786,7 @@ form button[type="submit"]:hover {
     display: flex;
 }
 
-.m-icons li {}
+/* .m-icons li {} */
 
 .m-icons li:last-child {
     margin-right: 0;

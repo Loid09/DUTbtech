@@ -26,7 +26,7 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
                 ':hackathon' => $hackathon,
                 ':digitalMiss' => $digitalMiss
             ]);
-            $message = "Etudiant enregistré avec succès.";
+            $message = "Vous vous êtes inscrit avec succès.";
 
             header("Location: inscription.html?message=" . urlencode($message));
             exit();
@@ -39,7 +39,7 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
         //echo "<script>window.onload = function() { alert('oki'); }</script>";
     } elseif ($type == "entreprise") {
         # code...
-        $nom_entrepise = $_POST['nomEntreprise'];
+        $nom_entreprise = $_POST['nomEntreprise'];
         $adresse = $_POST['adresseEp'];
         $nom_prenom = $_POST['nomEP'];
         $tel = $_POST['telEP'];
@@ -54,7 +54,7 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
             //envoie des données
             $stmt = $dbh->prepare("INSERT INTO entreprise (nom_entreprise, 	adresse, nom_prenom, tel, mail, catalogue, souscrire,rdv,apport) VALUES (:nom_entrepise, :adresse, :nom_prenom, :tel, :mail, :catalogue, :souscrire,:rdv,:apport)");
             $stmt->execute([
-                ':nom_entrepise' => $nom_entrepise,
+                ':nom_entrepise' => $nom_entreprise,
                 ':adresse' => $adresse,
                 ':nom_prenom' => $nom_prenom,
                 ':tel' => $tel,

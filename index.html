@@ -14,10 +14,11 @@
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<style>
 		.countdown-card {
-			background-color: #f2f2f2;
+			background-color: #fff;
+			border-color: #333 !important;
 			border-radius: 5px;
 			/* padding: 20px; */
-			width: 260px;
+			width: 230px;
 			text-align: center;
 			margin: 0 auto;
 			font-family: monospace;
@@ -26,18 +27,17 @@
 			align-items: center;
 		}
 
-		.countdown-card h1,
-		.countdown-card p {
+		.countdown-card h1 {
 			margin: 5px 0;
 		}
 
 		.countdown-card h1 {
-			color: #333;
+			color: #2E58A6;
 			font-size: 30px;
 		}
 
-		.countdown-card p {
-			color: #666;
+		.countdown-card {
+			color: #2E58A6;
 			font-size: 18px;
 		}
 	</style>
@@ -159,16 +159,15 @@
 					<header class="major">
 						<h2>Compte a rebours</h2>
 					</header>
-					<div class="mini-posts countdown-card">
+					<article>
+						<div class="mini-posts countdown-card" style="margin-bottom: 10px;">
+							<h1 id="countdown"></h1>
+						</div>
+						<p style="font-size: 20px; text-align: justify;">Compte a rebours pour le démarrage du Digital
+							University Tour</p>
 
-						<h1 id="days">00</h1>
-						<p>Jours</p>
-						<h1 id="hours">00</h1>
-						<h1 id="minutes">00</h1>
-						<h1 id="seconds">00</h1>
+					</article>
 
-
-					</div>
 
 				</section> -->
 				<!-- Section -->
@@ -223,19 +222,15 @@
 			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 			// Afficher le compte à rebours dans l'élément avec l'ID "countdown"
-			document.getElementById("days").textContent = formatTime(days);
-			document.getElementById("hours").textContent = formatTime(hours);
-			document.getElementById("minutes").textContent = formatTime(minutes);
-			document.getElementById("seconds").textContent = formatTime(seconds);
+			document.getElementById("countdown").innerHTML = days + "j " + hours + "h " + minutes + "m " + seconds + "s ";
+
 			// Si le compte à rebours est terminé, afficher un message
 			if (distance < 0) {
 				clearInterval(countdown);
 				document.getElementById("countdown").innerHTML = "Le compte à rebours est terminé!";
 			}
 		}, 1000); // Répéter toutes les 1 seconde (1000 millisecondes)
-		function formatTime(time) {
-			return time < 10 ? "0" + time : time;
-		}
+
 	</script>
 
 </body>
