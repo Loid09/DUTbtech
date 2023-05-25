@@ -19,7 +19,7 @@
 			background-color: #fff;
 			border-color: #333 !important;
 			border-radius: 5px;
-			/* padding: 20px; */
+
 			width: 220px;
 			text-align: center;
 			margin: 0 auto;
@@ -98,10 +98,9 @@
 				<section id="banner">
 					<div class="content">
 						<header>
-							<!-- <h1 style="color: #2E58A6;">DIGITAL UNIVERSITY <strong style="color : #FE0000">TOUR</strong>
-							</h1> -->
 
-							<h3>ETUDIANTS ET ENTREPRISES NUMERIQUES</h3>
+
+							<h3>QU'EST-CE QUE C'EST ? </h3>
 						</header>
 
 						<p style="text-align: justify;">Le Digital University Tour est un programme pluriannuel qui vise
@@ -142,47 +141,7 @@
 					</span>
 				</section>
 
-				<!-- <section>
-					<header class="major">
-						<h2>Erat lacinia</h2>
-					</header>
-					<div class="row">
-						<div class="col-6 col-12-small">
-							<ul class="alt">
-								<li style="text-align: justify;">Sensibiliser les étudiants et enseignants aux avantages
-									de
-									la transformation digitale</li>
-								<li style="text-align: justify;">Sensibiliser les étudiants aux opportunités de
-									l'économie
-									numérique</li>
-								<li style="text-align: justify;">Développer des programmes d’accompagnement à
-									l'entrepreneuriat numérique pour les étudiants
-								</li>
-								<li style="text-align: justify;">Favoriser la créativité, l'innovation et l'esprit
-									d'entreprise des étudiants</li>
-							</ul>
-						</div>
-						<div class="col-6 col-12-small">
-							<ul class="alt">
-								<li style="text-align: justify;">Favoriser la collaboration entre les universités, les
-									étudiants et les entreprises du
-									secteur
-									numérique
-								</li>
-								<li style="text-align: justify;">Créer pour les étudiants un environnement
-									d'apprentissage
-									pratique et dynamique</li>
-								<li style="text-align: justify;">Favoriser la mise en œuvre de projets numériques réels
-									dans
-									un contexte entrepreneurial
-								</li>
-								<li style="text-align: justify;">Préparer les étudiants aux défis de la vie active et du
-									marché de l’emploi.</li>
-							</ul>
 
-						</div>
-					</div>
-				</section> -->
 				<section id="banner">
 					<!-- <header class="major">
 						<h2 style="color: #2E58A6;">Objectifs</h2>
@@ -192,6 +151,10 @@
 
 
 					<div class="content">
+
+						<header>
+							<h3> NOS OBJECTIFS</h3>
+						</header>
 
 						<ul class="alt">
 							<li style="text-align: justify;">Sensibiliser les étudiants et enseignants aux avantages de
@@ -301,31 +264,25 @@
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script>
-		// Définir la date de fin du compte à rebours (YYYY, MM-1, DD, HH, MM, SS)
-		var countDownDate = new Date(2023, 5, 23, 09, 56, 30); // 23 mai 2023, 15h00
+		var countDownDate = new Date(2023, 5, 23, 09, 56, 30); // 23 juin 2023, 09h56:30
 
-		// Mettre à jour le compte à rebours chaque seconde
 		var countdown = setInterval(function () {
-			// Obtenir la date et l'heure actuelles
 			var now = new Date().getTime();
 
-			// Calculer la différence entre la date de fin et la date actuelle
 			var distance = countDownDate - now;
 
-			// Calculer les heures, minutes et secondes restantes
 			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-			// Afficher le compte à rebours dans l'élément avec l'ID "countdown"
 			document.getElementById("countdown").innerHTML = days + "j " + hours + "h " + minutes + "m " + seconds + "s ";
 
-			// Si le compte à rebours est terminé, afficher un message
+
 			if (distance < 0) {
 				clearInterval(countdown);
 				document.getElementById("countdown").innerHTML = "Le compte à rebours est terminé!";
 			}
-		}, 1000); // Répéter toutes les 1 seconde (1000 millisecondes)
+		}, 1000);
 
 	</script>
 

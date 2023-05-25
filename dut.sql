@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 24 mai 2023 à 23:46
--- Version du serveur : 10.4.28-MariaDB
--- Version de PHP : 8.2.4
+-- Généré le : jeu. 25 mai 2023 à 08:34
+-- Version du serveur : 10.4.24-MariaDB
+-- Version de PHP : 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,8 +37,9 @@ CREATE TABLE `entreprise` (
   `catalogue` varchar(255) DEFAULT NULL,
   `souscrire` tinyint(1) DEFAULT 0,
   `rdv` tinyint(1) DEFAULT 0,
-  `apport` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `apport` varchar(255) DEFAULT NULL,
+  `Fait_le` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -58,15 +59,9 @@ CREATE TABLE `etudiant` (
   `digitalMiss` tinyint(1) DEFAULT 0,
   `miss_name_project` varchar(255) DEFAULT NULL,
   `miss_description_project` text DEFAULT NULL,
-  `miss_description_teams` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `etudiant`
---
-
-INSERT INTO `etudiant` (`id`, `nom`, `prenom`, `tel`, `mail`, `nom_ecole`, `emplacement`, `hackathon`, `digitalMiss`, `miss_name_project`, `miss_description_project`, `miss_description_teams`) VALUES
-(6, 'RODIAS FIRSDYNO SEMEVO GOHOUE', 'RODIAS', '+22997933988', 'gohouerodias@gmail.com', 'ENEAM', 'Bohicon', 0, 1, 'Alex Qweme', 'ertfguhjnp;lôjgfdhj', 'hjnk,lmjùlk:');
+  `miss_description_teams` text DEFAULT NULL,
+  `Fait_le` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -86,8 +81,9 @@ CREATE TABLE `universite` (
   `raison` varchar(255) DEFAULT NULL,
   `reserver` tinyint(1) DEFAULT 0,
   `periode_meilleur` varchar(255) DEFAULT NULL,
-  `autre_raison` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `autre_raison` varchar(255) DEFAULT NULL,
+  `Fait_le` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Index pour les tables déchargées
@@ -125,7 +121,7 @@ ALTER TABLE `entreprise`
 -- AUTO_INCREMENT pour la table `etudiant`
 --
 ALTER TABLE `etudiant`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `universite`
