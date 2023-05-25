@@ -9,13 +9,30 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
         $prenom = $_POST["prenom"];
         $tel = $_POST["tel"];
         $mail = $_POST["mail"];
-        $ecole = $_POST["ecole"];
+        if ($_POST["ecole"] != "autre") {
+            $ecole = $_POST["ecole"];
+        } else {
+            $ecole = $_POST["autreChoix"];
+        }
+        var_dump($_POST["ecole"]);
+
+
         $site = $_POST["site"];
         $hackathon = $_POST["type-jeux"] == 'hackathon' ? 1 : 0;
         $digitalMiss = $_POST["type-jeux"] == 'digitalMiss' ? 1 : 0;
-        if (isset($nom, $prenom, $tel, $mail)  && $nom !== '' && $prenom !== '' && $tel !== '' && $mail !== '') {
+        $missNameProject = null;
+        $missDescriptionProject = null;
+        $missDescriptionTeams = null;
+        if ($digitalMiss == 1) {
+            $missNameProject = $_POST['miss_name_project'];
+            $missDescriptionProject = $_POST['miss_description_project'];
+            $missDescriptionTeams = $_POST['miss_description_teams'];
+        }
+
+        if (isset($nom, $prenom, $tel, $mail, $site, $ecole)  && $nom !== '' && $prenom !== '' && $tel !== '' && $mail !== '' && $site !== '' && $ecole !== '') {
             //envoie des données
-            $stmt = $dbh->prepare("INSERT INTO etudiant (nom, prenom, tel, mail, nom_ecole, emplacement, hackathon,digitalMiss) VALUES (:nom, :prenom, :tel, :mail, :nom_ecole, :emplacement, :hackathon,:digitalMiss)");
+            $stmt = $dbh->prepare("INSERT INTO etudiant (nom, prenom, tel, mail, nom_ecole, emplacement, hackathon,digitalMiss,miss_name_project,miss_description_project,miss_description_teams)
+                     VALUES (:nom, :prenom, :tel, :mail, :nom_ecole, :emplacement, :hackathon,:digitalMiss,:missNameProject,:missDescriptionProject,:missDescriptionTeams)");
             $stmt->execute([
                 ':nom' => $nom,
                 ':prenom' => $prenom,
@@ -24,7 +41,10 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
                 ':mail' => $mail,
                 ':emplacement' => $site,
                 ':hackathon' => $hackathon,
-                ':digitalMiss' => $digitalMiss
+                ':digitalMiss' => $digitalMiss,
+                ':missNameProject' => $missNameProject,
+                ':missDescriptionProject' => $missDescriptionProject,
+                ':missDescriptionTeams' => $missDescriptionTeams
             ]);
             $message = "Vous vous êtes inscrit avec succès.";
 
@@ -118,7 +138,25 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
             $mail = $_POST['emailEcolePrivee'];
             $participer = $_POST['choix2'];
             $gaming = $_POST['gaming2'];
-            $raison = $_POST['raisonEcolePrivee'];
+            // $raison = $_POST['raisonEcolePrivee'];
+            switch ($_POST['raisonEcolePrivee']) {
+                case 'raison1':
+                    # code...
+                    $raison = "Délai court pour organisation à l'interne";
+                    break;
+                case 'raison2':
+                    # code...
+                    $raison = "Période non propice pour cause de préparation aux examens de fin de semestre";
+                    break;
+                case 'raison3':
+                    # code...
+                    $raison = "autre raison";
+                    break;
+
+                default:
+                    # code...
+                    break;
+            }
             $reserver = $_POST['reserver2'];
             $periode_meilleur = $_POST['periodeEcolePrivee'];
             $autre_raison = $_POST['autreEcolePrivee'];

@@ -2564,10 +2564,10 @@ table.alt tfoot {
 }
 
 /* Button */
-input[type="submit"],
+/* input[type="submit"],
 input[type="reset"],
 input[type="button"],
-button,
+button, */
 .button {
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -3735,15 +3735,14 @@ form input[type="radio"] {
     margin-right: 0.5em;
 }
 
-form input[type="submit"] {
-    /* ajoute du style au bouton de soumission */
+/* form input[type="submit"] {
     padding: 0.5em 1em;
     border: none;
     border-radius: 0.25em;
     background-color: #0f5da7;
     color: white;
     cursor: pointer;
-}
+} */
 
 form button[type="submit"]:hover {
     /* change la couleur du bouton lorsque la souris passe dessus */
@@ -3790,4 +3789,9 @@ form button[type="submit"]:hover {
 
 .m-icons li:last-child {
     margin-right: 0;
+}
+
+.active {
+    color: #2E58A6 !important;
+    font-weight: bold;
 }

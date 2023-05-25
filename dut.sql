@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 22 mai 2023 à 11:43
--- Version du serveur : 10.4.24-MariaDB
--- Version de PHP : 8.1.6
+-- Généré le : mer. 24 mai 2023 à 23:46
+-- Version du serveur : 10.4.28-MariaDB
+-- Version de PHP : 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,7 +38,7 @@ CREATE TABLE `entreprise` (
   `souscrire` tinyint(1) DEFAULT 0,
   `rdv` tinyint(1) DEFAULT 0,
   `apport` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -55,8 +55,18 @@ CREATE TABLE `etudiant` (
   `nom_ecole` varchar(255) DEFAULT NULL,
   `emplacement` varchar(255) DEFAULT NULL,
   `hackathon` tinyint(1) DEFAULT 0,
-  `digitalMiss` tinyint(1) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `digitalMiss` tinyint(1) DEFAULT 0,
+  `miss_name_project` varchar(255) DEFAULT NULL,
+  `miss_description_project` text DEFAULT NULL,
+  `miss_description_teams` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `etudiant`
+--
+
+INSERT INTO `etudiant` (`id`, `nom`, `prenom`, `tel`, `mail`, `nom_ecole`, `emplacement`, `hackathon`, `digitalMiss`, `miss_name_project`, `miss_description_project`, `miss_description_teams`) VALUES
+(6, 'RODIAS FIRSDYNO SEMEVO GOHOUE', 'RODIAS', '+22997933988', 'gohouerodias@gmail.com', 'ENEAM', 'Bohicon', 0, 1, 'Alex Qweme', 'ertfguhjnp;lôjgfdhj', 'hjnk,lmjùlk:');
 
 -- --------------------------------------------------------
 
@@ -77,7 +87,7 @@ CREATE TABLE `universite` (
   `reserver` tinyint(1) DEFAULT 0,
   `periode_meilleur` varchar(255) DEFAULT NULL,
   `autre_raison` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Index pour les tables déchargées
@@ -115,7 +125,7 @@ ALTER TABLE `entreprise`
 -- AUTO_INCREMENT pour la table `etudiant`
 --
 ALTER TABLE `etudiant`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `universite`

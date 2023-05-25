@@ -8,10 +8,43 @@
 	<!-- Favicon -->
 	<link href="images/logo.ico" rel="icon">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<style>
 		#header .icons {
 			padding-top: 0px !important;
+		}
+
+		body {
+			font-family: 'Poppins';
+		}
+
+		h1,
+		h2,
+		h3 {
+			font-family: 'Poppins';
+		}
+
+		.imp-large {
+			border: 4px #2E58A6 solid;
+			border-radius: 12px;
+			padding: 2%;
+		}
+
+		ul li {
+			font-family: 'Poppins';
+		}
+
+		input,
+		select {
+			font-family: 'Poppins';
+		}
+
+		.table-wrapper {
+			padding-top: 4%;
+			border-radius: 12px;
+			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 		}
 	</style>
 
@@ -32,7 +65,8 @@
 
 						</a>
 					</span>
-					<h3 class="m-title" style="color: #2E58A6;padding-top: 70px;">INSCRIPTION</h3>
+					<h3 class="m-title" style="color: #2E58A6;padding-top: 70px;  font-family: 'Poppins';">INSCRIPTION
+					</h3>
 					<ul class="icons">
 						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 						<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
@@ -56,7 +90,7 @@
 							inscrivez vous.
 						</p>
 
-						<h2>Vous êtes :</h2>
+						<h2 style="font-family: 'Poppins';">Vous êtes :</h2>
 					</div>
 					<form class="formulaire" method="post" action="store.php">
 
@@ -106,7 +140,7 @@
 									<option value="Sakété">Sakété</option>
 								</select>
 
-								<select name="ecole" style="margin-top: 1em;">
+								<select id="ecole" name="ecole" style="margin-top: 1em;">
 									<option value="">Nom de votre faculté/école</option>
 									<option value="AFRICA DESIGN SCHOOL">AFRICA DESIGN SCHOOL</option>
 									<option value="ENAM">ENAM</option>
@@ -146,18 +180,33 @@
 									<option value="UNA">UNA</option>
 									<option value="UNSAT">UNSAT</option>
 									<option value="UPAO">UPAO</option>
-									<option value="autre">Autre</option>
+									<option value="autre">(Autre)</option>
 								</select>
 
+								<input id="autreChoix" name="autreChoix" type="text"
+									placeholder="nom de votreecole/faculté" style="display: none;margin-top: 1em;">
 
 								<div style="margin-top: 1em;">
-									<p>A quel jeu voulez vous participer ?</p>
-									<input type="checkbox" name="type-jeux" id="digitalMiss" value="digitalMiss">
-									<label for="digitalMiss">Miss digital (uniquement pour les filles)</label>
-
+									<input type="radio" name="type-jeux" id="digitalMiss" value="digitalMiss">
+									<label for="digitalMiss">Miss digital (pour filles uniquement)</label>
+								</div>
+								<div id="missGroupFields"
+									style="margin-left: 2.5em;border-left: 5px solid rgb(94, 138, 250); padding-left: 10px; display: none;">
+									<div style="margin-top: 1em;">
+										<input type="text" name="miss_name_project"
+											placeholder="Nom du projet ou entreprise">
+									</div>
+									<div style="margin-top: 1em;">
+										<textarea name="miss_description_project" id="" rows="4"
+											placeholder="Description  concise du projet en mettant l'accent sur le  problème à résoudre, la solution trouvée et le marché cible"></textarea>
+									</div>
+									<div style="margin-top: 1em;">
+										<textarea name="miss_description_teams" id="" rows="4"
+											placeholder="Si vous êtes en équipe, renseigner le nom et prénom des membres et leur rôle ou responsabilité"></textarea>
+									</div>
 								</div>
 								<div style="margin-top: 1em;">
-									<input type="checkbox" name="type-jeux" id="hackathon" value="hackathon">
+									<input type="radio" name="type-jeux" id="hackathon" value="hackathon">
 									<label for="hackathon">DUT Hackathon</label>
 								</div>
 							</table>
@@ -191,7 +240,7 @@
 									<input type="email" name="emailUP" placeholder="Email" style="margin-top: 1em;">
 									<p style="margin-top: 1em;  text-align: justify;">La 1ère Edition du Digital
 										University Tour se tiendra du
-										01/06/2023 au 31/07/2023. souhaitez-vous y participer ? </p>
+										01/06/2023 au 31/07/2023. Souhaitez-vous y participer ? </p>
 									<!-- Ici on aura deux choix. Si la reponse est oui alors c'est bon si c'est non on aura alors une liste deroulante comme ca  -->
 									<div style="display: flex;">
 
@@ -208,7 +257,7 @@
 
 									<div style="display: flex; display: none;" class="gaming1">
 										<p style="margin-top: 1em;  text-align: justify;">Voulez vous participer au jeu
-											concours Université diditale ?. </p>
+											concours Université digitale ?. </p>
 										<div style="margin-top: 1em;">
 											<input type="radio" name="gaming1" id="gamingOui1" value="1">
 											<label for="gamingOui1">Oui</label>
@@ -228,7 +277,7 @@
 											<option value="raison2">Période non propice pour cause de préparation aux
 												examens de
 												fin de semestre</option>
-											<option value="raison3">Autre</option>
+											<option value="raison3">(Autre)</option>
 
 										</select>
 										<!-- quand l'option choisi est la raison1, -->
@@ -274,7 +323,7 @@
 										style="margin-top: 1em;">
 									<p style="margin-top: 1em; text-align: justify;">La 1ère Edition du Digital
 										University Tour se tiendra du
-										01/06/2023 au 31/07/2023. souhaitez-vous y participer ? </p>
+										01/06/2023 au 31/07/2023. Souhaitez-vous y participer ? </p>
 									<!-- Ici on aura deux choix. Si la reponse est oui alors c'est bon si c'est non on aura alors une liste deroulante comme ca  -->
 									<div style="display: flex;">
 										<div>
@@ -288,7 +337,7 @@
 									</div>
 									<div style="display: flex; display: none;" class="gaming">
 										<p style="margin-top: 1em;  text-align: justify;">Voulez vous participer au jeu
-											concours Université diditale ?. </p>
+											concours Université digitale ?. </p>
 										<div style="margin-top: 1em;">
 											<input type="radio" name="gaming2" id="gamingOui2" value="1">
 											<label for="gamingOui2">Oui</label>
@@ -307,7 +356,7 @@
 											<option value="raison2">Période non propice pour cause de préparation aux
 												examens de
 												fin de semestre</option>
-											<option value="raison3">Autre</option>
+											<option value="raison3">(Autre)</option>
 
 										</select>
 										<!-- quand l'option choisi est la raison1, -->
@@ -412,7 +461,7 @@
 						<!-- <li><a href="jeux-concours.html">Jeux concours</a></li> -->
 						<li><a href="caravane.html">Caravane DUT</a></li>
 						<li><a href="jeux-concours.html">jeux concours</a></li>
-						<li><a href="inscription.html">Inscription</a></li>
+						<li class="active"><a href="inscription.html">Inscription</a></li>
 
 					</ul>
 				</nav>
@@ -514,6 +563,27 @@
 				}
 				// Utilisez la valeur sélectionnée ici
 			});
+		});
+
+		$("#ecole").change(function () {
+			// Récupérer la valeur sélectionnée
+			var selectedValue = $(this).val();
+
+			// Afficher ou masquer le champ de saisie "autreChoix" en fonction de la valeur sélectionnée
+			if (selectedValue === "autre") {
+				$("#autreChoix").show();
+			} else {
+				$("#autreChoix").hide();
+			}
+		});
+
+
+		$('input[name="type-jeux"]').change(function () {
+			if ($(this).val() === 'digitalMiss') {
+				$('#missGroupFields').show();
+			} else {
+				$('#missGroupFields').hide();
+			}
 		});
 		//end my code
 
