@@ -1,230 +1,305 @@
-<!DOCTYPE HTML>
-
+<!doctype html>
 <html lang="fr">
 
 <head>
-    <title>Digital University Tour</title>
-    <meta charset="utf-8" />
-    <!-- Favicon -->
-    <link href="images/logo.ico" rel="icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <style>
-        #header .icons {
-            padding-top: 0px !important;
-        }
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        .countdown-card {
-            background-color: #fff;
-            border-color: #333 !important;
-            border-radius: 5px;
-            /* padding: 20px; */
-            width: 250px;
-            text-align: center;
-            margin: 0 auto;
-            font-family: monospace;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+	<title>Digital University Tour</title>
 
-        body {
-            font-family: 'Poppins';
-        }
+	<!-- CSS -->
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
 
-        h1,
-        h2,
-        p,
-        h3 {
-            font-family: 'Poppins';
-        }
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="assets/css/animate.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/media-queries.css">
 
-        .imp-large {
-            border: 4px #2E58A6 solid;
-            border-radius: 12px;
-            padding: 2%;
-        }
+	<!-- Favicon and touch icons -->
+	<link rel="shortcut icon" href="assets/images/logo.ico">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 
-        ul li {
-            font-family: 'Poppins';
-        }
-
-        .countdown-card h3 {
-            margin: 5px 0;
-        }
-
-        .countdown-card h3 {
-            color: #2E58A6;
-            font-size: 30px;
-        }
-
-        .countdown-card {
-            color: #2E58A6;
-            font-size: 18px;
-        }
-    </style>
 </head>
 
-<body class="is-preload">
+<body>
 
-    <!-- Wrapper -->
-    <div id="wrapper">
+	<!-- Wrapper -->
+	<div class="wrapper">
 
-        <!-- Main -->
-        <div id="main">
-            <div class="inner">
+		<!-- Sidebar -->
+		<nav class="sidebar">
 
-                <!-- Header -->
-                <div class="m-header" id="header" style="padding-top: 2.5em">
-                    <span>
-                        <a href="index.html" class="logo">
-                            <img src="images/logo.png" height="100px" alt="Logo" class="m-logo">
+			<!-- close sidebar menu -->
+			<div class="dismiss">
+				<i class="fas fa-arrow-left"></i>
+			</div>
 
-                        </a>
-                    </span>
-                    <h3 class="m-title" style="color: #2E58A6; padding-top: 70px;">Caravane DUT</h3>
-                    <ul class="icons">
-                        <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                        <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+			<div class="logo">
+				<h3><a href="index.html">Digital University Tour/a></h3>
+			</div>
 
-                        <li><a href="#" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+			<ul class="list-unstyled menu-elements">
+				<li class="active">
+					<a class="scroll-link" href="mfi.html"><i class="fas fa-home"></i> Accueil</a>
+				</li>
+				<li>
+					<a class="scroll-link" href="programmes.html"><i class="fas fa-cog"></i> Programmes</a>
+				</li>
+				<li>
+					<a class="scroll-link" href="caravane.html"><i class="fas fa-user"></i> Caravane DUT</a>
+				</li>
+				<li>
+					<a class="scroll-link" href="jeux-concours.html"><i class="fas fa-pencil-alt"></i> Jeux concours</a>
+				</li>
+				<li>
+					<a href="inscription.html"><i class="fas fa-envelope"></i> Inscription</a>
+				</li>
+				<!-- <li>
+						<a href="#otherSections" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="otherSections">
+							<i class="fas fa-sync"></i>Other sections
+						</a>
+						<ul class="collapse list-unstyled" id="otherSections">
+							<li>
+								<a class="scroll-link" href="#section-3">Our projects</a>
+							</li>
+							<li>
+								<a class="scroll-link" href="#section-4">We think that...</a>
+							</li>
+						</ul>
+					</li> -->
+			</ul>
 
-                    </ul>
-                </div>
+			<div class="to-top">
+				<a class="btn btn-primary btn-customized-3" href="#" role="button">
+					<i class="fas fa-arrow-up"></i> Top
+				</a>
+			</div>
 
+			<div class="dark-light-buttons">
+				<a class="btn btn-primary btn-customized-4 btn-customized-dark" href="#" role="button">Dark</a>
+				<a class="btn btn-primary btn-customized-4 btn-customized-light" href="#" role="button">Light</a>
+			</div>
 
-                <!-- Content -->
-                <section>
-                    <!-- <header class="major">
-						<h2 style="color: #2E58A6;">Programmes</h2>
-					</header> -->
-                    <p style="text-align: justify; ">Vous souhaitez communiquer et impacter un nombre
-                        impressionnant de
-                        particuliers et d’entreprises ? Profitez d’une opportunité unique qui s’offre à vous pour assoir
-                        votre notoriété. Branding, cortège motorisé avec pour figure de proue un bus à l’effigie du
-                        Digital University Tour et de ses partenaires, présentations grand-public, animations et
-                        commerciaux/hôtesses pour piloter votre campagne.
-                    </p>
-                    <p style="text-align: justify;">
-                        Cinq (05) raisons de rejoindre la caravane DUT :
-                    </p>
-                    <ol style="margin-left: 40px;">
-                        <li style="text-align: justify; margin-bottom: 15px;"> <strong
-                                style="color: #2E58A6;">Exposition de marque:</strong>
-                            En rejoignant notre
-                            caravane, votre
-                            entreprise bénéficie d'une
-                            visibilité exceptionnelle grâce à notre caravane brandée qui attire l'attention partout où
-                            elle passe. Profitez de cette opportunité pour renforcer la notoriété de votre marque et
-                            vous démarquer de vos concurrents.</li>
-                        <li style="margin-bottom: 15px;  text-align: justify;"><strong
-                                style="color: #2E58A6;  ">Génération
-                                de leads
-                                qualifiés :</strong>
-                            Notre caravane nous
-                            permet de nous rendre
-                            directement sur
-                            les campus universitaires, où nous attirons un public composé d'étudiants intéressés par le
-                            digital. En participant à notre tournée, vous avez la possibilité de générer des leads
-                            qualifiés et d'établir des contacts privilégiés avec une audience ciblée et intéressée par
-                            vos produits ou services.</li>
-                        <li style="margin-bottom: 15px; text-align: justify;"><strong style="color: #2E58A6;">Promotion
-                                de produits et services
-                                :</strong> Profitez de
-                            notre caravane pour
-                            présenter en personne
-                            vos produits et services aux étudiants. Organisez des démonstrations, des essais gratuits ou
-                            des présentations interactives pour susciter l'intérêt et convaincre les futurs
-                            consommateurs de l'efficacité de vos solutions.</li>
-                        <li style="margin-bottom: 15px; text-align: justify;"><strong style="color: #2E58A6; ">Expansion
-                                géographique :</strong> En tant
-                            que partenaire du
-                            Digital University Tour,
-                            vous pouvez
-                            élargir votre empreinte commerciale en atteignant des marchés potentiels dans différentes
-                            régions du Bénin. Notre caravane nous permet de couvrir plusieurs universités, offrant ainsi
-                            une opportunité unique d'explorer de nouvelles opportunités commerciales.</li>
-                        <li style="margin-bottom: 15px;  text-align: justify;"><strong
-                                style="color: #2E58A6;">Networking et partenariats :</strong>
-                            Rejoindre la caravane
-                            du Digital University
-                            Tour vous offre la
-                            possibilité de rencontrer d'autres entreprises du secteur, d'établir des partenariats
-                            stratégiques et de partager des idées. Profitez de cette occasion pour développer votre
-                            réseau professionnel et identifier de nouvelles collaborations pour stimuler votre
-                            croissance.
-                        </li>
+		</nav>
+		<!-- End sidebar -->
 
-                    </ol>
-                    <!-- <span class="image main"><img src="images/prog.jpeg" height="400px" alt="" /></span> -->
+		<!-- Dark overlay -->
+		<div class="overlay"></div>
+
+		<!-- Content -->
+		<div class="content">
+
+			<!-- open sidebar menu -->
+			<a class="btn btn-primary btn-customized open-menu" href="#" role="button">
+				<i class="fas fa-align-left"></i> <span>Menu</span>
+			</a>
+
+			<!-- Top content -->
+			<div class="top-content section-container" id="top-content">
+				<div class="container">
+					<div class="row">
+						<div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+							<h1 class="wow fadeIn">DIGITAL UNIVERSITY <strong style="color: #FE0000;">TOUR</strong></h1>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
 
 
-                </section>
+			<!-- Section 2 -->
+			<div class="section-2-container section-container section-container-gray-bg" id="section-2">
+				<div class="container">
+					<div class="row">
+						<div class="col section-2 section-description wow fadeIn">
+						</div>
+					</div>
+					<style>
+						p,
+						ol {
+							font-family: 'Poppins';
+							color: black;
+						}
 
-            </div>
-        </div>
+						li trong {
+							font-size: 18px;
+						}
+					</style>
+					<div class="row">
+						<div class="col-12 section-2-box wow fadeInLeft">
 
-        <!-- Sidebar -->
-        <div id="sidebar">
-            <div class="inner">
+							<p style="text-align: justify; ">Vous souhaitez communiquer et impacter un nombre
+								impressionnant de
+								particuliers et d’entreprises ? Profitez d’une opportunité unique qui s’offre à vous
+								pour assoir
+								votre notoriété. Branding, cortège motorisé avec pour figure de proue un bus à l’effigie
+								du
+								Digital University Tour et de ses partenaires, présentations grand-public, animations et
+								commerciaux/hôtesses pour piloter votre campagne.
+							</p>
+							<div class="row">
+								<div class="col section-3 section-description wow fadeInDown"
+									style="text-align: center; justify-content: center;">
+									<h2>Cinq (05) raisons de rejoindre la caravane DUT :</h2>
+									<div class="divider-1 wow fadeInUp"><span></span></div>
+								</div>
+							</div>
+							<ol style="margin-left: 40px;" class="fadeInUp">
+								<li style="text-align: justify; margin-bottom: 15px;"> <strong
+										style="color: #2E58A6;">Exposition de marque:</strong>
+									En rejoignant notre
+									caravane, votre
+									entreprise bénéficie d'une
+									visibilité exceptionnelle grâce à notre caravane brandée qui attire l'attention
+									partout où
+									elle passe. Profitez de cette opportunité pour renforcer la notoriété de votre
+									marque et
+									vous démarquer de vos concurrents.</li>
+								<li style="margin-bottom: 15px;  text-align: justify;"><strong
+										style="color: #2E58A6;  ">Génération
+										de leads
+										qualifiés :</strong>
+									Notre caravane nous
+									permet de nous rendre
+									directement sur
+									les campus universitaires, où nous attirons un public composé d'étudiants intéressés
+									par le
+									digital. En participant à notre tournée, vous avez la possibilité de générer des
+									leads
+									qualifiés et d'établir des contacts privilégiés avec une audience ciblée et
+									intéressée par
+									vos produits ou services.</li>
+								<li style="margin-bottom: 15px; text-align: justify;"><strong
+										style="color: #2E58A6;">Promotion
+										de produits et services
+										:</strong> Profitez de
+									notre caravane pour
+									présenter en personne
+									vos produits et services aux étudiants. Organisez des démonstrations, des essais
+									gratuits ou
+									des présentations interactives pour susciter l'intérêt et convaincre les futurs
+									consommateurs de l'efficacité de vos solutions.</li>
+								<li style="margin-bottom: 15px; text-align: justify;"><strong
+										style="color: #2E58A6; ">Expansion
+										géographique :</strong> En tant
+									que partenaire du
+									Digital University Tour,
+									vous pouvez
+									élargir votre empreinte commerciale en atteignant des marchés potentiels dans
+									différentes
+									régions du Bénin. Notre caravane nous permet de couvrir plusieurs universités,
+									offrant ainsi
+									une opportunité unique d'explorer de nouvelles opportunités commerciales.</li>
+								<li style="margin-bottom: 15px;  text-align: justify;"><strong
+										style="color: #2E58A6;">Networking et partenariats :</strong>
+									Rejoindre la caravane
+									du Digital University
+									Tour vous offre la
+									possibilité de rencontrer d'autres entreprises du secteur, d'établir des
+									partenariats
+									stratégiques et de partager des idées. Profitez de cette occasion pour développer
+									votre
+									réseau professionnel et identifier de nouvelles collaborations pour stimuler votre
+									croissance.
+								</li>
+
+							</ol>
+						</div>
+						<!-- <div class="col-5 section-2-box wow fadeInUp">
+		                    	<img src="assets/images/3.jpeg" alt="about-us">
+			                </div> -->
+					</div>
+				</div>
+			</div>
 
 
-                <!-- Menu -->
-                <nav id="menu">
-                    <header class="major">
-                        <h2 style="font-family: 'Poppins';">Menu</h2>
-                    </header>
-                    <ul>
-                        <li><a href="index.html">Accueil</a></li>
-                        <!-- <li><a href="objectifs.html">Objectifs</a></li> -->
-                        <li><a href="programmes.html">Programmes</a></li>
-                        <!-- <li><a href="partenaires.html">Partenaires</a></li> -->
-                        <!-- <li><a href="jeux-concours.html">Jeux concours</a></li> -->
-                        <li class="active"><a href="caravane.html">Caravane DUT</a></li>
-                        <li><a href="jeux-concours.html">jeux concours</a></li>
-                        <li><a href="inscription.html">Inscription</a></li>
-
-                    </ul>
-                </nav>
-
-                <!-- Section -->
 
 
-                <!-- Section -->
-                <section>
-                    <header class="major">
-                        <h2>Nous contacter</h2>
-                    </header>
-                    <p>Vous avez des questions, contactez-nous !</p>
-                    <ul class="contact">
-                        <li class="icon solid fa-envelope"><a
-                                href="mailto:contact@btechspace.com">contact@btechspace.com</a></li>
-                        <li class="icon solid fa-phone"><a href="tel:+229 94 68 40 40">+229 94 68 40 40</a></li>
-                        <li class="icon solid fa-home">Rue 308, Guinkomey <br />
-                            Cotonou, Bénin</li>
-                    </ul>
-                </section>
 
-                <!-- Footer -->
-                <footer id="footer">
-                    <p class="copyright">&copy; All rights reserved. Design: <a href="https://btechspace.com"
-                            target="_blank">Btech
-                            Space</a>.</p>
-                </footer>
+			<!-- Section 6 -->
+			<style>
+				#section-6 p {
+					color: white;
+					opacity: 4;
+				}
 
-            </div>
-        </div>
+				#section-6 .section-6 h2 {
+					font-size: 45px;
+				}
+			</style>
+			<div class="section-6-container section-container section-container-image-bg" id="section-6">
+				<div class="container">
+					<div class="row">
+						<div class="col section-6 section-description wow fadeIn">
+							<h2>Nous contacter</h2>
+							<div class="divider-1 wow fadeInUp"><span></span></div>
+							<p>Vous avez des questions, contactez-nous !</p>
+						</div>
+					</div>
+					<div class="row">
 
-    </div>
+						<div class="col-md-6 offset-md-1 section-6-box wow  justify-content-center fadeInDown"
+							style="display:flex; margin-left: auto; margin-right: auto;">
+							<div class="section-6-social">
+								<a href="#"><i class="fab fa-facebook-f"></i></a>
+								<a href="#"><i class="fa fa-envelope-open"></i></a>
+								<a href="#"><i class="fab fa-twitter"></i></a>
+								<a href="#"><i class="fab fa-instagram"></i></a>
+								<a href="#"><i class="fas fa-phone"></i></a>
+								<a href="#"><i class="fab fa-linkedin"></i></a>
+								<a href="#"><i class="fa fa-location-arrow"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+			<!-- Footer -->
+			<footer class="footer-container">
+
+				<div class="container">
+					<div class="row">
+
+						<div class="col">
+							&copy; All rights reserved. Design: <a href="https://btechspace.com" target="_blank">Btech
+								Space</a>.
+						</div>
+
+					</div>
+				</div>
+
+			</footer>
+
+		</div>
+		<!-- End content -->
+
+	</div>
+	<!-- End wrapper -->
+
+	<!-- Javascript -->
+	<script src="assets/js/jquery-3.3.1.min.js"></script>
+	<script src="assets/js/jquery-migrate-3.0.0.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<script src="assets/js/jquery.backstretch.min.js"></script>
+	<script src="assets/js/wow.min.js"></script>
+	<script src="assets/js/jquery.waypoints.min.js"></script>
+	<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="assets/js/scripts.js"></script>
 
 </body>
 
