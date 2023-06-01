@@ -84,8 +84,10 @@ jQuery(document).ready(function () {
 	/*
 		Background slideshow
 	*/
-	$('.top-content').backstretch("assets/images/2.jpeg");
+	$('.top-content').backstretch("assets/images/Cover.PNG");
+	// $('.what').backstretch("assets/images/objectif.PNG");
 	$('.section-6-container').backstretch("assets/images/5.jpeg");
+
 
 	/*
 		Wow
