@@ -48,10 +48,10 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
             ]);
             $message = "Vous vous êtes inscrit avec succès.";
 
-            header("Location: inscription.html?message=" . urlencode($message));
+            header("Location: index.html?message=" . urlencode($message));
             exit();
         } else {
-            header("Location: inscription.html?err=" . urlencode("Veuillez remplir tous les champs !"));
+            header("Location: index.html?err=" . urlencode("Veuillez remplir tous les champs !"));
         }
 
 
@@ -86,10 +86,10 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
             ]);
             $message = "Entreprise enregistré avec succès.";
 
-            header("Location: inscription.html?message=" . urlencode($message));
+            header("Location: index.html?message=" . urlencode($message));
             exit();
         } else {
-            header("Location: inscription.html?err=" . urlencode("Veuillez remplir tous les champs !"));
+            header("Location: index.html?err=" . urlencode("Veuillez remplir tous les champs !"));
         }
     } elseif ($type == "universite") {
         var_dump($_POST['choix1']);
@@ -128,7 +128,7 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
                 # code...
                 $message = "Université enregistrées avec succès.";
 
-                header("Location: inscription.html?message=" . urlencode($message));
+                header("Location: index.html?message=" . urlencode($message));
                 exit();
             }
         } elseif ($_POST['universite-type'] == "privee") {
@@ -164,14 +164,14 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
                 # code...
                 $message = "Ecole privée enregistré avec succès.";
 
-                header("Location: inscription.html?message=" . urlencode($message));
+                header("Location: index.html?message=" . urlencode($message));
                 exit();
             }
         }
         # code...
     }
 } else {
-    header("Location: inscription.html?err=" . urlencode("Veuillez remplir le formulaire !"));
+    header("Location: index.html?err=" . urlencode("Veuillez remplir le formulaire !"));
 }
 
 /**
@@ -210,6 +210,6 @@ function saveUniversite($nom_universite, $nom_ecole, $adresse, $tel, $mail, $par
         ]);
         return true;
     } else {
-        header("Location: inscription.html?err=" . urlencode("Veuillez remplir tous les champs !"));
+        header("Location: index.html?err=" . urlencode("Veuillez remplir tous les champs !"));
     }
 }
