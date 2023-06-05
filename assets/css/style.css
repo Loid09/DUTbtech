@@ -745,6 +745,11 @@ a[aria-expanded="true"] {
 		font-size: 1em
 	}
 
+	#timeline {
+		padding-left: 40px;
+		/* padding-right: 10px; */
+	}
+
 
 }
 
