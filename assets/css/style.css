@@ -375,10 +375,10 @@ a[aria-expanded="true"] {
 
 
 #timeline {
-	width: 100%;
+	width: 110%;
 	height: 950px;
 	background-color: white;
-	padding: 20px 1%;
+	padding: 15px 1%;
 	overflow: hidden
 }
 
@@ -744,10 +744,7 @@ a[aria-expanded="true"] {
 		font-size: 1em
 	}
 
-	#timeline ul li .cont time {
-		width: 80px;
-		left: calc(100%/2 - 40px)
-	}
+
 }
 
 @media (max-width: 575px) {
@@ -755,6 +752,11 @@ a[aria-expanded="true"] {
 	#timeline ul li .cont p,
 	#timeline ul li .cont time {
 		font-size: 1em
+	}
+
+	#timeline ul li .cont {
+		width: 120px;
+		line-height: 120%
 	}
 
 }
