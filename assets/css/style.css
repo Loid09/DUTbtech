@@ -471,7 +471,7 @@ a[aria-expanded="true"] {
 }
 
 #timeline ul li .cont {
-	width: 150px;
+	width: 200px;
 	height: 110px;
 	padding: 25px 10px 10px;
 	border: 2px solid transparent;
@@ -746,7 +746,7 @@ a[aria-expanded="true"] {
 	}
 
 	#timeline {
-		padding-left: 40px;
+		padding-left: 25px;
 		/* padding-right: 10px; */
 	}
 
@@ -766,7 +766,7 @@ a[aria-expanded="true"] {
 	}
 
 	#timeline {
-		padding-left: 40px;
+		padding-left: 25px;
 		/* padding-right: 10px; */
 	}
 
