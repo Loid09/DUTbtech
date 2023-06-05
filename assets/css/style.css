@@ -376,6 +376,7 @@ a[aria-expanded="true"] {
 
 #timeline {
 	width: 100%;
+
 	height: 950px;
 	background-color: white;
 	padding: 15px 1%;
@@ -757,6 +758,11 @@ a[aria-expanded="true"] {
 	#timeline ul li .cont {
 		width: 120px;
 		line-height: 120%
+	}
+
+	#timeline {
+		padding-left: 20px;
+		/* padding-right: 10px; */
 	}
 
 }
