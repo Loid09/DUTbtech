@@ -190,6 +190,7 @@ body.is-resizing *:after {
 body,
 input,
 select,
+option,
 textarea {
     color: #000000;
     /* font-family: "Open Sans", sans-serif; */

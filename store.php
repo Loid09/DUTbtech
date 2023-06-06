@@ -20,6 +20,7 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
         $site = $_POST["site"];
         $hackathon = $_POST["type-jeux"] == 'hackathon' ? 1 : 0;
         $digitalMiss = $_POST["type-jeux"] == 'digitalMiss' ? 1 : 0;
+        $theme = null;
         $missNameProject = null;
         $missDescriptionProject = null;
         $missDescriptionTeams = null;
@@ -28,11 +29,14 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
             $missDescriptionProject = $_POST['miss_description_project'];
             $missDescriptionTeams = $_POST['miss_description_teams'];
         }
+        if ($hackathon == 1) {
+            $theme = $_POST['theme'];
+        }
 
         if (isset($nom, $prenom, $tel, $mail, $site, $ecole)  && $nom !== '' && $prenom !== '' && $tel !== '' && $mail !== '' && $site !== '' && $ecole !== '') {
             //envoie des données
-            $stmt = $dbh->prepare("INSERT INTO etudiant (nom, prenom, tel, mail, nom_ecole, emplacement, hackathon,digitalMiss,miss_name_project,miss_description_project,miss_description_teams)
-                     VALUES (:nom, :prenom, :tel, :mail, :nom_ecole, :emplacement, :hackathon,:digitalMiss,:missNameProject,:missDescriptionProject,:missDescriptionTeams)");
+            $stmt = $dbh->prepare("INSERT INTO etudiant (nom, prenom, tel, mail, nom_ecole, emplacement, hackathon, theme, digitalMiss,miss_name_project,miss_description_project,miss_description_teams)
+                     VALUES (:nom, :prenom, :tel, :mail, :nom_ecole, :emplacement, :hackathon, :theme, :digitalMiss,:missNameProject,:missDescriptionProject,:missDescriptionTeams)");
             $stmt->execute([
                 ':nom' => $nom,
                 ':prenom' => $prenom,
@@ -41,6 +45,7 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
                 ':mail' => $mail,
                 ':emplacement' => $site,
                 ':hackathon' => $hackathon,
+                ':theme' => $theme,
                 ':digitalMiss' => $digitalMiss,
                 ':missNameProject' => $missNameProject,
                 ':missDescriptionProject' => $missDescriptionProject,

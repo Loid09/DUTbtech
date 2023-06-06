@@ -55,8 +55,10 @@
 
 		input,
 		textarea,
+		option,
 		select {
 			font-family: 'Poppins';
+			color: black;
 		}
 
 		.table-wrapper {
@@ -585,6 +587,7 @@
 								<div class="divider-1 wow fadeInUp"><span></span></div>
 							</div>
 						</div>
+
 						<div class="row">
 							<div class="col section-4 section-description wow fadeIn">
 								<h2 id="content" style="color: #2E58A6;">1. Hackathon</h2>
@@ -593,7 +596,7 @@
 									style="text-align: justify; padding-left:10px ; padding-right:10px ;">Étudiants,
 									participez à notre
 									hackathon de la Tournée Universitaire du Digital ! Innovez pour un avenir durable
-									dans le BTP, le coton et textile, et la connectivité.Ces thèmes mettent en avant
+									dans le BTP, le coton et textile, et la connectivité. Ces thèmes mettent en avant
 									l'innovation numérique et son impact sur le développement durable dans des secteurs
 									clés. Formez des équipes, développez des solutions numériques en 40 min et remportez
 									des récompenses ! Rejoignez-nous pour créer des solutions novatrices qui
@@ -963,7 +966,7 @@
 												placeholder="nom de votre ecole/faculté"
 												style="display: none;margin-top: 1em;">
 
-											<div style="margin-top: 1em;">
+											<div style="margin-top: 1em; display: block;" id="espacemiss">
 												<input type="radio" name="type-jeux" id="digitalMiss"
 													value="digitalMiss">
 												<label for="digitalMiss">Miss digital (pour filles
@@ -984,9 +987,28 @@
 														placeholder="Si vous êtes en équipe, renseignez les nom et prénom des membres et leur rôle ou responsabilité"></textarea>
 												</div>
 											</div>
-											<div style="margin-top: 1em;">
+
+											<div style="margin-top: 1em; display: block;" id="espaceHack">
 												<input type="radio" name="type-jeux" id="hackathon" value="hackathon">
 												<label for="hackathon">DUT Hackathon</label>
+											</div>
+											<div id="duthackathonfields" class="col-4"
+												style="margin-left: 2.5em;border-left: 5px solid rgb(94, 138, 250); padding-left: 10px; display: none;">
+												<p style="margin-top: 1em;  text-align: justify;"> Choisissez un thême
+												</p>
+												<div style="margin-top: 1em; display: flex;">
+													<input type="radio" name="theme" id="theme1" value="BTP">
+													<label for="theme1">BTP</label>
+												</div>
+												<div style="margin-top: 1em; display: flex;">
+													<input type="radio" name="theme" id="theme2"
+														value="coton et textile">
+													<label for="theme2">Coton et Textile</label>
+												</div>
+												<div style="margin-top: 1em; display: flex;">
+													<input type="radio" name="theme" id="theme3" value="connectivite">
+													<label for="theme3">Connectivité</label>
+												</div>
 											</div>
 										</table>
 
@@ -1526,10 +1548,24 @@
 			$('input[name="type-jeux"]').change(function () {
 				if ($(this).val() === 'digitalMiss') {
 					$('#missGroupFields').show();
+					$('#espaceHack').hide();
 				} else {
 					$('#missGroupFields').hide();
+					$('#espaceHack').show();
+
 				}
 			});
+			$('input[name="type-jeux"]').change(function () {
+				if ($(this).val() === 'hackathon') {
+					$('#duthackathonfields').show();
+					$('#espacemiss').hide();
+				} else {
+					$('#duthackathonfields').hide();
+					$('#espacemiss').show();
+
+				}
+			});
+
 			//end my code
 
 			// <!-- ici c'est pour les select des universités  -->

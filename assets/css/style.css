@@ -1435,7 +1435,7 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 	border-color: #2E58A6;
 }
 
-.section-6-form input[type="text"]::-moz-placeholder,
+/* .section-6-form input[type="text"]::-moz-placeholder,
 .section-6-form textarea::-moz-placeholder {
 	color: #ccc;
 	font-style: italic;
@@ -1451,7 +1451,7 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 .section-6-form textarea::-webkit-input-placeholder {
 	color: #ccc;
 	font-style: italic;
-}
+} */
 
 .section-6-form button.btn-customized {
 	padding: .75rem 1.5rem;

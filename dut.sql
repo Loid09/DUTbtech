@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 25 mai 2023 à 08:34
+-- Généré le : mar. 06 juin 2023 à 15:34
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -56,6 +56,7 @@ CREATE TABLE `etudiant` (
   `nom_ecole` varchar(255) DEFAULT NULL,
   `emplacement` varchar(255) DEFAULT NULL,
   `hackathon` tinyint(1) DEFAULT 0,
+  `theme` varchar(255) DEFAULT NULL,
   `digitalMiss` tinyint(1) DEFAULT 0,
   `miss_name_project` varchar(255) DEFAULT NULL,
   `miss_description_project` text DEFAULT NULL,
