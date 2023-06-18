@@ -1344,9 +1344,9 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 	transition: all .8s;
 }
 
-.section-5-box-image:hover img {
+/* .section-5-box-image:hover img {
 	transform: scale(1.25);
-}
+} */
 
 .section-5-box h3 {
 	margin-top: 30px;
