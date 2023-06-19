@@ -341,7 +341,7 @@ a[aria-expanded="true"] {
 	width: 8%;
 }
 
-/* .logo-container {
+/* .logo-container .tt {
 	position: fixed;
 	right: 0px;
 	z-index: 997;
@@ -1246,7 +1246,7 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 .coming-soon p {
 	margin: 60px 0 10px 0;
 	padding: 0 120px;
-	font-size: 22px;
+	font-size: 10px;
 	line-height: 36px;
 }
 
