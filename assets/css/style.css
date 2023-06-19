@@ -341,6 +341,13 @@ a[aria-expanded="true"] {
 	width: 8%;
 }
 
+/* .logo-container {
+	position: fixed;
+	right: 0px;
+	z-index: 997;
+	width: 8%;
+} */
+
 
 .open-menu.btn-customized,
 .open-menu.btn-customized:hover,

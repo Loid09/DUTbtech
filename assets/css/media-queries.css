@@ -52,12 +52,20 @@
 		height: 80vh;
 	}
 
+
 	.logo-container .logo {
 		position: fixed;
 		right: 10px;
 		z-index: 990;
 		width: 13%;
 	}
+
+	/* .logo-container {
+		position: fixed;
+		right: 10px;
+		z-index: 990;
+		width: 13%;
+	} */
 
 }
 
@@ -153,6 +161,13 @@
 		width: 15%;
 	}
 
+	/* .logo-container {
+		position: fixed;
+		right: 15px;
+		z-index: 997;
+		width: 15%;
+	} */
+
 }
 
 @media (max-width: 575px) {
@@ -171,6 +186,13 @@
 		z-index: 997;
 		width: 20%;
 	}
+
+	/* .logo-container {
+		position: fixed;
+		right: 20px;
+		z-index: 997;
+		width: 20%;
+	} */
 
 
 	h1,
