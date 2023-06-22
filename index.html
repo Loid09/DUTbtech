@@ -150,42 +150,7 @@
 					<div class="logo-container">
 						<div class="logo">
 							<img src="assets/images/logo.png" class="" alt="logo">
-							<!-- <div class="coming-soon">
-								<div class="inner-bg">
-									<div class="container">
-										<div class="row">
-											<div class="col-sm-12">
 
-												<h2 class="wow fadeInLeftBig">Compte à rebours</h2>
-												<div class="timer wow fadeInUp">
-													<div class="days-wrapper">
-														<span id="days"></span> <br>Jours
-													</div>
-													<span class="slash">/</span>
-													<div class="hours-wrapper">
-														<span id="hours"></span> <br>Heures
-													</div>
-													<span class="slash">/</span>
-													<div class="minutes-wrapper">
-														<span id="minutes"></span> <br>minutes
-													</div>
-													<span class="slash">/</span>
-													<div class="seconds-wrapper">
-														<span id="seconds"></span> <br>secondes
-													</div>
-												</div>
-												<div class="wow fadeInLeftBig">
-													<p>
-														Compte à rebours pour le démarrage du Digital
-														University Tour
-													</p>
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</div>
-							</div> -->
 						</div>
 
 					</div>
@@ -784,7 +749,7 @@
 								<div class="col-6 section-2-box wow fadeInUp">
 									<div id="etu" style="display: inline-block;">
 										<input type="radio" id="etudiant" name="type" value="etudiant"
-											onchange="afficherChamps()">
+											onchange="afficherChamps()" checked>
 										<label for="etudiant">Étudiant</label>
 									</div>
 									<div id="uni" style="display: inline-block; ">
@@ -803,10 +768,11 @@
 
 								<!-- champs pour etudiant  -->
 
-								<div id="champs-etudiant" style="display: none;" class="table-wrapper">
+								<div id="champs-etudiant" style="display: block;" class="table-wrapper">
 									<table>
-										<input type="text" name="nomEt" placeholder="Nom">
-										<input type="text" name="prenom" placeholder="Prénom" style="margin-top: 1em;">
+										<input type="text" name="nomEt" placeholder="Nom de l'étudiant">
+										<input type="text" name="prenom" placeholder="Prénom de l'étudiant"
+											style="margin-top: 1em;">
 										<input type="text" name="tel" placeholder="Téléphone" style="margin-top: 1em;">
 										<input type="email" name="mail" placeholder="Votre mail"
 											style="margin-top: 1em;">
@@ -1198,6 +1164,40 @@
 				}
 			</style>
 			<div class="section-6-container section-container section-container-image-bg">
+				<div class="inner-bg">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-12">
+
+								<h2 class="wow fadeInLeftBig">Compte à rebours</h2>
+								<div class="timer wow fadeInUp">
+									<div class="days-wrapper">
+										<span id="days"></span> <br>Jours
+									</div>
+									<span class="slash">/</span>
+									<div class="hours-wrapper">
+										<span id="hours"></span> <br>Heures
+									</div>
+									<span class="slash">/</span>
+									<div class="minutes-wrapper">
+										<span id="minutes"></span> <br>minutes
+									</div>
+									<span class="slash">/</span>
+									<div class="seconds-wrapper">
+										<span id="seconds"></span> <br>secondes
+									</div>
+								</div>
+								<div class="wow fadeInLeftBig">
+									<p>
+										Compte à rebours pour le démarrage du Digital
+										University Tour
+									</p>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
 
 
 				<div class="container">
