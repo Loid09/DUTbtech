@@ -97,86 +97,80 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
             header("Location: index.html?err=" . urlencode("Veuillez remplir tous les champs !"));
         }
     } elseif ($type == "universite") {
-        var_dump($_POST['choix1']);
 
-        if ($_POST['universite-type'] == "publique") {
-            # code...
-            $nom_universite = $_POST['nomUniversite'];
-            $nom_ecole = $_POST['nomEcole'];
-            $tel = $_POST['telUP'];
-            $mail = $_POST['emailUP'];
-            $participer = $_POST['choix1'];
-            $gaming = $_POST['gaming1'];
-            switch ($_POST['raison']) {
-                case 'raison1':
-                    # code...
-                    $raison = "Délai court pour organisation à l'interne";
-                    break;
-                case 'raison2':
-                    # code...
-                    $raison = "Période non propice pour cause de préparation aux examens de fin de semestre";
-                    break;
-                case 'raison3':
-                    # code...
-                    $raison = "autre raison";
-                    break;
-
-                default:
-                    # code...
-                    break;
-            }
-
-            $reserver = $_POST['reserver1'];
-            $periode_meilleur = $_POST['periode'];
-            $autre_raison = $_POST['autre'];
-            if (saveUniversite($nom_universite, $nom_ecole, "", $tel, $mail, $participer, $gaming, $raison, $reserver, $periode_meilleur, $autre_raison)) {
+        $nom_universite = $_POST['nomUniversite'];
+        $nom_ecole = $_POST['nomEcole'];
+        $tel = $_POST['telUP'];
+        $mail = $_POST['emailUP'];
+        $participer = $_POST['choix1'];
+        $gaming = $_POST['gaming1'];
+        switch ($_POST['raison']) {
+            case 'raison1':
                 # code...
-                $message = "Université enregistrées avec succès.";
-
-                header("Location: index.html?message=" . urlencode($message));
-                exit();
-            }
-        } elseif ($_POST['universite-type'] == "privee") {
-            $nom_ecole = $_POST['nomEcolePrivee'];
-            $adresse = $_POST['adresseEcolePrivee'];
-            $tel = $_POST['telEcolePrivee'];
-            $mail = $_POST['emailEcolePrivee'];
-            $participer = $_POST['choix2'];
-            $gaming = $_POST['gaming2'];
-            // $raison = $_POST['raisonEcolePrivee'];
-            switch ($_POST['raisonEcolePrivee']) {
-                case 'raison1':
-                    # code...
-                    $raison = "Délai court pour organisation à l'interne";
-                    break;
-                case 'raison2':
-                    # code...
-                    $raison = "Période non propice pour cause de préparation aux examens de fin de semestre";
-                    break;
-                case 'raison3':
-                    # code...
-                    $raison = "autre raison";
-                    break;
-
-                default:
-                    # code...
-                    break;
-            }
-            $reserver = $_POST['reserver2'];
-            $periode_meilleur = $_POST['periodeEcolePrivee'];
-            $autre_raison = $_POST['autreEcolePrivee'];
-            if (saveUniversite("", $nom_ecole, $adresse, $tel, $mail, $participer, $gaming, $raison, $reserver, $periode_meilleur, $autre_raison)) {
+                $raison = "Délai court pour organisation à l'interne";
+                break;
+            case 'raison2':
                 # code...
-                $message = "Ecole privée enregistré avec succès.";
+                $raison = "Période non propice pour cause de préparation aux examens de fin de semestre";
+                break;
+            case 'raison3':
+                # code...
+                $raison = "autre raison";
+                break;
 
-                header("Location: index.html?message=" . urlencode($message));
-                exit();
-            }
+            default:
+                # code...
+                break;
         }
-        # code...
+        $reserver = $_POST['reserver1'];
+        $periode_meilleur = $_POST['periode'];
+        $autre_raison = $_POST['autre'];
+        if (saveUniversite($nom_universite, $nom_ecole, "", $tel, $mail, $participer, $gaming, $raison, $reserver, $periode_meilleur, $autre_raison)) {
+            # code...
+            $message = "Université publique enregistrées avec succès.";
+
+            header("Location: index.html?message=" . urlencode($message));
+            exit();
+        }
+    } elseif ($type == "privee") {
+        $nom_ecole = $_POST['nomEcolePrivee'];
+        $adresse = $_POST['adresseEcolePrivee'];
+        $tel = $_POST['telEcolePrivee'];
+        $mail = $_POST['emailEcolePrivee'];
+        $participer = $_POST['choix2'];
+        $gaming = $_POST['gaming2'];
+        // $raison = $_POST['raisonEcolePrivee'];
+        switch ($_POST['raisonEcolePrivee']) {
+            case 'raison1':
+                # code...
+                $raison = "Délai court pour organisation à l'interne";
+                break;
+            case 'raison2':
+                # code...
+                $raison = "Période non propice pour cause de préparation aux examens de fin de semestre";
+                break;
+            case 'raison3':
+                # code...
+                $raison = "autre raison";
+                break;
+
+            default:
+                # code...
+                break;
+        }
+        $reserver = $_POST['reserver2'];
+        $periode_meilleur = $_POST['periodeEcolePrivee'];
+        $autre_raison = $_POST['autreEcolePrivee'];
+        if (saveUniversite("", $nom_ecole, $adresse, $tel, $mail, $participer, $gaming, $raison, $reserver, $periode_meilleur, $autre_raison)) {
+            # code...
+            $message = "Ecole privée enregistré avec succès.";
+
+            header("Location: index.html?message=" . urlencode($message));
+            exit();
+        }
+    } else {
+        header("Location: index.html?err=" . urlencode("Veuillez remplir le formulaire !"));
     }
-} else {
-    header("Location: index.html?err=" . urlencode("Veuillez remplir le formulaire !"));
 }
 
 /**

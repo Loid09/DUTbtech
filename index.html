@@ -743,25 +743,37 @@
 									d'inscription en ligne
 								</p>
 
-								<h3 style="font-family: 'Poppins';">Vous êtes :</h3>
+								
 							</div>
 							<form class="formulaire" method="post" action="store.php">
-								<div class="col-6 section-2-box wow fadeInUp">
-									<div id="etu" style="display: inline-block;">
-										<input type="radio" id="etudiant" name="type" value="etudiant"
-											onchange="afficherChamps()" checked>
-										<label for="etudiant">Étudiant</label>
+								<div class="col-12 section-2-box wow fadeInUp">
+									<div style="display: inline-block; margin-right: 10px;">
+										<h3 style="font-family: 'Poppins';">Vous êtes : </h3>
 									</div>
-									<div id="uni" style="display: inline-block; ">
-										<input type="radio" id="universite" name="type" value="universite"
+									<div style="display: inline-block; ">
+										<div id="etu" style="display: inline-block;">
+											<input type="radio" id="etudiant" name="type" value="etudiant"
+												onchange="afficherChamps()" checked>
+											<label for="etudiant">Étudiant</label>
+										</div>
+										<div id="uni" style="display: inline-block; ">
+											<input type="radio" id="universite" name="type" value="universite"
+												onchange="afficherChamps()">
+											<label for="universite">Université publique</label>
+										</div>
+										<div id="ecolePrivee" style="display: inline-block; ">
+											<input type="radio" id="privee" name="type" value="privee"
 											onchange="afficherChamps()">
-										<label for="universite">Université</label>
+											<label for="privee">Ecole privée</label>
+										</div>
+										<div id="entre" style="display: inline-block; ">
+											<input type="radio" id="entreprise" name="type" value="entreprise"
+												onchange="afficherChamps()">
+											<label for="entreprise">Entreprise</label>
+										</div>
 									</div>
-									<div id="entre" style="display: inline-block; ">
-										<input type="radio" id="entreprise" name="type" value="entreprise"
-											onchange="afficherChamps()">
-										<label for="entreprise">Entreprise</label>
-									</div>
+									
+									
 								</div>
 
 
@@ -897,199 +909,181 @@
 
 								</div>
 
-
-								<!-- champs pour université -->
-								<div id="champs-universite" style="display: none; ">
-									<div style="display: flex; padding-left: 50px;">
-										<div id="univerP">
-											<input type="radio" id="universite-publique" name="universite-type"
-												value="publique" onchange="afficherUniversiteChamps()">
-											<label for="universite-publique">Université publique</label>
-										</div>
-										<div id="ecoleP">
-											<input type="radio" id="ecole-privee" name="universite-type" value="privee"
-												onchange="afficherUniversiteChamps()">
-											<label for="ecole-privee">Ecole privée</label>
-										</div>
-									</div>
-
-
-									<!-- champs pour université publique -->
-									<div id="champs-universite-publique" style="display: none;" class="table-wrapper">
-										<table>
-											<input type="text" name="nomUniversite" placeholder="Nom de l'université">
-											<input type="text" name="nomEcole" placeholder="Nom de l'ecole/faculté"
-												style="margin-top: 1em;">
-											<input type="text" name="telUP" placeholder="Telephone"
-												style="margin-top: 1em;">
-											<input type="email" name="emailUP" placeholder="Email"
-												style="margin-top: 1em;">
-											<p style="margin-top: 1em;  text-align: justify;">La 1ère Edition du
-												Digital
-												University Tour se tiendra du
-												01/06/2023 au 31/07/2023. Souhaitez-vous y participer ? </p>
-											<!-- Ici on aura deux choix. Si la reponse est oui alors c'est bon si c'est non on aura alors une liste deroulante comme ca  -->
-											<div style="display: flex;">
-
-												<div>
-													<input type="radio" id="oui1" name="choix1" value="1">
-													<label for="oui1">Oui</label>
-												</div>
-												<div>
-													<input type="radio" id="non1" name="choix1" value="0">
-													<label for="non1">Non</label>
-												</div>
-
+								<!-- champs pour ecole privée -->
+								<div id="champspourecoleprivee" style="display: none;" class="table-wrapper">
+									<table>
+										<input type="text" name="nomEcolePrivee" placeholder="Nom de l'école">
+										<input type="text" name="adresseEcolePrivee"
+											placeholder="Adresse de l'école" style="margin-top: 1em;">
+										<input type="text" name="telEcolePrivee" placeholder="Téléphone"
+											style="margin-top: 1em;">
+										<input type="email" name="emailEcolePrivee" placeholder="Email"
+											style="margin-top: 1em;">
+										<p style="margin-top: 1em; text-align: justify;">La 1ère Edition du
+											Digital
+											University Tour se tiendra du
+											01/06/2023 au 31/07/2023. Souhaitez-vous y participer ? </p>
+										<!-- Ici on aura deux choix. Si la reponse est oui alors c'est bon si c'est non on aura alors une liste deroulante comme ca  -->
+										<div style="display: flex;">
+											<div>
+												<input type="radio" id="oui2" name="choix2" value="1">
+												<label for="oui2">Oui</label>
 											</div>
+											<div>
+												<input type="radio" id="non2" name="choix2" value="0">
+												<label for="non2">Non</label>
+											</div>
+										</div>
+										<div style="display: flex; display: none;" class="gaming">
+											<p style="margin-top: 1em;  text-align: justify;">Voulez vous être
+												inscrit au titre <strong style="font-weight: bold;">Best Digital
+													University</strong> ? </p>
+											<div style="margin-top: 1em;">
+												<input type="radio" name="gaming2" id="gamingOui2" value="1">
+												<label for="gamingOui2">Oui</label>
+											</div>
+											<!-- si la reponse est oui alors c'est la fin -->
+											<div style="margin-top: 1em;">
+												<input type="radio" name="gaming2" id="gamingNon2" value="0">
+												<label for="gamingNon2">Non</label>
+											</div>
+										</div>
+										<div id="input-non1" style="display: none;">
+											<!-- si la reponse est non alors on doit avoir une liste pour les raisons  -->
+											<select name="raisonEcolePrivee" class="raison">
+												<option value="">Sélectionnez une raison</option>
+												<option value="raison1">Délai court pour organisation à
+													l'interne
+												</option>
+												<option value="raison2">Période non propice pour cause de
+													préparation aux
+													examens de
+													fin de semestre</option>
+												<option value="raison3">(Autre)</option>
 
-											<div style="display: flex; display: none;" class="gaming1">
-												<p style="margin-top: 1em;  text-align: justify;">Voulez vous être
-													inscrit au titre <strong style="font-weight: bold;">Best Digital
-														University</strong> ? </p>
+											</select>
+											<!-- quand l'option choisi est la raison1, -->
+											<div style="display: flex; display: none;" class="reserve">
+												<p style="margin-top: 1em;  text-align: justify;">Reservez
+													votre
+													participation à la 2ème Edition. </p>
 												<div style="margin-top: 1em;">
-													<input type="radio" name="gaming1" id="gamingOui1" value="1">
-													<label for="gamingOui1">Oui</label>
+													<input type="radio" name="reserver2" id="reserverOui2"
+														value="1">
+													<label for="reserverOui2">Oui</label>
 												</div>
 												<!-- si la reponse est oui alors c'est la fin -->
 												<div style="margin-top: 1em;">
-													<input type="radio" name="gaming1" id="gamingNon1" value="0">
-													<label for="gamingNon1">Non</label>
+													<input type="radio" name="reserver2" id="reserverNon2"
+														value="0">
+													<label for="reserverNon2">Non</label>
 												</div>
 											</div>
 
-											<div id="input-non" style="display: none;">
-												<!-- si la reponse est non alors on doit avoir une liste pour les raisons  -->
-												<select name="raison" class="raison" style="margin-top: 1em; ">
-													<option value="">Sélectionnez une raison</option>
-													<option value="raison1">Délai court pour organisation à
-														l'interne
-													</option>
-													<option value="raison2">Période non propice pour cause de
-														préparation aux
-														examens de
-														fin de semestre</option>
-													<option value="raison3">(Autre)</option>
-
-												</select>
-												<!-- quand l'option choisi est la raison1, -->
-												<div style="display: flex; display: none;" class="reserve">
-													<p style="margin-top: 1em;  text-align: justify;">Reservez
-														votre
-														participation à la 2ème Edition. </p>
-													<div style="margin-top: 1em;">
-														<input type="radio" name="reserver1" id="reserverOui" value="1">
-														<label for="reserverOui">Oui</label>
-													</div>
-													<!-- si la reponse est oui alors c'est la fin -->
-													<div style="margin-top: 1em;">
-														<input type="radio" name="reserver1" id="reserverNon" value="0">
-														<label for="reserverNon">Non</label>
-													</div>
-												</div>
-
-												<!-- quand l'option choisi est la raison2, -->
-												<input type="text" name="periode" class="periode"
-													placeholder="Quelle periode vous conviendrait le mieux ?"
-													style="display: none; margin-top: 1em;">
+											<!-- quand l'option choisi est la raison2, -->
+											<input type="text" name="periodeEcolePrivee" class="periode"
+												placeholder="Quelle période vous conviendrait le mieux ?"
+												style="display: none; margin-top: 1em;">
 
 
-												<!-- quand l'option choisi est autre, un champ doit venir pour que la personne mettent la raison  -->
-												<input type="text" name="autre" class="autre_raison"
-													placeholder="Autre raison" style="margin-top: 1em; display: none;">
+											<!-- quand l'option choisi est autre, un champ doit venir pour que la personne mettent la raison  -->
+											<input type="text" name="autreEcolePrivee" class="autre_raison"
+												placeholder="Autre raison" style="margin-top: 1em; display: none;">
 
-											</div>
-										</table>
+										</div>
 
-									</div>
+									</table>
 
-
-									<!-- champs pour ecole privée -->
-									<div id="champs-ecole-privee" style="display: none;" class="table-wrapper">
-										<table>
-											<input type="text" name="nomEcolePrivee" placeholder="Nom de l'école">
-											<input type="text" name="adresseEcolePrivee"
-												placeholder="Adresse de l'école" style="margin-top: 1em;">
-											<input type="text" name="telEcolePrivee" placeholder="Téléphone"
-												style="margin-top: 1em;">
-											<input type="email" name="emailEcolePrivee" placeholder="Email"
-												style="margin-top: 1em;">
-											<p style="margin-top: 1em; text-align: justify;">La 1ère Edition du
-												Digital
-												University Tour se tiendra du
-												01/06/2023 au 31/07/2023. Souhaitez-vous y participer ? </p>
-											<!-- Ici on aura deux choix. Si la reponse est oui alors c'est bon si c'est non on aura alors une liste deroulante comme ca  -->
-											<div style="display: flex;">
-												<div>
-													<input type="radio" id="oui2" name="choix2" value="1">
-													<label for="oui2">Oui</label>
-												</div>
-												<div>
-													<input type="radio" id="non2" name="choix2" value="0">
-													<label for="non2">Non</label>
-												</div>
-											</div>
-											<div style="display: flex; display: none;" class="gaming">
-												<p style="margin-top: 1em;  text-align: justify;">Voulez vous être
-													inscrit au titre <strong style="font-weight: bold;">Best Digital
-														University</strong> ? </p>
-												<div style="margin-top: 1em;">
-													<input type="radio" name="gaming2" id="gamingOui2" value="1">
-													<label for="gamingOui2">Oui</label>
-												</div>
-												<!-- si la reponse est oui alors c'est la fin -->
-												<div style="margin-top: 1em;">
-													<input type="radio" name="gaming2" id="gamingNon2" value="0">
-													<label for="gamingNon2">Non</label>
-												</div>
-											</div>
-											<div id="input-non1" style="display: none;">
-												<!-- si la reponse est non alors on doit avoir une liste pour les raisons  -->
-												<select name="raisonEcolePrivee" class="raison">
-													<option value="">Sélectionnez une raison</option>
-													<option value="raison1">Délai court pour organisation à
-														l'interne
-													</option>
-													<option value="raison2">Période non propice pour cause de
-														préparation aux
-														examens de
-														fin de semestre</option>
-													<option value="raison3">(Autre)</option>
-
-												</select>
-												<!-- quand l'option choisi est la raison1, -->
-												<div style="display: flex; display: none;" class="reserve">
-													<p style="margin-top: 1em;  text-align: justify;">Reservez
-														votre
-														participation à la 2ème Edition. </p>
-													<div style="margin-top: 1em;">
-														<input type="radio" name="reserver2" id="reserverOui2"
-															value="1">
-														<label for="reserverOui2">Oui</label>
-													</div>
-													<!-- si la reponse est oui alors c'est la fin -->
-													<div style="margin-top: 1em;">
-														<input type="radio" name="reserver2" id="reserverNon2"
-															value="0">
-														<label for="reserverNon2">Non</label>
-													</div>
-												</div>
-
-												<!-- quand l'option choisi est la raison2, -->
-												<input type="text" name="periodeEcolePrivee" class="periode"
-													placeholder="Quelle période vous conviendrait le mieux ?"
-													style="display: none; margin-top: 1em;">
-
-
-												<!-- quand l'option choisi est autre, un champ doit venir pour que la personne mettent la raison  -->
-												<input type="text" name="autreEcolePrivee" class="autre_raison"
-													placeholder="Autre raison" style="margin-top: 1em; display: none;">
-
-											</div>
-
-										</table>
-
-									</div>
 								</div>
+
+								<div id="champspouruniversitepublique" style="display: none;" class="table-wrapper">
+									<table>
+										<input type="text" name="nomUniversite" placeholder="Nom de l'université">
+										<input type="text" name="nomEcole" placeholder="Nom de l'ecole/faculté"
+											style="margin-top: 1em;">
+										<input type="text" name="telUP" placeholder="Telephone"
+											style="margin-top: 1em;">
+										<input type="email" name="emailUP" placeholder="Email"
+											style="margin-top: 1em;">
+										<p style="margin-top: 1em;  text-align: justify;">La 1ère Edition du
+											Digital
+											University Tour se tiendra du
+											01/06/2023 au 31/07/2023. Souhaitez-vous y participer ? </p>
+										<!-- Ici on aura deux choix. Si la reponse est oui alors c'est bon si c'est non on aura alors une liste deroulante comme ca  -->
+										<div style="display: flex;">
+
+											<div>
+												<input type="radio" id="oui1" name="choix1" value="1">
+												<label for="oui1">Oui</label>
+											</div>
+											<div>
+												<input type="radio" id="non1" name="choix1" value="0">
+												<label for="non1">Non</label>
+											</div>
+
+										</div>
+
+										<div style="display: flex; display: none;" class="gaming1">
+											<p style="margin-top: 1em;  text-align: justify;">Voulez vous être
+												inscrit au titre <strong style="font-weight: bold;">Best Digital
+													University</strong> ? </p>
+											<div style="margin-top: 1em;">
+												<input type="radio" name="gaming1" id="gamingOui1" value="1">
+												<label for="gamingOui1">Oui</label>
+											</div>
+											<!-- si la reponse est oui alors c'est la fin -->
+											<div style="margin-top: 1em;">
+												<input type="radio" name="gaming1" id="gamingNon1" value="0">
+												<label for="gamingNon1">Non</label>
+											</div>
+										</div>
+
+										<div id="input-non" style="display: none;">
+											<!-- si la reponse est non alors on doit avoir une liste pour les raisons  -->
+											<select name="raison" class="raison" style="margin-top: 1em; ">
+												<option value="">Sélectionnez une raison</option>
+												<option value="raison1">Délai court pour organisation à
+													l'interne
+												</option>
+												<option value="raison2">Période non propice pour cause de
+													préparation aux
+													examens de
+													fin de semestre</option>
+												<option value="raison3">(Autre)</option>
+
+											</select>
+											<!-- quand l'option choisi est la raison1, -->
+											<div style="display: flex; display: none;" class="reserve">
+												<p style="margin-top: 1em;  text-align: justify;">Reservez
+													votre
+													participation à la 2ème Edition. </p>
+												<div style="margin-top: 1em;">
+													<input type="radio" name="reserver1" id="reserverOui" value="1">
+													<label for="reserverOui">Oui</label>
+												</div>
+												<!-- si la reponse est oui alors c'est la fin -->
+												<div style="margin-top: 1em;">
+													<input type="radio" name="reserver1" id="reserverNon" value="0">
+													<label for="reserverNon">Non</label>
+												</div>
+											</div>
+
+											<!-- quand l'option choisi est la raison2, -->
+											<input type="text" name="periode" class="periode"
+												placeholder="Quelle periode vous conviendrait le mieux ?"
+												style="display: none; margin-top: 1em;">
+
+
+											<!-- quand l'option choisi est autre, un champ doit venir pour que la personne mettent la raison  -->
+											<input type="text" name="autre" class="autre_raison"
+												placeholder="Autre raison" style="margin-top: 1em; display: none;">
+
+										</div>
+									</table>
+
+								</div>
+
+								
 								<!-- le champs pour les entreprises  -->
 								<div id="champs-entreprise" style="display: none; " class="table-wrapper">
 									<table>
@@ -1315,7 +1309,7 @@
 	<script src="assets/js/scripts.js"></script>
 
 	<script>
-		var countDownDate = new Date(2023, 10, 23, 9, 56, 30); // 23 juin 2023, 09h56:30
+		var countDownDate = new Date(2023, 10, 22, 14, 25, 0); // 23 juin 2023, 09h56:30
 
 		var countdown = setInterval(function () {
 			var now = new Date().getTime();
@@ -1335,8 +1329,15 @@
 
 
 			if (distance < 0) {
+				
+				// document.getElementById("days").innerHTML = "Le compte à rebours est terminé!";
+				setInterval([
+					document.getElementById("days").innerHTML = 0,
+					document.getElementById("hours").innerHTML = 0,
+					document.getElementById("minutes").innerHTML = 0,
+					document.getElementById("seconds").innerHTML = 0,
+				]);
 				clearInterval(countdown);
-				document.getElementById("timer").innerHTML = "Le compte à rebours est terminé!";
 			}
 		}, 1000);
 
@@ -1495,11 +1496,8 @@
 			var type = document.querySelector('input[name=type]:checked').value;
 			var champsEtudiant = document.getElementById("champs-etudiant");
 			var champsEntreprise = document.getElementById("champs-entreprise");
-			var champsUniversite = document.getElementById("champs-universite");
-			var entreprise = document.getElementById("entre");
-			var etudiant = document.getElementById("etu");
-			var universite = document.getElementById("uni");
-
+			var champsUniversite = document.getElementById("champspouruniversitepublique");
+			var champsPrivee = document.getElementById("champspourecoleprivee");
 
 
 			if (type === "etudiant") {
@@ -1508,56 +1506,45 @@
 				champsEtudiant.style.display = "block";
 				champsEntreprise.style.display = "none";
 				champsUniversite.style.display = "none";
-				entreprise.style.display = "none";
-				universite.style.display = "none";
+				champsPrivee.style.display = "none";
+				
 
 			} else if (type === "entreprise") {
 
 				champsEtudiant.style.display = "none";
 				champsEntreprise.style.display = "block";
 				champsUniversite.style.display = "none";
-				etudiant.style.display = "none";
-				universite.style.display = "none";
+				champsPrivee.style.display = "none";
+
+				
 
 			} else if (type === "universite") {
 				champsUniversite.style.display = "block";
 				champsEntreprise.style.display = "none";
 				champsEtudiant.style.display = "none";
-				entreprise.style.display = "none";
-				etudiant.style.display = "none";
+				champsPrivee.style.display = "none";
+
+				
+
+			}
+			else if (type === "privee") {
+				champsUniversite.style.display = "none";
+				champsEntreprise.style.display = "none";
+				champsEtudiant.style.display = "none";
+				champsPrivee.style.display = "block";
+
+				
 
 			} else {
 				champsEtudiant.style.display = "none";
 				champsEntreprise.style.display = "none";
 				champsUniversite.style.display = "none";
+				champsPrivee.style.display = "none";
+
 			}
-			afficherUniversiteChamps();
 
 		}
 
-		function afficherUniversiteChamps() {
-			var universiteType = document.querySelector('input[name=universite-type]:checked').value;
-			var champsUniversitePublique = document.getElementById("champs-universite-publique");
-			var champsEcolePrivee = document.getElementById("champs-ecole-privee");
-			var univerP = document.getElementById("univerP");
-			var ecoleP = document.getElementById("ecoleP");
-
-
-
-			if (universiteType === "publique") {
-				champsUniversitePublique.style.display = "block";
-				champsEcolePrivee.style.display = "none";
-				ecoleP.style.display = "none";
-			} else if (universiteType === "privee") {
-				champsEcolePrivee.style.display = "block";
-				champsUniversitePublique.style.display = "none";
-				univerP.style.display = "none";
-
-			} else {
-				champsUniversitePublique.style.display = "none";
-				champsEcolePrivee.style.display = "none";
-			}
-		}
 	</script>
 
 
