@@ -771,6 +771,11 @@
 												onchange="afficherChamps()">
 											<label for="entreprise">Entreprise</label>
 										</div>
+										<div id="otherp" style="display: inline-block; ">
+											<input type="radio" id="otherP" name="type" value="autre_personne"
+												onchange="afficherChamps()">
+											<label for="otherP">Autres</label>
+										</div>
 									</div>
 									
 									
@@ -905,7 +910,31 @@
 												</label>
 											</div>
 										</div>
+										<div style="margin-top: 1em;">
+											<textarea name="commentEtu" id="" rows="4" style="border-color: blue;"
+												placeholder="Mettez ici votre commentaire svp ! (facultatif)"></textarea>
+										</div>
 									</table>
+
+								</div>
+
+								<div id="champsotheruser" style="display: none;" class="table-wrapper">
+									<table>
+										<input type="text" name="nomO" placeholder="Nom ">
+										<input type="text" name="prenomO" placeholder="Prénom "
+											style="margin-top: 1em;">
+										<input type="text" name="telO" placeholder="Téléphone" style="margin-top: 1em;">
+										<input type="email" name="mailO" placeholder="Votre mail"
+											style="margin-top: 1em;">
+										<div style="margin-top: 1em;">
+												<textarea name="comment" id="" rows="4" style="border-color: blue;"
+													placeholder="Mettez ici votre commentaire svp !"></textarea>
+										</div>
+												
+																								
+										
+									</table>
+									
 
 								</div>
 
@@ -990,6 +1019,10 @@
 											<input type="text" name="autreEcolePrivee" class="autre_raison"
 												placeholder="Autre raison" style="margin-top: 1em; display: none;">
 
+										</div>
+										<div style="margin-top: 1em;">
+											<textarea name="commentEc" id="" rows="4" style="border-color: blue;"
+												placeholder="Mettez ici votre commentaire svp ! (facultatif)"></textarea>
 										</div>
 
 									</table>
@@ -1079,6 +1112,10 @@
 												placeholder="Autre raison" style="margin-top: 1em; display: none;">
 
 										</div>
+										<div style="margin-top: 1em;">
+											<textarea name="commentU" id="" rows="4" style="border-color: blue;"
+												placeholder="Mettez ici votre commentaire svp ! (facultatif)"></textarea>
+										</div>
 									</table>
 
 								</div>
@@ -1123,6 +1160,10 @@
 											<!-- si les autres, -->
 
 
+										</div>
+										<div style="margin-top: 1em;">
+											<textarea name="commentEnt" id="" rows="4" style="border-color: blue;"
+												placeholder="Mettez ici votre commentaire svp ! (facultatif)"></textarea>
 										</div>
 									</table>
 
@@ -1424,20 +1465,20 @@
 		$('input[name="type-jeux"]').change(function () {
 			if ($(this).val() === 'digitalMiss') {
 				$('#missGroupFields').show();
-				$('#espaceHack').hide();
+				// $('#espaceHack').hide();
 			} else {
 				$('#missGroupFields').hide();
-				$('#espaceHack').show();
+				// $('#espaceHack').show();
 
 			}
 		});
 		$('input[name="type-jeux"]').change(function () {
 			if ($(this).val() === 'hackathon') {
 				$('#duthackathonfields').show();
-				$('#espacemiss').hide();
+				// $('#espacemiss').hide();
 			} else {
 				$('#duthackathonfields').hide();
-				$('#espacemiss').show();
+				// $('#espacemiss').show();
 
 			}
 		});
@@ -1498,6 +1539,7 @@
 			var champsEntreprise = document.getElementById("champs-entreprise");
 			var champsUniversite = document.getElementById("champspouruniversitepublique");
 			var champsPrivee = document.getElementById("champspourecoleprivee");
+			var champsautre = document.getElementById("champsotheruser");
 
 
 			if (type === "etudiant") {
@@ -1507,6 +1549,7 @@
 				champsEntreprise.style.display = "none";
 				champsUniversite.style.display = "none";
 				champsPrivee.style.display = "none";
+				champsautre.style.display = "none";
 				
 
 			} else if (type === "entreprise") {
@@ -1515,6 +1558,7 @@
 				champsEntreprise.style.display = "block";
 				champsUniversite.style.display = "none";
 				champsPrivee.style.display = "none";
+				champsautre.style.display = "none";
 
 				
 
@@ -1523,6 +1567,7 @@
 				champsEntreprise.style.display = "none";
 				champsEtudiant.style.display = "none";
 				champsPrivee.style.display = "none";
+				champsautre.style.display = "none";
 
 				
 
@@ -1532,14 +1577,25 @@
 				champsEntreprise.style.display = "none";
 				champsEtudiant.style.display = "none";
 				champsPrivee.style.display = "block";
+				champsautre.style.display = "none";
 
 				
 
-			} else {
+			}else if (type === "autre_personne") {
+				champsUniversite.style.display = "none";
+				champsEntreprise.style.display = "none";
+				champsEtudiant.style.display = "none";
+				champsPrivee.style.display = "none";
+				champsautre.style.display = "block";
+
+				
+
+			}else {
 				champsEtudiant.style.display = "none";
 				champsEntreprise.style.display = "none";
 				champsUniversite.style.display = "none";
 				champsPrivee.style.display = "none";
+				champsautre.style.display = "none";
 
 			}
 

@@ -32,11 +32,12 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
         if ($hackathon == 1) {
             $theme = $_POST['theme'];
         }
+        $comment = $_POST["commentEtu"];
 
         if (isset($nom, $prenom, $tel, $mail, $site, $ecole)  && $nom !== '' && $prenom !== '' && $tel !== '' && $mail !== '' && $site !== '' && $ecole !== '') {
             //envoie des données
-            $stmt = $dbh->prepare("INSERT INTO etudiant (nom, prenom, tel, mail, nom_ecole, emplacement, hackathon, theme, digitalMiss,miss_name_project,miss_description_project,miss_description_teams)
-                     VALUES (:nom, :prenom, :tel, :mail, :nom_ecole, :emplacement, :hackathon, :theme, :digitalMiss,:missNameProject,:missDescriptionProject,:missDescriptionTeams)");
+            $stmt = $dbh->prepare("INSERT INTO etudiant (nom, prenom, tel, mail, nom_ecole, emplacement, hackathon, theme, digitalMiss,miss_name_project,miss_description_project,miss_description_teams, commentaire)
+                     VALUES (:nom, :prenom, :tel, :mail, :nom_ecole, :emplacement, :hackathon, :theme, :digitalMiss,:missNameProject,:missDescriptionProject,:missDescriptionTeams, :commentaire)");
             $stmt->execute([
                 ':nom' => $nom,
                 ':prenom' => $prenom,
@@ -49,7 +50,8 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
                 ':digitalMiss' => $digitalMiss,
                 ':missNameProject' => $missNameProject,
                 ':missDescriptionProject' => $missDescriptionProject,
-                ':missDescriptionTeams' => $missDescriptionTeams
+                ':missDescriptionTeams' => $missDescriptionTeams,
+                ':commentaire' => $comment
             ]);
             $message = "Vous vous êtes inscrit avec succès.";
 
@@ -73,11 +75,12 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
         $souscrire = $_POST['souscrire'] ?? 0;
         $rdv = $_POST['rdv'] ?? 0;
         $apport = $_POST['apport'];
+        $comment = $_POST['commentEnt'];
 
         if (isset($nom_entreprise, $nom_prenom, $tel, $mail, $adresse)  && $nom_entreprise !== '' && $nom_prenom !== '' && $tel !== '' && $mail !== '' && $adresse !== '') {
             // var_dump($_POST['rdv']);
             //envoie des données
-            $stmt = $dbh->prepare("INSERT INTO entreprise (nom_entreprise, 	adresse, nom_prenom, tel, mail, catalogue, souscrire,rdv,apport) VALUES (:nom_entrepise, :adresse, :nom_prenom, :tel, :mail, :catalogue, :souscrire,:rdv,:apport)");
+            $stmt = $dbh->prepare("INSERT INTO entreprise (nom_entreprise, 	adresse, nom_prenom, tel, mail, catalogue, souscrire,rdv,apport, commentaire) VALUES (:nom_entrepise, :adresse, :nom_prenom, :tel, :mail, :catalogue, :souscrire,:rdv,:apport, :commentaire)");
             $stmt->execute([
                 ':nom_entrepise' => $nom_entreprise,
                 ':adresse' => $adresse,
@@ -88,8 +91,36 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
                 ':souscrire' => $souscrire,
                 ':rdv' => $rdv,
                 ':apport' => $apport,
+                ':commentaire' => $comment,
             ]);
             $message = "Entreprise enregistré avec succès.";
+
+            header("Location: index.html?message=" . urlencode($message));
+            exit();
+        } else {
+            header("Location: index.html?err=" . urlencode("Veuillez remplir tous les champs !"));
+        }
+    } elseif ($type == "autre_personne") {
+        # code...
+        $nomO = $_POST['nomO'];
+        $prenomO = $_POST['prenomO'];
+        $telO = $_POST['telO'];
+        $mailO = $_POST['mailO'];
+        $comment = $_POST['comment'];
+
+
+        if (isset($nomO, $prenomO, $telO)  && $nomO !== '' && $prenomO !== '' && $telO !== '') {
+            // var_dump($_POST['comment']);
+            $stmt = $dbh->prepare("INSERT INTO autre (nom, prenom, tel, mail, commentaire) VALUES (:nom, :prenom, :tel, :mail, :commentaire)");
+            $stmt->execute([
+                ':nom' => $nomO,
+                ':prenom' => $prenomO,
+                ':tel' => $telO,
+                ':mail' => $mailO,
+                ':commentaire' => $comment,
+
+            ]);
+            $message = "Vous êtes enregistré avec succès.";
 
             header("Location: index.html?message=" . urlencode($message));
             exit();
@@ -125,7 +156,8 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
         $reserver = $_POST['reserver1'];
         $periode_meilleur = $_POST['periode'];
         $autre_raison = $_POST['autre'];
-        if (saveUniversite($nom_universite, $nom_ecole, "", $tel, $mail, $participer, $gaming, $raison, $reserver, $periode_meilleur, $autre_raison)) {
+        $comment = $_POST['commentU'];
+        if (saveUniversite($nom_universite, $nom_ecole, "", $tel, $mail, $participer, $gaming, $raison, $reserver, $periode_meilleur, $autre_raison, $comment)) {
             # code...
             $message = "Université publique enregistrées avec succès.";
 
@@ -161,7 +193,8 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
         $reserver = $_POST['reserver2'];
         $periode_meilleur = $_POST['periodeEcolePrivee'];
         $autre_raison = $_POST['autreEcolePrivee'];
-        if (saveUniversite("", $nom_ecole, $adresse, $tel, $mail, $participer, $gaming, $raison, $reserver, $periode_meilleur, $autre_raison)) {
+        $comment = $_POST['commentEc'];
+        if (saveUniversite("", $nom_ecole, $adresse, $tel, $mail, $participer, $gaming, $raison, $reserver, $periode_meilleur, $autre_raison, $comment)) {
             # code...
             $message = "Ecole privée enregistré avec succès.";
 
@@ -187,13 +220,14 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
  * @param mixed $reserver
  * @param mixed $periode_meilleur
  * @param mixed $autre_raison
+ * @param mixed $comment
  * @return bool
  */
-function saveUniversite($nom_universite, $nom_ecole, $adresse, $tel, $mail, $participer, $gaming, $raison, $reserver, $periode_meilleur, $autre_raison)
+function saveUniversite($nom_universite, $nom_ecole, $adresse, $tel, $mail, $participer, $gaming, $raison, $reserver, $periode_meilleur, $autre_raison, $comment)
 {
     if (isset($nom_ecole, $tel, $mail)  && $nom_ecole !== '' && $tel !== '' && $mail !== '') {
         $dbh = new PDO('mysql:host=localhost;dbname=dut', 'root', '');
-        $stmt = $dbh->prepare("INSERT INTO universite (nom_universite,nom_ecole,adresse,tel, mail, participer, gaming, raison, reserver, periode_meilleur,autre_raison) VALUES (:nom_universite, :nom_ecole,:adresse, :tel, :mail, :participer, :gaming, :raison,:reserver,:periode_meilleur,:autre_raison)");
+        $stmt = $dbh->prepare("INSERT INTO universite (nom_universite,nom_ecole,adresse,tel, mail, participer, gaming, raison, reserver, periode_meilleur,autre_raison, commentaire) VALUES (:nom_universite, :nom_ecole,:adresse, :tel, :mail, :participer, :gaming, :raison,:reserver,:periode_meilleur,:autre_raison, :commentaire)");
         $stmt->execute([
             ':nom_universite' => $nom_universite ?? '',
             ':nom_ecole' => $nom_ecole ?? "",
@@ -206,6 +240,7 @@ function saveUniversite($nom_universite, $nom_ecole, $adresse, $tel, $mail, $par
             ':reserver' => $reserver ?? 0,
             ':periode_meilleur' => $periode_meilleur ?? "",
             ':autre_raison' => $autre_raison ?? "",
+            ':commentaire' => $comment,
         ]);
         return true;
     } else {

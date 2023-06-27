@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 06 juin 2023 à 15:34
+-- Généré le : lun. 26 juin 2023 à 17:54
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -24,6 +24,21 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `autre`
+--
+
+CREATE TABLE `autre` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(255) DEFAULT NULL,
+  `prenom` varchar(255) DEFAULT NULL,
+  `tel` varchar(255) DEFAULT NULL,
+  `mail` varchar(255) DEFAULT NULL,
+  `commentaire` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `entreprise`
 --
 
@@ -38,6 +53,7 @@ CREATE TABLE `entreprise` (
   `souscrire` tinyint(1) DEFAULT 0,
   `rdv` tinyint(1) DEFAULT 0,
   `apport` varchar(255) DEFAULT NULL,
+  `commentaire` text DEFAULT NULL,
   `Fait_le` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -61,6 +77,7 @@ CREATE TABLE `etudiant` (
   `miss_name_project` varchar(255) DEFAULT NULL,
   `miss_description_project` text DEFAULT NULL,
   `miss_description_teams` text DEFAULT NULL,
+  `commentaire` text DEFAULT NULL,
   `Fait_le` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -83,12 +100,19 @@ CREATE TABLE `universite` (
   `reserver` tinyint(1) DEFAULT 0,
   `periode_meilleur` varchar(255) DEFAULT NULL,
   `autre_raison` varchar(255) DEFAULT NULL,
+  `commentaire` text DEFAULT NULL,
   `Fait_le` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Index pour les tables déchargées
 --
+
+--
+-- Index pour la table `autre`
+--
+ALTER TABLE `autre`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `entreprise`
@@ -111,6 +135,12 @@ ALTER TABLE `universite`
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
+
+--
+-- AUTO_INCREMENT pour la table `autre`
+--
+ALTER TABLE `autre`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `entreprise`
