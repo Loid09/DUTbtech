@@ -134,31 +134,9 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
         $contact = $_POST['nomPrC'];
         $tel = $_POST['telUP'];
         $mail = $_POST['emailUP'];
-        $participer = $_POST['choix1'];
-        $gaming = $_POST['gaming1'];
-        switch ($_POST['raison']) {
-            case 'raison1':
-                # code...
-                $raison = "Délai court pour organisation à l'interne";
-                break;
-            case 'raison2':
-                # code...
-                $raison = "Période non propice pour cause de préparation aux examens de fin de semestre";
-                break;
-            case 'raison3':
-                # code...
-                $raison = "autre raison";
-                break;
 
-            default:
-                # code...
-                break;
-        }
-        $reserver = $_POST['reserver1'];
-        $periode_meilleur = $_POST['periode'];
-        $autre_raison = $_POST['autre'];
         $comment = $_POST['commentU'];
-        if (saveUniversite($nom_universite, $nom_ecole, "", $contact,  $tel, $mail, $participer, $gaming, $raison, $reserver, $periode_meilleur, $autre_raison, $comment)) {
+        if (saveUniversite($nom_universite, $nom_ecole, "", $contact,  $tel, $mail, $comment)) {
             # code...
             $message = "Université publique enregistrées avec succès.";
 
@@ -171,32 +149,9 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
         $contact = $_POST['nomPrCP'];
         $tel = $_POST['telEcolePrivee'];
         $mail = $_POST['emailEcolePrivee'];
-        $participer = $_POST['choix2'];
-        $gaming = $_POST['gaming2'];
-        // $raison = $_POST['raisonEcolePrivee'];
-        switch ($_POST['raisonEcolePrivee']) {
-            case 'raison1':
-                # code...
-                $raison = "Délai court pour organisation à l'interne";
-                break;
-            case 'raison2':
-                # code...
-                $raison = "Période non propice pour cause de préparation aux examens de fin de semestre";
-                break;
-            case 'raison3':
-                # code...
-                $raison = "autre raison";
-                break;
 
-            default:
-                # code...
-                break;
-        }
-        $reserver = $_POST['reserver2'];
-        $periode_meilleur = $_POST['periodeEcolePrivee'];
-        $autre_raison = $_POST['autreEcolePrivee'];
         $comment = $_POST['commentEc'];
-        if (saveUniversite("", $nom_ecole, $adresse, $contact, $tel, $mail, $participer, $gaming, $raison, $reserver, $periode_meilleur, $autre_raison, $comment)) {
+        if (saveUniversite("", $nom_ecole, $adresse, $contact, $tel, $mail, $comment)) {
             # code...
             $message = "Ecole privée enregistré avec succès.";
 
@@ -217,20 +172,14 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
  * @param mixed $contact
  * @param mixed $tel
  * @param mixed $mail
- * @param mixed $participer
- * @param mixed $gaming
- * @param mixed $raison
- * @param mixed $reserver
- * @param mixed $periode_meilleur
- * @param mixed $autre_raison
  * @param mixed $comment
  * @return bool
  */
-function saveUniversite($nom_universite, $nom_ecole, $adresse, $contact, $tel, $mail, $participer, $gaming, $raison, $reserver, $periode_meilleur, $autre_raison, $comment)
+function saveUniversite($nom_universite, $nom_ecole, $adresse, $contact, $tel, $mail, $comment)
 {
     if (isset($nom_ecole, $contact, $tel, $mail)  && $nom_ecole !== '' && $tel !== '' && $mail !== '' && $contact !== '') {
         $dbh = new PDO('mysql:host=localhost;dbname=dut', 'root', '');
-        $stmt = $dbh->prepare("INSERT INTO universite (nom_universite,nom_ecole,adresse,contact, tel, mail, participer, gaming, raison, reserver, periode_meilleur,autre_raison, commentaire) VALUES (:nom_universite, :nom_ecole,:adresse,:contact, :tel, :mail, :participer, :gaming, :raison,:reserver,:periode_meilleur,:autre_raison, :commentaire)");
+        $stmt = $dbh->prepare("INSERT INTO universite (nom_universite,nom_ecole,adresse,contact, tel, mail , commentaire) VALUES (:nom_universite, :nom_ecole,:adresse,:contact, :tel, :mail, :commentaire)");
         $stmt->execute([
             ':nom_universite' => $nom_universite ?? '',
             ':nom_ecole' => $nom_ecole ?? "",
@@ -238,12 +187,6 @@ function saveUniversite($nom_universite, $nom_ecole, $adresse, $contact, $tel, $
             ':contact' => $contact,
             ':tel' => $tel ?? "",
             ':mail' => $mail ?? "",
-            ':participer' => $participer ?? 0,
-            ':gaming' => $gaming ?? 0,
-            ':raison' => $raison ?? "",
-            ':reserver' => $reserver ?? 0,
-            ':periode_meilleur' => $periode_meilleur ?? "",
-            ':autre_raison' => $autre_raison ?? "",
             ':commentaire' => $comment,
         ]);
         return true;
