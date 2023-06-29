@@ -131,6 +131,7 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
 
         $nom_universite = $_POST['nomUniversite'];
         $nom_ecole = $_POST['nomEcole'];
+        $contact = $_POST['nomPrC'];
         $tel = $_POST['telUP'];
         $mail = $_POST['emailUP'];
         $participer = $_POST['choix1'];
@@ -157,7 +158,7 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
         $periode_meilleur = $_POST['periode'];
         $autre_raison = $_POST['autre'];
         $comment = $_POST['commentU'];
-        if (saveUniversite($nom_universite, $nom_ecole, "", $tel, $mail, $participer, $gaming, $raison, $reserver, $periode_meilleur, $autre_raison, $comment)) {
+        if (saveUniversite($nom_universite, $nom_ecole, "", $contact,  $tel, $mail, $participer, $gaming, $raison, $reserver, $periode_meilleur, $autre_raison, $comment)) {
             # code...
             $message = "Université publique enregistrées avec succès.";
 
@@ -167,6 +168,7 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
     } elseif ($type == "privee") {
         $nom_ecole = $_POST['nomEcolePrivee'];
         $adresse = $_POST['adresseEcolePrivee'];
+        $contact = $_POST['nomPrCP'];
         $tel = $_POST['telEcolePrivee'];
         $mail = $_POST['emailEcolePrivee'];
         $participer = $_POST['choix2'];
@@ -194,7 +196,7 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
         $periode_meilleur = $_POST['periodeEcolePrivee'];
         $autre_raison = $_POST['autreEcolePrivee'];
         $comment = $_POST['commentEc'];
-        if (saveUniversite("", $nom_ecole, $adresse, $tel, $mail, $participer, $gaming, $raison, $reserver, $periode_meilleur, $autre_raison, $comment)) {
+        if (saveUniversite("", $nom_ecole, $adresse, $contact, $tel, $mail, $participer, $gaming, $raison, $reserver, $periode_meilleur, $autre_raison, $comment)) {
             # code...
             $message = "Ecole privée enregistré avec succès.";
 
@@ -212,6 +214,7 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
  * @param mixed $nom_universite
  * @param mixed $nom_ecole
  * @param mixed $adresse
+ * @param mixed $contact
  * @param mixed $tel
  * @param mixed $mail
  * @param mixed $participer
@@ -223,15 +226,16 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
  * @param mixed $comment
  * @return bool
  */
-function saveUniversite($nom_universite, $nom_ecole, $adresse, $tel, $mail, $participer, $gaming, $raison, $reserver, $periode_meilleur, $autre_raison, $comment)
+function saveUniversite($nom_universite, $nom_ecole, $adresse, $contact, $tel, $mail, $participer, $gaming, $raison, $reserver, $periode_meilleur, $autre_raison, $comment)
 {
-    if (isset($nom_ecole, $tel, $mail)  && $nom_ecole !== '' && $tel !== '' && $mail !== '') {
+    if (isset($nom_ecole, $contact, $tel, $mail)  && $nom_ecole !== '' && $tel !== '' && $mail !== '' && $contact !== '') {
         $dbh = new PDO('mysql:host=localhost;dbname=dut', 'root', '');
-        $stmt = $dbh->prepare("INSERT INTO universite (nom_universite,nom_ecole,adresse,tel, mail, participer, gaming, raison, reserver, periode_meilleur,autre_raison, commentaire) VALUES (:nom_universite, :nom_ecole,:adresse, :tel, :mail, :participer, :gaming, :raison,:reserver,:periode_meilleur,:autre_raison, :commentaire)");
+        $stmt = $dbh->prepare("INSERT INTO universite (nom_universite,nom_ecole,adresse,contact, tel, mail, participer, gaming, raison, reserver, periode_meilleur,autre_raison, commentaire) VALUES (:nom_universite, :nom_ecole,:adresse,:contact, :tel, :mail, :participer, :gaming, :raison,:reserver,:periode_meilleur,:autre_raison, :commentaire)");
         $stmt->execute([
             ':nom_universite' => $nom_universite ?? '',
             ':nom_ecole' => $nom_ecole ?? "",
             ':adresse' => $adresse ?? '',
+            ':contact' => $contact,
             ':tel' => $tel ?? "",
             ':mail' => $mail ?? "",
             ':participer' => $participer ?? 0,
