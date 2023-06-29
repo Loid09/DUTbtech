@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 26 juin 2023 à 17:54
+-- Généré le : jeu. 29 juin 2023 à 13:50
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -92,14 +92,9 @@ CREATE TABLE `universite` (
   `nom_universite` varchar(255) DEFAULT NULL,
   `nom_ecole` varchar(255) DEFAULT NULL,
   `adresse` varchar(255) DEFAULT NULL,
+  `contact` varchar(255) DEFAULT NULL,
   `tel` varchar(255) DEFAULT NULL,
   `mail` varchar(255) DEFAULT NULL,
-  `participer` tinyint(1) DEFAULT 0,
-  `gaming` tinyint(1) DEFAULT 0,
-  `raison` varchar(255) DEFAULT NULL,
-  `reserver` tinyint(1) DEFAULT 0,
-  `periode_meilleur` varchar(255) DEFAULT NULL,
-  `autre_raison` varchar(255) DEFAULT NULL,
   `commentaire` text DEFAULT NULL,
   `Fait_le` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
