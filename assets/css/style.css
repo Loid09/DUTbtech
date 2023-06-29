@@ -980,14 +980,15 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 
 .section-6-container {
 
-	background-image:
+	/* background-image:
 		linear-gradient(to left bottom,
 			rgba(34, 109, 194, 0.3),
 			rgba(34, 109, 194, 0.3)),
 		url('../images/5.jpeg');
 	background-size: cover;
 	background-position: top;
-	position: relative;
+	position: relative; */
+	background-color :rgba(34, 109, 194, 0.3) ;
 }
 
 .section-6-container a {
@@ -1495,7 +1496,7 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 /* end contact form */
 
 .section-6-social {
-	padding-top: 20px;
+	/* padding-top: 20px; */
 }
 
 .section-6-social a {
@@ -1503,12 +1504,15 @@ a.btn-customized-4.btn-customized-light.btn.btn-primary:not(:disabled):not(.disa
 	width: 46px;
 	height: 46px;
 	margin: 0 10px 10px 0;
-	background: #fff;
+	background: #200ec2;
 	border: 0;
 	border-radius: 50%;
-	color: #555;
+	color: white;
 	text-align: center;
 	line-height: 46px;
+}
+.footer-container{
+	background-color: #dad7d7;
 }
 
 .section-6-social a:hover,
