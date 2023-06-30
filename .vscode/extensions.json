@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "nikhilmjeby.black-box"
+        "nikhilmjeby.black-box",
+        "huggingface.huggingface-vscode"
     ]
 }

@@ -175,10 +175,11 @@
 }
 
 @media (max-width: 575px) {
-	/* #flex{
-		display: flex;
-		background-color: brown;
-	} */
+	#centre{
+		
+		display: flex !important; 
+		margin-right: 10px !important;
+	}
 	.top-content {
 		width: 100%;
 		height: 60vh;
