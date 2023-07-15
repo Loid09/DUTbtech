@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 29 juin 2023 à 13:50
+-- Généré le : mer. 05 juil. 2023 à 11:11
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -33,7 +33,8 @@ CREATE TABLE `autre` (
   `prenom` varchar(255) DEFAULT NULL,
   `tel` varchar(255) DEFAULT NULL,
   `mail` varchar(255) DEFAULT NULL,
-  `commentaire` text DEFAULT NULL
+  `commentaire` text DEFAULT NULL,
+  `Fait_le` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------

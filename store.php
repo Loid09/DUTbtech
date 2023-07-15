@@ -158,10 +158,11 @@ if (isset($_POST["ok"]) && isset($_POST['type'])) {
             header("Location: index.html?message=" . urlencode($message));
             exit();
         }
-    } else {
-        header("Location: index.html?err=" . urlencode("Veuillez remplir le formulaire !"));
     }
+} else {
+    header("Location: index.html?err=" . urlencode("Veuillez remplir le formulaire !"));
 }
+
 
 /**
  * Summary of saveUniversite
