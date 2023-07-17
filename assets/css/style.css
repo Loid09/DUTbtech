@@ -743,7 +743,26 @@ a[aria-expanded="true"] {
 
 }
 
+.logo-container .timer{
+	display: flex;
+	margin-top: -40px;
+	color: #2e58a7;
+}
+.logo-container .timer span {
+	margin-right: 0px;
+	font-size: 12px;
+}
+
 @media (max-width: 575px) {
+
+	.logo-container .timer{
+		margin-top: -30px;
+		display: flex;
+	}
+	.logo-container .timer span {
+		margin-right: 1px;
+		font-size: 7px;
+	}
 
 	#timeline ul li .cont p,
 	#timeline ul li .cont time {
