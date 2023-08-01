@@ -751,6 +751,7 @@ a[aria-expanded="true"] {
 .logo-container .timer span {
 	margin-right: 0px;
 	font-size: 13px;
+	
 }
 
 @media (max-width: 575px) {
