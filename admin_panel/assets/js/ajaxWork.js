@@ -167,26 +167,32 @@ function itemEditForm(id){
 //update Texte site after submit
 
 function updateTexte(){
-     alert("bonjour");
+
     var id = $('#idTexte').val();
-    var texte = $('#texteU').val();
-    // alert(id, texte)
+    var texte = $('#trueTexte').val();
+    //alert(texte);
     var fd = new FormData();
     fd.append('id', id);
-    fd.append('Texte', texte);
-   
+    fd.append('trueTexte', ""+texte);
+    console.log(fd);
     $.ajax({
-      url:'./controller/updateItemController.php',
+      url:'controller/updateItemController.php',
       method:'post',
       data:fd,
       processData: false,
       contentType: false,
       success: function(data){
-        alert('boss Update Success.');
+        alert('Texte Mise à jour');
+
         
         $('form').trigger('reset');
         showProductItems();
-      }
+      },
+        error: function(data){
+            alert('Erreur de mise à jour.');
+            console.log(data);
+            alert(data);
+        }
     });
 }
 

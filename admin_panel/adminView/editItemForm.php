@@ -15,8 +15,8 @@
           <input type="text" class="form-control" id="idTexte" name="idTexte" value="<?= $row1['id'] ?>" hidden>
         </div>
         <div class="form-group">
-          <label for="texteU">Texte:</label>
-          <textarea name="texteU" id="texteU" class="form-control" cols="30" rows="10"> <?= $row1['Texte'] ?> </textarea>
+          <label for="trueTexte">Texte:</label>
+          <textarea name="trueTexte" id="trueTexte" class="form-control" cols="30" rows="10"> <?= $row1['Texte'] ?> </textarea>
         </div>
         <div class="form-group">
           <button type="submit" style="height:40px" onclick="updateTexte()" class="btn btn-primary">Update Texte</button>
